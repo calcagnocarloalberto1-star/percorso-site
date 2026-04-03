@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="it" data-theme="light">
+<head>
+  <meta charset="utf-8"/>
+  <title>Percorso di Crescita e Consapevolezza | Italia</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="description" content="Un percorso di crescita ed evoluzione personale e spirituale. Incontri mensili in Toscana, Veneto e tutta Italia."/>
+  <link href="https://api.fontshare.com/v2/css?f[]=satoshi@300,400,500,700&display=swap" rel="stylesheet"/>
+  <style>
+    :root,[data-theme="light"]{
+      --tx-xs:clamp(.75rem,.7rem + .25vw,.875rem);
+      --tx-sm:clamp(.875rem,.8rem + .35vw,1rem);
+      --tx-base:clamp(1rem,.95rem + .25vw,1.125rem);
+      --tx-lg:clamp(1.125rem,1rem + .75vw,1.5rem);
+      --tx-xl:clamp(1.5rem,1.2rem + 1.25vw,2.25rem);
+      --tx-2xl:clamp(2rem,1.2rem + 2.5vw,3.5rem);
+      --sp-1:.25rem;--sp-2:.5rem;--sp-3:.75rem;--sp-4:1rem;
+      --sp-5:1.25rem;--sp-6:1.5rem;--sp-8:2rem;--sp-10:2.5rem;
+      --sp-12:3rem;--sp-16:4rem;
+      --bg:#f7f5f0;--surface:#f9f8f4;--surface2:#fbfaf7;
+      --surface-off:#f2efe9;--border:#d6d2c8;
+      --text:#2a2620;--muted:#7a7570;--faint:#bab8b2;
+      --primary:#5b4fcf;--primary-h:#4a3fb8;--primary-a:#332d8a;
+      --accent:#01696f;--accent-h:#0c4e54;
+      --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;
+      --sh-sm:0 1px 2px oklch(.2 .01 80/.06);
+      --sh-md:0 4px 12px oklch(.2 .01 80/.08);
+      --sh-lg:0 12px 32px oklch(.2 .01 80/.12);
+      --max:1000px;
+    }
+    [data-theme="dark"]{
+      --bg:#141312;--surface:#1a1917;--surface2:#1e1d1b;
+      --surface-off:#181715;--border:#353330;
+      --text:#cccac6;--muted:#797670;--faint:#555250;
+      --primary:#8b82e8;--primary-h:#7a70d6;--primary-a:#6660c4;
+      --accent:#4f98a3;--accent-h:#227f8b;
+      --sh-sm:0 1px 2px oklch(0 0 0/.2);
+      --sh-md:0 4px 12px oklch(0 0 0/.3);
+      --sh-lg:0 12px 32px oklch(0 0 0/.4);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{text-size-adjust:none;-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:4rem}
+    body{min-height:100vh;font-family:"Satoshi",system-ui,sans-serif;font-size:var(--tx-base);line-height:1.6;color:var(--text);background:var(--bg)}
+    img{display:block;max-width:100%;height:auto}
+    a{color:inherit;text-decoration:none;transition:color 180ms ease,background 180ms ease}
+    button{font:inherit;color:inherit;background:none;border:none;cursor:pointer}
+    :focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+    .shell{max-width:1200px;margin-inline:auto;padding-inline:var(--sp-4)}
+    main{max-width:var(--max);margin-inline:auto;padding-inline:var(--sp-4)}
+    section{padding-block:clamp(var(--sp-8),6vw,var(--sp-16))}
+    .sec-title{font-size:var(--tx-xl);margin-bottom:var(--sp-2)}
+    .sec-sub{font-size:var(--tx-base);color:var(--muted);margin-bottom:var(--sp-6);max-width:56ch}
+    .badge{display:inline-flex;align-items:center;border-radius:var(--r-full);padding:.2rem .75rem;font-size:var(--tx-xs);font-weight:500}
+    .badge-primary{background:color-mix(in oklab,var(--primary) 12%,var(--surface2));color:var(--primary-a)}
+    .badge-accent{background:color-mix(in oklab,var(--accent) 80%,transparent);color:#fff}
+    .badge-hot{background:#ef4444;color:#fff}
+    .badge-done{background:color-mix(in oklab,var(--muted) 15%,var(--surface2));color:var(--muted)}
+
+    /* ── HEADER ── */
+    header.site-header{position:sticky;top:0;z-index:20;
+      background:color-mix(in oklab,var(--bg) 88%,var(--surface) 12%);
+      backdrop-filter:blur(10px);border-bottom:1px solid oklch(from var(--border) l c h/.6)}
+    .header-inner{max-width:var(--max);margin-inline:auto;padding-block:var(--sp-3);padding-inline:var(--sp-4);
+      display:flex;align-items:center;justify-content:space-between;gap:var(--sp-4)}
+    .brand{display:flex;align-items:center;gap:var(--sp-3)}
+    .brand-mark{width:34px;height:34px;border-radius:var(--r-full);
+      border:1px solid oklch(from var(--primary) l c h/.35);display:grid;place-items:center}
+    .brand-text strong{display:block;font-size:var(--tx-sm)}
+    .brand-text span{display:block;font-size:var(--tx-xs);color:var(--muted)}
+    .nav-links{display:flex;gap:var(--sp-4);font-size:var(--tx-sm)}
+    .nav-links a:hover{color:var(--primary)}
+    .nav-cta{padding:.45rem 1rem;border-radius:var(--r-full);font-size:var(--tx-xs);font-weight:600;
+      background:var(--primary);color:#fff}
+    .nav-cta:hover{background:var(--primary-h)}
+    .theme-btn{width:32px;height:32px;border-radius:var(--r-full);border:1px solid oklch(from var(--border) l c h/.8);display:grid;place-items:center}
+    .mob-btn,.nav-panel{display:none}
+
+    /* ── BUTTONS ── */
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;
+      padding-inline:var(--sp-5);padding-block:.7rem;border-radius:var(--r-full);
+      font-size:var(--tx-sm);font-weight:500;border:1px solid transparent;box-shadow:var(--sh-sm)}
+    .btn-primary{background:var(--primary);color:#fff}
+    .btn-primary:hover{background:var(--primary-h)}
+    .btn-accent{background:var(--accent);color:#fff}
+    .btn-accent:hover{background:var(--accent-h)}
+    .btn-secondary{background:var(--surface);color:var(--text);border-color:var(--border)}
+    .btn-secondary:hover{background:var(--surface-off)}
+    .btn-wa{background:#25d366;color:#fff;border-color:#25d366}
+    .btn-wa:hover{background:#1ebe5d}
+    .btn-sm{padding:.4rem .9rem;font-size:var(--tx-xs)}
+
+    /* ── HERO ── */
+    .hero{padding-top:clamp(3rem,8vw,5rem);padding-bottom:clamp(2rem,5vw,4rem)}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:var(--sp-8);align-items:center}
+    .hero-img{border-radius:var(--r-xl);overflow:hidden;box-shadow:var(--sh-lg);aspect-ratio:4/3}
+    .hero-img img{width:100%;height:100%;object-fit:cover}
+    .hero-eyebrow{font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.12em;color:var(--primary);font-weight:600;margin-bottom:var(--sp-3)}
+    .hero h1{font-size:var(--tx-2xl);line-height:1.1;margin-bottom:var(--sp-4)}
+    .hero-lead{color:var(--muted);margin-bottom:var(--sp-6);max-width:44ch}
+    .hero-actions{display:flex;gap:var(--sp-3);flex-wrap:wrap;margin-bottom:var(--sp-6)}
+    .countdown{display:flex;gap:var(--sp-4);margin-top:var(--sp-4)}
+    .countdown-unit{text-align:center}
+    .countdown-num{font-size:1.8rem;font-weight:700;color:var(--primary);line-height:1}
+    .countdown-label{font-size:.65rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted)}
+
+    /* ── CHI SIAMO ── */
+    .chisiamo-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:var(--sp-8);align-items:start}
+    .chisiamo-text p+p{margin-top:var(--sp-3)}
+    .discipline-icons{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3);margin-top:var(--sp-2)}
+    .disc-icon{display:flex;align-items:flex-start;gap:var(--sp-3);padding:var(--sp-3);
+      background:var(--surface);border-radius:var(--r-lg);border:1px solid oklch(from var(--border) l c h/.7)}
+    .disc-icon-em{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:.1rem}
+    .disc-icon-text strong{display:block;font-size:var(--tx-sm);font-weight:600}
+    .disc-icon-text span{font-size:var(--tx-xs);color:var(--muted)}
+
+    /* ── EVENTI ── */
+    .eventi-tabs{display:flex;gap:var(--sp-2);margin-bottom:var(--sp-6);flex-wrap:wrap}
+    .tab-btn{padding:.45rem 1rem;border-radius:var(--r-full);font-size:var(--tx-sm);font-weight:500;
+      border:1px solid var(--border);background:var(--surface);color:var(--muted);cursor:pointer;transition:all 180ms}
+    .tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+    .tab-content{display:none}
+    .tab-content.active{display:block}
+    .events-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-5)}
+    .event-card{background:var(--surface);border-radius:var(--r-xl);
+      border:1px solid oklch(from var(--border) l c h/.85);
+      box-shadow:var(--sh-md);display:flex;flex-direction:column;overflow:hidden}
+    .event-card.past{opacity:.75}
+    .event-cover{position:relative;height:160px;overflow:hidden;background:var(--surface-off)}
+    .event-cover img{width:100%;height:100%;object-fit:cover;display:block}
+    .event-cover .badge{position:absolute;top:var(--sp-3);left:var(--sp-3);backdrop-filter:blur(6px)}
+    .event-body{padding:var(--sp-4) var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-3);flex:1}
+    .event-date-chip{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--tx-xs);
+      background:color-mix(in oklab,var(--primary) 10%,var(--surface2));
+      color:var(--primary-a);border-radius:var(--r-full);padding:.2rem .7rem;font-weight:500;align-self:flex-start}
+    .event-city{font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--primary);font-weight:600}
+    .event-card h3{font-size:var(--tx-lg);line-height:1.3;margin:0}
+    .event-meta{font-size:var(--tx-sm);color:var(--muted);line-height:1.7}
+    .event-meta strong{color:var(--text)}
+    .event-desc{font-size:var(--tx-sm);color:var(--muted);line-height:1.6}
+    .event-program-wrap{background:var(--surface-off);border-radius:var(--r-md);
+      border:1px solid oklch(from var(--border) l c h/.6)}
+    .event-program-wrap summary{padding:var(--sp-3) var(--sp-4);font-size:var(--tx-sm);font-weight:600;
+      cursor:pointer;list-style:none;display:flex;align-items:center;gap:var(--sp-2)}
+    .event-program-wrap summary::before{content:"▸";color:var(--primary);transition:transform 200ms;display:inline-block}
+    .event-program-wrap[open] summary::before{transform:rotate(90deg)}
+    .event-program-wrap[open] summary{color:var(--primary)}
+    .event-program-body{padding:0 var(--sp-4) var(--sp-3)}
+    .prog-day{margin-bottom:var(--sp-3)}
+    .prog-day-label{font-size:var(--tx-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;
+      color:var(--primary);margin-bottom:var(--sp-2)}
+    .prog-row{display:flex;gap:var(--sp-3);font-size:var(--tx-sm);color:var(--muted);
+      padding:var(--sp-1) 0;border-bottom:1px solid oklch(from var(--border) l c h/.4)}
+    .prog-row:last-child{border-bottom:none}
+    .prog-time{min-width:3.5rem;font-weight:600;color:var(--text);flex-shrink:0}
+    .prog-items{display:flex;flex-wrap:wrap;gap:var(--sp-1)}
+    .prog-item{font-size:var(--tx-xs);background:var(--surface);border-radius:var(--r-full);
+      padding:.15rem .55rem;border:1px solid oklch(from var(--border) l c h/.6)}
+    .event-tags{display:flex;flex-wrap:wrap;gap:var(--sp-2)}
+    .event-tag{font-size:var(--tx-xs);padding:.15rem .6rem;border-radius:var(--r-full);
+      background:color-mix(in oklab,var(--primary) 10%,var(--surface2));color:var(--primary-a)}
+    .event-actions{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-top:auto;padding-top:var(--sp-2)}
+    .btn-ev{display:inline-flex;align-items:center;gap:.3rem;padding:.4rem .8rem;
+      border-radius:var(--r-full);font-size:var(--tx-xs);font-weight:500;
+      border:1px solid transparent;text-decoration:none;transition:background 180ms;cursor:pointer}
+    .btn-map,.btn-pdf{background:var(--surface2);border-color:var(--border);color:var(--muted)}
+    .btn-map:hover,.btn-pdf:hover{background:var(--surface-off)}
+    .btn-ev-wa{background:#25d366;color:#fff;flex:1;justify-content:center}
+    .btn-ev-wa:hover{background:#1ebe5d}
+    .event-note{font-size:var(--tx-xs);color:var(--muted);font-style:italic;padding:var(--sp-2) var(--sp-3);
+      background:oklch(from var(--primary) l c h/.07);border-radius:var(--r-md);
+      border-left:2px solid var(--primary)}
+    .events-solo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-4)}
+    .solo-card{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);padding:var(--sp-4);
+      box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:var(--sp-3)}
+    .solo-card h4{font-size:var(--tx-base);font-weight:600;margin:0}
+    .solo-card .event-meta{font-size:var(--tx-xs)}
+    .past-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--sp-4)}
+    .past-card{background:var(--surface);border-radius:var(--r-lg);overflow:hidden;
+      border:1px solid oklch(from var(--border) l c h/.85);box-shadow:var(--sh-sm);opacity:.8}
+    .past-cover{height:120px;overflow:hidden;background:var(--surface-off)}
+    .past-cover img{width:100%;height:100%;object-fit:cover}
+    .past-body{padding:var(--sp-3) var(--sp-4)}
+    .past-body h4{font-size:var(--tx-sm);font-weight:600;margin-bottom:.25rem}
+    .past-body p{font-size:var(--tx-xs);color:var(--muted)}
+
+    /* ── PROGRAMMA ── */
+    .programma-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-6)}
+    .programma-card{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);padding:var(--sp-5)}
+    .programma-card h3{font-size:var(--tx-lg);margin-bottom:var(--sp-4)}
+    .programma-card ul{list-style:none;padding:0;display:flex;flex-direction:column;gap:var(--sp-2)}
+    .programma-card ul li{display:flex;gap:var(--sp-2);font-size:var(--tx-sm);color:var(--muted)}
+    .programma-card ul li::before{content:"✦";color:var(--primary);flex-shrink:0}
+    .target-pills{display:flex;flex-wrap:wrap;gap:var(--sp-2);margin-top:var(--sp-4)}
+    .target-pill{display:flex;align-items:center;gap:var(--sp-2);padding:.4rem .8rem;
+      border-radius:var(--r-full);font-size:var(--tx-xs);font-weight:500;
+      background:color-mix(in oklab,var(--primary) 10%,var(--surface2));color:var(--primary-a)}
+    .programma-quote{margin-top:var(--sp-4);padding:var(--sp-4);
+      background:color-mix(in oklab,var(--primary) 7%,var(--surface2));
+      border-radius:var(--r-lg);border-left:3px solid var(--primary);
+      font-style:italic;color:var(--muted);font-size:var(--tx-sm)}
+
+    /* ── OPERATORI ── */
+    .op-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--sp-4);margin-top:var(--sp-6)}
+    .op-card{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);padding:var(--sp-4);
+      box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:var(--sp-3);text-align:center;align-items:center}
+    .op-avatar{width:88px;height:88px;border-radius:var(--r-full);object-fit:cover;
+      border:2px solid oklch(from var(--primary) l c h/.25);box-shadow:var(--sh-md)}
+    .op-name{font-size:var(--tx-base);font-weight:600}
+    .op-role{font-size:var(--tx-xs);color:var(--primary);font-weight:500;text-transform:uppercase;letter-spacing:.08em}
+    .op-bio{font-size:var(--tx-xs);color:var(--muted);line-height:1.5}
+    .op-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem}
+    .op-tag{font-size:.6rem;padding:.1rem .5rem;border-radius:var(--r-full);
+      background:color-mix(in oklab,var(--primary) 10%,var(--surface2));color:var(--primary-a)}
+
+    /* ── GALLERIA ── */
+    .gallery-masonry{columns:3;gap:var(--sp-3)}
+    .gallery-masonry img{width:100%;border-radius:var(--r-lg);margin-bottom:var(--sp-3);
+      box-shadow:var(--sh-md);break-inside:avoid}
+
+    /* ── MEDITAZIONE ── */
+    .medit-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-4)}
+    .medit-card{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);padding:var(--sp-4);
+      box-shadow:var(--sh-sm)}
+    .medit-card h4{font-size:var(--tx-sm);font-weight:600;margin-bottom:var(--sp-2)}
+    .medit-card audio{width:100%;margin-top:var(--sp-2)}
+
+    /* ── DISCIPLINE ── */
+    .disc-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-3)}
+    .disc-item{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);box-shadow:var(--sh-sm)}
+    .disc-item summary{padding:var(--sp-4) var(--sp-5);cursor:pointer;
+      font-weight:600;font-size:var(--tx-sm);list-style:none;
+      display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3)}
+    .disc-item summary::after{content:"＋";color:var(--primary);font-size:1rem;flex-shrink:0}
+    .disc-item[open] summary::after{content:"−"}
+    .disc-item[open] summary{color:var(--primary)}
+    .disc-body{padding:0 var(--sp-5) var(--sp-4)}
+    .disc-body p{font-size:var(--tx-sm);color:var(--muted);line-height:1.7}
+    .disc-body .praticata{font-size:var(--tx-xs);color:var(--muted);margin-top:var(--sp-2)}
+    .disc-body .praticata strong{color:var(--text)}
+
+    /* ── FAQ ── */
+    .faq-list{display:flex;flex-direction:column;gap:var(--sp-3)}
+    .faq-item{background:var(--surface);border-radius:var(--r-lg);
+      border:1px solid oklch(from var(--border) l c h/.85);box-shadow:var(--sh-sm)}
+    .faq-item summary{padding:var(--sp-4) var(--sp-5);cursor:pointer;font-weight:600;
+      font-size:var(--tx-sm);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:var(--sp-3)}
+    .faq-item summary::after{content:"＋";color:var(--primary);font-size:1rem;flex-shrink:0}
+    .faq-item[open] summary::after{content:"−"}
+    .faq-item[open] summary{color:var(--primary)}
+    .faq-body{padding:0 var(--sp-5) var(--sp-4)}
+    .faq-body p{font-size:var(--tx-sm);color:var(--muted);line-height:1.7}
+
+    /* ── CONTATTI ── */
+    .contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-8)}
+    .contatti-info{display:flex;flex-direction:column;gap:var(--sp-4)}
+    .contact-row{display:flex;align-items:center;gap:var(--sp-3);
+      padding:var(--sp-3) var(--sp-4);background:var(--surface);
+      border-radius:var(--r-lg);border:1px solid oklch(from var(--border) l c h/.7)}
+    .contact-row a{color:var(--primary);font-size:var(--tx-sm)}
+    .contact-icon{font-size:1.3rem}
+    form{display:grid;gap:var(--sp-3)}
+    label{font-size:var(--tx-sm);display:grid;gap:var(--sp-1)}
+    input,textarea,select{width:100%;padding:.8rem 1rem;border-radius:var(--r-md);
+      border:1px solid var(--border);background:var(--surface2);font:inherit;color:inherit}
+    textarea{min-height:120px;resize:vertical}
+
+    /* ── FOOTER ── */
+    footer{background:var(--surface);border-top:1px solid oklch(from var(--border) l c h/.6);
+      padding-block:var(--sp-8) var(--sp-4)}
+    .footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:var(--sp-8);margin-bottom:var(--sp-6)}
+    .footer-brand p{font-size:var(--tx-sm);color:var(--muted);margin-top:var(--sp-2);max-width:32ch}
+    .footer-col h4{font-size:var(--tx-sm);font-weight:700;margin-bottom:var(--sp-3)}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:var(--sp-2)}
+    .footer-col ul li a{font-size:var(--tx-sm);color:var(--muted)}
+    .footer-col ul li a:hover{color:var(--primary)}
+    .footer-bottom{padding-top:var(--sp-4);border-top:1px solid oklch(from var(--border) l c h/.5);
+      display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp-3)}
+    .footer-bottom p{font-size:var(--tx-xs);color:var(--muted)}
+
+    /* ── RESPONSIVE ── */
+    @media(max-width:980px){
+      .hero-grid,.chisiamo-grid,.programma-grid,.contatti-grid{grid-template-columns:1fr}
+      .hero-img{order:-1}
+      .nav-links,.nav-cta{display:none}
+      .events-grid,.events-solo{grid-template-columns:1fr}
+      .past-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .op-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .gallery-masonry{columns:2}
+      .medit-grid,.disc-grid,.footer-grid{grid-template-columns:1fr}
+      .mob-btn{display:grid;width:32px;height:32px;border-radius:var(--r-full);
+        border:1px solid var(--border);place-items:center}
+      .nav-panel{position:absolute;left:1rem;right:1rem;top:calc(100% + .5rem);
+        padding:var(--sp-4);background:var(--surface);border-radius:var(--r-lg);
+        border:1px solid var(--border);box-shadow:var(--sh-lg);display:none}
+      .site-header.open .nav-panel{display:block}
+      .nav-panel a{display:block;padding-block:.75rem;
+        border-bottom:1px solid oklch(from var(--border) l c h/.5);font-size:var(--tx-sm)}
+      .nav-panel a:last-child{border-bottom:none}
+    }
+    @media(max-width:640px){
+      .op-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+      .gallery-masonry{columns:1}
+      .past-grid{grid-template-columns:1fr}
+      .discipline-icons{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+
+<a href="#main" style="position:absolute;left:-9999px;background:var(--primary);color:#fff;padding:.5rem 1rem;border-radius:.375rem;z-index:1000">Salta al contenuto</a>
+
+<!-- HEADER -->
+<header class="site-header" id="header">
+  <div class="header-inner shell">
+    <a class="brand" href="#top">
+      <div class="brand-mark">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" width="18" height="18">
+          <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
+        </svg>
+      </div>
+      <div class="brand-text">
+        <strong>Percorso di Crescita</strong>
+        <span>e Consapevolezza · Italia</span>
+      </div>
+    </a>
+    <nav class="nav-links">
+      <a href="#chi-siamo">Chi Siamo</a>
+      <a href="#eventi">Eventi</a>
+      <a href="#operatori">Operatori</a>
+      <a href="#discipline">Discipline</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <div style="display:flex;gap:.5rem;align-items:center">
+      <a class="nav-cta" href="#contatti">Contattaci</a>
+      <button class="theme-btn" data-theme-toggle aria-label="Tema">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="mob-btn" id="mobBtn" aria-expanded="false">☰</button>
+    </div>
+    <div class="nav-panel" id="navPanel">
+      <a href="#chi-siamo">Chi Siamo</a>
+      <a href="#eventi">Eventi</a>
+      <a href="#operatori">Operatori</a>
+      <a href="#discipline">Discipline</a>
+      <a href="#galleria">Galleria</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contatti">Contattaci</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="shell hero-grid">
+    <div>
+      <div class="hero-eyebrow">✨ Prossimo incontro tra pochi giorni</div>
+      <h1>Percorso di crescita e consapevolezza</h1>
+      <p class="hero-lead">Un percorso di crescita ed evoluzione personale e spirituale. Scopri la tua sensibilità energetica attraverso meditazione, guarigione e pratiche condivise.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#eventi">Scopri il percorso</a>
+        <a class="btn btn-secondary" href="#contatti">Informazioni e iscrizioni</a>
+      </div>
+      <div>
+        <p style="font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:var(--sp-2)">Prossimo evento — Firenze 12 Aprile 2026</p>
+        <div class="countdown" id="countdown">
+          <div class="countdown-unit"><div class="countdown-num" id="cd-days">--</div><div class="countdown-label">Giorni</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-hours">--</div><div class="countdown-label">Ore</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-mins">--</div><div class="countdown-label">Minuti</div></div>
+          <div class="countdown-unit"><div class="countdown-num" id="cd-secs">--</div><div class="countdown-label">Secondi</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-img">
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/gruppo-percorso2_156f46fa.jpeg" alt="Gruppo del Percorso di Crescita" fetchpriority="high"/>
+    </div>
+  </div>
+</section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="shell chisiamo-grid">
+    <div class="chisiamo-text">
+      <h2 class="sec-title">Chi Siamo</h2>
+      <p class="sec-sub">Un gruppo di professionisti del percorso olistico dedicati alla crescita spirituale</p>
+      <p>Siamo un gruppo di professionisti del percorso olistico che ha deciso di impegnare il proprio tempo una volta al mese per offrire ai partecipanti all'incontro l'opportunità di "sbirciare oltre il velo".</p>
+      <p style="margin-top:var(--sp-3)">Attraverso esperienze dirette e condivise, impareremo a percepire realtà sottili, spesso invisibili ai nostri occhi.</p>
+      <p style="margin-top:var(--sp-3)">Sarà un'occasione per esplorare grandi domande che l'essere umano si pone da sempre: Cosa accade dopo la morte? La reincarnazione esiste? Qual è il mio scopo? Quali doni e talenti mi appartengono?</p>
+      <p style="margin-top:var(--sp-3)">Sarete accompagnati passo dopo passo in un percorso di crescita ed evoluzione personale e spirituale. Fra meditazioni e pratiche energetiche, vivrete giornate intense e trasformative.</p>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/XIyZSFCGkzzVRfLI.jpg" alt="Il gruppo" style="border-radius:var(--r-lg);margin-top:var(--sp-4);box-shadow:var(--sh-md)" loading="lazy"/>
+    </div>
+    <div>
+      <div class="discipline-icons">
+        <div class="disc-icon"><span class="disc-icon-em">🔮</span><div class="disc-icon-text"><strong>Anima ed Energia</strong><span>Esplorazione della dimensione spirituale</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">💜</span><div class="disc-icon-text"><strong>Guarigione Energetica</strong><span>Diverse discipline che sperimenteremo insieme</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">🌀</span><div class="disc-icon-text"><strong>Karma, Reincarnazione e Chakra</strong><span>Comprensione dei cicli vitali</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">🃏</span><div class="disc-icon-text"><strong>Tarocchi</strong><span>Simbolismo e lettura intuitiva</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">✋</span><div class="disc-icon-text"><strong>Theta Healing e Pranoterapia</strong><span>Tecniche di guarigione profonda</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">📖</span><div class="disc-icon-text"><strong>Registri Akashici</strong><span>Accesso alla memoria universale</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">💎</span><div class="disc-icon-text"><strong>Cristalli e la loro Funzione</strong><span>Guarigione con le pietre</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">🔢</span><div class="disc-icon-text"><strong>Numerologia e Mappa dei Talenti</strong><span>Scoperta dei doni personali</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">👼</span><div class="disc-icon-text"><strong>Angeli e Arcangeli</strong><span>Il loro ruolo nella nostra vita terrena</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">🕊️</span><div class="disc-icon-text"><strong>Comunicazione con le Guide</strong><span>Connessione con i cari defunti</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">💗</span><div class="disc-icon-text"><strong>Amore Incondizionato</strong><span>Pratiche di auto-guarigione</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTI -->
+<section id="eventi">
+  <div class="shell">
+    <h2 class="sec-title">Prossimi Eventi</h2>
+    <p class="sec-sub">Ogni mese un'occasione per crescere insieme. Scopri i prossimi appuntamenti del nostro percorso.</p>
+
+    <div class="eventi-tabs">
+      <button class="tab-btn active" onclick="switchTab('gruppo',this)">👥 Eventi del Gruppo</button>
+      <button class="tab-btn" onclick="switchTab('singoli',this)">👤 Singoli Operatori</button>
+      <button class="tab-btn" onclick="switchTab('passati',this)">✔ Passati</button>
+    </div>
+
+    <!-- GRUPPO -->
+    <div class="tab-content active" id="tab-gruppo">
+      <div class="events-grid">
+
+        <!-- FIRENZE QUANTICA -->
+        <article class="event-card">
+          <div class="event-cover">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Collage_di_Firenze.jpg/640px-Collage_di_Firenze.jpg" alt="Firenze" loading="lazy"/>
+            <span class="badge badge-accent">🔥 Prossimo evento</span>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">🌸 12 Aprile 2026</span>
+            <span class="event-city">Firenze</span>
+            <h3>Firenze Quantica</h3>
+            <p class="event-meta"><strong>Domenica 12 Aprile 2026 · 10:00–18:00</strong><br>📍 Circolo La Loggetta · Via Aretina 301 · Firenze (FI)</p>
+            <p class="event-desc">Un giorno di crescita e consapevolezza nel cuore di Firenze. Guarigione Quantica di Gruppo per trasmutare le emozioni negative in positive.</p>
+            <details class="event-program-wrap">
+              <summary>⚡ Guarigione Quantica di Gruppo — Programma</summary>
+              <div class="event-program-body">
+                <div class="event-tags">
+                  <span class="event-tag">Guarigione quantica</span>
+                  <span class="event-tag">Trasmutazione emozionale</span>
+                  <span class="event-tag">Connessione sé superiore</span>
+                  <span class="event-tag">Pratiche sincronizzate</span>
+                  <span class="event-tag">Meditazioni guidate</span>
+                </div>
+              </div>
+            </details>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=Circolo+La+Loggetta+Via+Aretina+301+Firenze" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-firenze-quantica.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20su%20Firenze%20Quantica%20(12%20aprile)" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- LUCCA QUANTICA -->
+        <article class="event-card">
+          <div class="event-cover">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/21/Lucca_-_Piazza_dell_Anfiteatro.jpg/640px-Lucca_-_Piazza_dell_Anfiteatro.jpg" alt="Lucca" loading="lazy"/>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">🏛️ 19 Aprile 2026</span>
+            <span class="event-city">Lucca</span>
+            <h3>Lucca Quantica</h3>
+            <p class="event-meta"><strong>Domenica 19 Aprile 2026 · 10:00–18:00</strong><br>📍 Via Ludovica 1658 · Sesto di Moriano · Lucca (LU)</p>
+            <p class="event-desc">Un percorso simbolico attraverso i 7 veli che separano l'essere umano dalla propria essenza più autentica. Danza, guarigione quantica e pratiche energetiche.</p>
+            <details class="event-program-wrap">
+              <summary>💃 La Danza dei 7 Veli — Programma</summary>
+              <div class="event-program-body">
+                <div class="event-tags">
+                  <span class="event-tag">Guarigione Quantica</span>
+                  <span class="event-tag">Danza Libera</span>
+                  <span class="event-tag">Meditazione Guidata</span>
+                  <span class="event-tag">Pratiche Energetiche</span>
+                  <span class="event-tag">Riequilibrio Chakra</span>
+                </div>
+              </div>
+            </details>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+Ludovica+1658+Sesto+di+Moriano+Lucca" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-lucca-quantica.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20su%20Lucca%20Quantica%20(19%20aprile)" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- CONNESSIONE GUIDE -->
+        <article class="event-card">
+          <div class="event-cover" style="background:linear-gradient(135deg,#2d1b69,#5b4fcf)">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.3">✨</div>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">✨ 17 Maggio 2026</span>
+            <span class="event-city">Comeana · Prato</span>
+            <h3>Connessione con le Guide Spirituali</h3>
+            <p class="event-meta"><strong>Domenica 17 Maggio 2026 · 10:00–18:00</strong><br>📍 Villa Macia · Comeana, Prato</p>
+            <p class="event-desc">Una giornata per connettersi con le guide spirituali e i cari defunti. Corso 1° livello base.</p>
+            <details class="event-program-wrap">
+              <summary>✨ Corso 1° Livello Base — Programma</summary>
+              <div class="event-program-body">
+                <div class="event-tags">
+                  <span class="event-tag">Riconoscere le Guide</span>
+                  <span class="event-tag">Stabilire il contatto</span>
+                  <span class="event-tag">Protezione e discernimento</span>
+                  <span class="event-tag">Meditazione di connessione</span>
+                  <span class="event-tag">Scrittura automatica</span>
+                  <span class="event-tag">Pendolo</span>
+                </div>
+              </div>
+            </details>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+Macia+102+Comeana+Carmignano+PO" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-guide-spirituali.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20su%20Connessione%20Guide%20Spirituali%20(17%20maggio)" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- VADA 1° MODULO -->
+        <article class="event-card">
+          <div class="event-cover" style="background:linear-gradient(135deg,#0c4e54,#01696f)">
+            <div style="position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:4rem;opacity:.3">🌊</div>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">🌊 23–24 Maggio 2026</span>
+            <span class="event-city">Vada · Livorno</span>
+            <h3>Percorso di Crescita – 1° Modulo</h3>
+            <p class="event-meta"><strong>Sab 23 – Dom 24 Maggio 2026</strong><br>Sab 14:00–22:00 · Dom 10:00–18:00<br>📍 ASD Balliamo · Via Lombardia · Vada, Livorno</p>
+            <p class="event-desc">Primo modulo del percorso di crescita a Vada, immersi nell'energia del mare. Due giorni di pratiche energetiche, meditazione e condivisione.</p>
+            <details class="event-program-wrap">
+              <summary>📅 Programma 2 giorni</summary>
+              <div class="event-program-body">
+                <div class="prog-day">
+                  <div class="prog-day-label">Sabato 23 Maggio · 14:00–22:00</div>
+                  <div class="event-tags" style="flex-wrap:wrap">
+                    <span class="event-tag">Apertura del cerchio</span><span class="event-tag">Meditazioni</span><span class="event-tag">Pratiche energetiche</span><span class="event-tag">Channeling</span><span class="event-tag">Cena condivisa</span>
+                  </div>
+                </div>
+                <div class="prog-day" style="margin-top:var(--sp-3)">
+                  <div class="prog-day-label">Domenica 24 Maggio · 10:00–18:00</div>
+                  <div class="event-tags" style="flex-wrap:wrap">
+                    <span class="event-tag">Theta-healing</span><span class="event-tag">Pranoterapia</span><span class="event-tag">Reiki</span><span class="event-tag">Cristalli</span><span class="event-tag">Tarocchi</span><span class="event-tag">Registri Akashici</span><span class="event-tag">Numerologia</span>
+                  </div>
+                </div>
+              </div>
+            </details>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=ASD+Balliamo+Via+Lombardia+La+Mazzanta+Vada+Livorno" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-2modulo-vada.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sul%201%C2%B0%20Modulo%20a%20Vada%20(23-24%20maggio)" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- PIACENZA QUANTICA -->
+        <article class="event-card">
+          <div class="event-cover">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/piacenza-piazza-cavalli_36bebc55.jpg" alt="Piacenza" loading="lazy"/>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">⚡ 30 Maggio 2026</span>
+            <span class="event-city">Piacenza</span>
+            <h3>Piacenza Quantica</h3>
+            <p class="event-meta"><strong>Sabato 30 Maggio 2026 · 10:00–18:00</strong><br>📍 Il Soffio Vitale · Piacenza (PC)</p>
+            <p class="event-desc">Un giorno di crescita e consapevolezza a Piacenza attraverso la Guarigione Quantica di Gruppo.</p>
+            <details class="event-program-wrap">
+              <summary>⚡ Guarigione Quantica di Gruppo — Programma</summary>
+              <div class="event-program-body">
+                <div class="event-tags">
+                  <span class="event-tag">Guarigione quantica</span>
+                  <span class="event-tag">Trasmutazione emozionale</span>
+                  <span class="event-tag">Connessione sé superiore</span>
+                  <span class="event-tag">Pratiche sincronizzate</span>
+                  <span class="event-tag">Meditazioni guidate</span>
+                </div>
+              </div>
+            </details>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=Il+Soffio+Vitale+Piacenza" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-piacenza-quantica.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20su%20Piacenza%20Quantica%20(30%20maggio)" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+        <!-- IMPASTANDO E MEDITANDO -->
+        <article class="event-card">
+          <div class="event-cover">
+            <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/vicenza-hero_8d176b67.jpg" alt="Vicenza" loading="lazy"/>
+            <span class="badge badge-done">Rimandato</span>
+          </div>
+          <div class="event-body">
+            <span class="event-date-chip">🍕 Settembre 2026</span>
+            <span class="event-city">Villaverla · Vicenza</span>
+            <h3>Impastando e Meditando</h3>
+            <p class="event-meta"><strong>Settembre 2026</strong> · data in definizione<br>Sab 14:00–22:00 · Dom 10:00–18:00<br>📍 Teresa Country House · Villaverla (VI)</p>
+            <p class="event-desc">Un'esperienza enogastronomica unica: prepariamo e cuciniamo la pizza insieme, scoprendo i nostri talenti tra un impasto e l'altro.</p>
+            <div class="event-note">Data in definizione — contattaci per restare aggiornato</div>
+            <div class="event-actions">
+              <a class="btn-ev btn-map" href="https://maps.google.com/?q=Teresa+Country+House+Villaverla+VI" target="_blank" rel="noopener">📍 Mappa</a>
+              <a class="btn-ev btn-pdf" href="https://percorsodicrescitalucca.it/brochures/brochure-impastando-meditando.pdf" target="_blank" rel="noopener">📄 Brochure PDF</a>
+              <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20su%20Impastando%20e%20Meditando" target="_blank" rel="noopener">💬 Stefano Balducci · 342 303 3404</a>
+            </div>
+          </div>
+        </article>
+
+      </div><!-- /events-grid -->
+    </div><!-- /tab-gruppo -->
+
+    <!-- SINGOLI OPERATORI -->
+    <div class="tab-content" id="tab-singoli">
+      <div class="events-solo">
+
+        <div class="solo-card">
+          <span class="event-date-chip">🌺 25 Marzo 2026</span>
+          <h4>Loggia del Colibrì Arcobaleno – 2° incontro</h4>
+          <p class="event-meta">📍 Associazione TrasformAzione · Via IV Novembre 57 · Pistoia<br>Mercoledì ore 21:00</p>
+          <p style="font-size:var(--tx-sm);color:var(--muted)">Secondo incontro del ciclo sciamanico della Dolce Medicina della Danza del Sole. Con Simona Ciampi, Simona Bartolini e Valentina Viciani.</p>
+          <div class="event-actions">
+            <a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+IV+Novembre+57+Pistoia" target="_blank" rel="noopener">📍 Mappa</a>
+            <a class="btn-ev btn-ev-wa" href="https://wa.me/393389547495" target="_blank" rel="noopener">💬 Valentina 338 954 7495</a>
+          </div>
+        </div>
+
+        <div class="solo-card">
+          <span class="event-date-chip">💧 17 Aprile 2026</span>
+          <h4>Riflessi d'Acqua</h4>
+          <p class="event-meta">📍 Circolo di Pittura "La Soffitta" · Via Saviabona 107 · Cavazzale (VI)<br>Venerdì ore 20:00–22:30</p>
+          <p style="font-size:var(--tx-sm);color:var(--muted)">Un laboratorio esperienziale tra emozione, consapevolezza e connessione. Con Silvia Bertuzzo e Marzia Bragagnolo.</p>
+          <details class="event-program-wrap" style="margin-top:var(--sp-2)">
+            <summary>💧 Programma</summary>
+            <div class="event-program-body">
+              <div class="event-tags">
+                <span class="event-tag">Meditazione sull'Acqua</span>
+                <span class="event-tag">Scrittura intuitiva</span>
+                <span class="event-tag">Espressione artistica</span>
+                <span class="event-tag">Condivisione</span>
+              </div>
+            </div>
+          </details>
+          <div class="event-actions">
+            <a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+Saviabona+107+Cavazzale+Vicenza" target="_blank" rel="noopener">📍 Mappa</a>
+            <a class="btn-ev btn-ev-wa" href="https://wa.me/393479005251" target="_blank" rel="noopener">💬 Silvia 347 900 5251</a>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-singoli -->
+
+    <!-- PASSATI -->
+    <div class="tab-content" id="tab-passati">
+      <div class="past-grid">
+
+        <div class="past-card">
+          <div class="past-cover"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/piacenza-piazza-cavalli_36bebc55.jpg" alt="Piacenza" loading="lazy"/></div>
+          <div class="past-body">
+            <span class="badge badge-done" style="margin-bottom:var(--sp-1)">✔ Concluso</span>
+            <h4>Sbirciare oltre il velo e scoprire i propri talenti</h4>
+            <p>28 feb – 1 mar 2026 · Il Soffio Vitale, Piacenza</p>
+          </div>
+        </div>
+
+        <div class="past-card">
+          <div class="past-cover"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/massa-hero_712045d8.jpg" alt="Massa" loading="lazy"/></div>
+          <div class="past-body">
+            <span class="badge badge-done" style="margin-bottom:var(--sp-1)">✔ Concluso</span>
+            <h4>Pranoterapia e Lettura Registri Akashici</h4>
+            <p>15 Marzo 2026 · Centro Olistico Om Shanti, Massa</p>
+          </div>
+        </div>
+
+        <div class="past-card">
+          <div class="past-cover"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/egvAYcNZIpAW_aa6a9aa1.jpg" alt="Pistoia" loading="lazy"/></div>
+          <div class="past-body">
+            <span class="badge badge-done" style="margin-bottom:var(--sp-1)">✔ Concluso</span>
+            <h4>Loggia del Colibrì – Ruota delle 5 Percezioni</h4>
+            <p>11 Marzo 2026 · Associazione TrasformAzione, Pistoia</p>
+          </div>
+        </div>
+
+        <div class="past-card">
+          <div class="past-cover"><img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/vicenza-hero_8d176b67.jpg" alt="Vicenza" loading="lazy"/></div>
+          <div class="past-body">
+            <span class="badge badge-done" style="margin-bottom:var(--sp-1)">✔ Concluso</span>
+            <h4>Yoga e Archetipi – Risveglia la tua forza interiore</h4>
+            <p>7 Marzo 2026 · InterEssere, San Donà di Piave (VE)</p>
+          </div>
+        </div>
+
+      </div>
+    </div><!-- /tab-passati -->
+
+  </div>
+</section>
+
+<!-- IL PROGRAMMA -->
+<section id="programma">
+  <div class="shell">
+    <h2 class="sec-title">Il Programma</h2>
+    <p class="sec-sub">Obiettivi del percorso e a chi è rivolto</p>
+    <div class="programma-grid">
+      <div class="programma-card">
+        <h3>Obiettivi del Percorso</h3>
+        <ul>
+          <li>Scoprire e sviluppare la propria sensibilità energetica</li>
+          <li>Comprendere i meccanismi spirituali: karma, reincarnazione, chakra</li>
+          <li>Conoscere strumenti simbolici (tarocchi, numerologia, pendolino) come specchi per la crescita personale</li>
+          <li>Sperimentare pratiche di guarigione energetica: theta healing, pranoterapia, cristalli</li>
+          <li>Coltivare la connessione con i piani sottili: angeli, guide, registri akashici</li>
+        </ul>
+      </div>
+      <div class="programma-card">
+        <h3>A Chi è Rivolto</h3>
+        <p style="font-size:var(--tx-sm);color:var(--muted);line-height:1.7">Questo percorso è pensato per te che senti un richiamo interiore, una curiosità per ciò che non si vede ma si percepisce. Non è necessaria alcuna esperienza pregressa: il nostro gruppo accoglie tutti con apertura e gioia.</p>
+        <div class="target-pills">
+          <span class="target-pill">🌱 Principianti</span>
+          <span class="target-pill">🔍 Persone in ricerca</span>
+          <span class="target-pill">🙌 Operatori olistici</span>
+          <span class="target-pill">✨ Curiosi del mondo spirituale</span>
+        </div>
+        <div class="programma-quote">
+          "Sarà un momento di convivialità e connessione, in cui conoscersi e nutrirsi insieme nella gioia e nella semplicità."
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPERATORI -->
+<section id="operatori">
+  <div class="shell">
+    <h2 class="sec-title">I Nostri Operatori</h2>
+    <p class="sec-sub">Professionisti del percorso olistico che ti accompagneranno in questo viaggio di crescita</p>
+    <div class="op-grid">
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/gFULwwlFzAulQiRM.jpeg" alt="Andrea" loading="lazy"/>
+        <p class="op-name">Andrea</p>
+        <p class="op-role">Channeling · Medium</p>
+        <p class="op-bio">Anima in cammino con un grande obiettivo: aiutare chi resta ad affrontare il dolore. Si fa ponte di luce tra il qui e il mondo invisibile.</p>
+        <div class="op-tags"><span class="op-tag">Channeling</span><span class="op-tag">Medianità</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/QwxtTTMgyDhSmlbB.jpg" alt="Carlo Alberto" loading="lazy"/>
+        <p class="op-name">Carlo Alberto</p>
+        <p class="op-role">Operatore dell'energia</p>
+        <p class="op-bio">Specializzato nella gestione dei conflitti e nella comunicazione efficace. Aiuta le persone a trasformare i conflitti in opportunità di crescita.</p>
+        <div class="op-tags"><span class="op-tag">Pranoterapia</span><span class="op-tag">Genogramma</span><span class="op-tag">Enneagramma</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://percorsodicrescitalucca.it/img-carmen.jpg" alt="Carmen" loading="lazy"/>
+        <p class="op-name">Carmen</p>
+        <p class="op-role">Naturopata · Medicina Esogetica</p>
+        <p class="op-bio">Dal 2011 professa come naturopata. Diplomata in Medicina Esogetica, si dedica ai Fiori di Bach, nutraceutica e Numerologia Vedica.</p>
+        <div class="op-tags"><span class="op-tag">Naturopatia</span><span class="op-tag">Cromopuntura</span><span class="op-tag">Fiori di Bach</span><span class="op-tag">Numerologia Vedica</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/cristina-bota_fe7974ed.jpeg" alt="Cristina" loading="lazy"/>
+        <p class="op-name">Cristina</p>
+        <p class="op-role">Operatrice Olistica</p>
+        <p class="op-bio">Anima in continua evoluzione. Diploma di massaggiatrice e operatrice Ankalà, delle memorie dell'acqua contenuta nel nostro corpo.</p>
+        <div class="op-tags"><span class="op-tag">Operatrice Ankalà</span><span class="op-tag">Massaggio Energizzante</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/qRyGOZZKxdJLTOTT.png" alt="Maria Chiara" loading="lazy"/>
+        <p class="op-name">Maria Chiara</p>
+        <p class="op-role">L'Infermiera dell'Anima</p>
+        <p class="op-bio">Prima infermiera, poi anima in cammino. Aiuta a individuare blocchi emotivi e supporta nel processo di liberazione energetica.</p>
+        <div class="op-tags"><span class="op-tag">Ascolto attivo</span><span class="op-tag">Guarigione energetica</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://percorsodicrescitalucca.it/img-matilde.jpg" alt="Matilde" loading="lazy"/>
+        <p class="op-name">Matilde</p>
+        <p class="op-role">Pranoterapeuta</p>
+        <p class="op-bio">Pranoterapeuta in cammino da oltre 15 anni. Accompagna dolcemente nel riequilibrio di corpo, mente ed emozioni con ascolto autentico.</p>
+        <div class="op-tags"><span class="op-tag">Pranoterapia</span><span class="op-tag">Riequilibrio energetico</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://percorsodicrescitalucca.it/img-marzia.jpg" alt="Marzia" loading="lazy"/>
+        <p class="op-name">Marzia</p>
+        <p class="op-role">Channeling · Operatrice Reiki</p>
+        <p class="op-bio">Il cuore puro è il percorso. Aiuta quante più anime possibili a credere in sé, accendendo la luce che si nasconde nel profondo.</p>
+        <div class="op-tags"><span class="op-tag">Channeling</span><span class="op-tag">Medianità</span><span class="op-tag">Reiki</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/zKVEkBDPGHkktEvd.jpeg" alt="Miretta" loading="lazy"/>
+        <p class="op-name">Miretta</p>
+        <p class="op-role">Operatrice Olistica</p>
+        <p class="op-bio">Lavora con Reiki, Pranoterapia, meditazione e Theta Healing. Il suo intento è far comprendere che ci si può autoguarire.</p>
+        <div class="op-tags"><span class="op-tag">Pranoterapia</span><span class="op-tag">Theta Healing</span><span class="op-tag">Reiki</span><span class="op-tag">Registri Akashici</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/WhatsAppImage2026-03-05at13.08.35_802a8b6d.jpeg" alt="Monica" loading="lazy"/>
+        <p class="op-name">Monica</p>
+        <p class="op-role">Operatrice Olistica</p>
+        <p class="op-bio">Floriterapeuta, Pranoterapeuta, in corso di studio in Naturopatia. Dona amore incondizionato attraverso la guarigione e il riequilibrio energetico.</p>
+        <div class="op-tags"><span class="op-tag">Floriterapia</span><span class="op-tag">Pranoterapia</span><span class="op-tag">Naturopatia</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/WLrEFZfmGncoYZzr.jpeg" alt="Paolo" loading="lazy"/>
+        <p class="op-name">Paolo</p>
+        <p class="op-role">Registri Akashici · Pranoterapeuta</p>
+        <p class="op-bio">Pratica meditazione attiva da oltre 40 anni. Pranoterapista evolutivo e lettore dei Registri Akashici con attenzione al cammino evolutivo.</p>
+        <div class="op-tags"><span class="op-tag">Registri Akashici</span><span class="op-tag">Pranoterapia</span><span class="op-tag">Danzaterapia chakra</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/jePjuTeQjRaDYKvE.jpg" alt="Silvia" loading="lazy"/>
+        <p class="op-name">Silvia</p>
+        <p class="op-role">Operatrice del benessere</p>
+        <p class="op-bio">Accompagna le persone attraverso Numerologia, Tarocco simbolico e trattamenti energetici. Crea spazi sicuri e accoglienti.</p>
+        <div class="op-tags"><span class="op-tag">Numerologia</span><span class="op-tag">Tarocco simbolico</span><span class="op-tag">Trattamenti energetici</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/IGIxErTLntRsDXru.jpeg" alt="Stefano" loading="lazy"/>
+        <p class="op-name">Stefano</p>
+        <p class="op-role">Operatore olistico · Guarigione energetica</p>
+        <p class="op-bio">Specializzato in tecniche energetiche e guarigione spirituale. Accompagna le persone in percorsi di trasformazione interiore.</p>
+        <div class="op-tags"><span class="op-tag">Pranoterapia</span><span class="op-tag">Quantica di gruppo</span><span class="op-tag">Metodo Ankalà</span></div>
+      </div>
+
+      <div class="op-card">
+        <img class="op-avatar" src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/WhatsAppImage2026-03-03at18.49.30_79efa4fc.jpeg" alt="Valentina" loading="lazy"/>
+        <p class="op-name">Valentina</p>
+        <p class="op-role">Counselor e Coach</p>
+        <p class="op-bio">Counselor iscritta ad AssoCounseling. Diplomata in Counseling Core Energetico, BioGestaltico e Coaching Strategico.</p>
+        <div class="op-tags"><span class="op-tag">Counseling Core Energetico</span><span class="op-tag">Coaching Strategico</span></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GALLERIA -->
+<section id="galleria">
+  <div class="shell">
+    <h2 class="sec-title">Galleria</h2>
+    <p class="sec-sub">Momenti di condivisione, meditazione e crescita dai nostri incontri</p>
+    <div class="gallery-masonry">
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/nqriVINIHuKrVGtT.jpg" alt="Foto di gruppo" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/krHONcNPggMsPqyY.jpg" alt="Cerchio di condivisione" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/UBqmdgsTrxPnNTlM.jpg" alt="Meditazione guidata" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/riWYtPVIqaUfgjLm.jpg" alt="Sessione all'aperto" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/ZFJJRWCDRkPBmktA.jpg" alt="Cerchio di ascolto" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/shOnVEwIJUSZPWrc.jpg" alt="Pratica in cerchio" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/fayTmBVitWeSNzUw.jpg" alt="Condivisione esperienze" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/OoVyvdWGtgEYyLJh.jpg" alt="Rilassamento profondo" loading="lazy"/>
+      <img src="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/CqZUyZrRRmmzLUJm.jpg" alt="Gruppo al completo" loading="lazy"/>
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/galleria-pranoterapia_951a5aab.jpg" alt="Pranoterapia" loading="lazy"/>
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/galleria-gruppo-pratica_5a29b4a1.jpg" alt="Pratica di gruppo" loading="lazy"/>
+      <img src="https://d2xsxph8kpxj0f.cloudfront.net/310519663319415429/VRhBspmQfq6mdBX5qEfA9v/galleria-gruppo-grande_eed11d7b.jpg" alt="Grande gruppo" loading="lazy"/>
+    </div>
+  </div>
+</section>
+
+<!-- MEDITAZIONE -->
+<section id="meditazione">
+  <div class="shell">
+    <h2 class="sec-title">Meditazione</h2>
+    <p class="sec-sub">Ascolta le nostre meditazioni guidate per ritrovare calma e centratura interiore</p>
+    <div class="medit-grid">
+      <div class="medit-card">
+        <h4>🎧 Meditazione guidata 1</h4>
+        <audio controls style="width:100%"><source src="./meditazione-1.mp3" type="audio/mpeg"/>Il tuo browser non supporta l'audio.</audio>
+      </div>
+      <div class="medit-card">
+        <h4>🎧 Meditazione guidata 2</h4>
+        <audio controls style="width:100%"><source src="./meditazione-2.mp3" type="audio/mpeg"/>Il tuo browser non supporta l'audio.</audio>
+      </div>
+      <div class="medit-card">
+        <h4>🎧 Meditazione guidata 3</h4>
+        <audio controls style="width:100%"><source src="./meditazione-3.mp3" type="audio/mpeg"/>Il tuo browser non supporta l'audio.</audio>
+      </div>
+      <div class="medit-card">
+        <h4>🎧 Rilassamento profondo</h4>
+        <audio controls style="width:100%"><source src="./rilassamento-profondo.mp3" type="audio/mpeg"/>Il tuo browser non supporta l'audio.</audio>
+      </div>
+      <div class="medit-card">
+        <h4>🎧 Viaggio interiore</h4>
+        <audio controls style="width:100%"><source src="./viaggio-interiore.mp3" type="audio/mpeg"/>Il tuo browser non supporta l'audio.</audio>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCIPLINE -->
+<section id="discipline">
+  <div class="shell">
+    <h2 class="sec-title">Le Nostre Discipline</h2>
+    <p class="sec-sub">Scopri le pratiche olistiche che utilizziamo durante i nostri incontri</p>
+    <div class="disc-grid">
+
+      <details class="disc-item"><summary>Pranoterapia</summary><div class="disc-body"><p>La pranoterapia consiste nell'imposizione delle mani per favorire il passaggio di prana (energia vitale) tra l'operatore e la persona. Stimola i processi vitali e lavora sul riequilibrio energetico.</p><p class="praticata">Praticata da: <strong>Carlo Alberto, Matilde, Miretta, Monica, Paolo, Stefano</strong></p></div></details>
+
+      <details class="disc-item"><summary>Registri Akashici</summary><div class="disc-body"><p>I Registri Akashici sono un campo vibrante di informazioni che contiene la memoria dell'anima attraverso tutte le sue incarnazioni. La lettura permette di accedere al percorso evolutivo dell'anima.</p><p class="praticata">Praticata da: <strong>Carlo Alberto, Miretta, Paolo</strong></p></div></details>
+
+      <details class="disc-item"><summary>Guarigione Quantica</summary><div class="disc-body"><p>Approccio olistico che lavora sui quattro livelli dell'essere: fisico, mentale, emozionale e spirituale. Permette di trasmutare le emozioni negative e attivare un processo di autoguarigione.</p><p class="praticata">Praticata da: <strong>Carlo Alberto, Stefano</strong></p></div></details>
+
+      <details class="disc-item"><summary>Theta Healing</summary><div class="disc-body"><p>Tecnica di meditazione e guarigione energetica sviluppata da Vianna Stibal. Si basa sull'utilizzo delle onde cerebrali Theta (4-7 Hz) per trasformare credenze limitanti e blocchi emotivi.</p><p class="praticata">Praticata da: <strong>Miretta</strong></p></div></details>
+
+      <details class="disc-item"><summary>Reiki</summary><div class="disc-body"><p>Pratica giapponese di guarigione energetica fondata da Mikao Usui. L'operatore canalizza energia vitale universale attraverso le mani, favorendo rilassamento e riequilibrio energetico.</p><p class="praticata">Praticata da: <strong>Marzia, Miretta</strong></p></div></details>
+
+      <details class="disc-item"><summary>Cromopuntura</summary><div class="disc-body"><p>Trattamento ideato da Peter Mandel che unisce agopuntura e cromoterapia. Utilizza fasci di luce colorata sui punti energetici del corpo per riportare equilibrio fisico, emotivo e mentale.</p><p class="praticata">Praticata da: <strong>Carmen</strong></p></div></details>
+
+      <details class="disc-item"><summary>Channeling e Medianità</summary><div class="disc-body"><p>Il Channeling è la capacità di ricevere e trasmettere messaggi da entità di dimensioni sottili: guide spirituali, maestri ascesi, angeli o anime dei defunti. Uno strumento per ricevere insegnamenti sul proprio cammino evolutivo.</p><p class="praticata">Praticata da: <strong>Andrea, Marzia</strong></p></div></details>
+
+      <details class="disc-item"><summary>Numerologia e Mappa dei Talenti</summary><div class="disc-body"><p>La Numerologia studia il significato simbolico dei numeri. La Mappa dei Talenti individua gli ambiti fondamentali della vita attraverso la data di nascita, collegati agli Arcani Maggiori dei Tarocchi.</p><p class="praticata">Praticata da: <strong>Carmen (Numerologia Vedica), Silvia</strong></p></div></details>
+
+      <details class="disc-item"><summary>Tarocchi Simbolici</summary><div class="disc-body"><p>Strumento di introspezione che utilizza le immagini archetipiche degli Arcani come specchio dell'anima. Non si tratta di predire il futuro, ma di leggere il presente in profondità.</p><p class="praticata">Praticata da: <strong>Silvia</strong></p></div></details>
+
+      <details class="disc-item"><summary>Floriterapia (Fiori di Bach)</summary><div class="disc-body"><p>Metodo naturale ideato da Edward Bach negli anni '30, basato sull'energia curativa dei fiori selvatici. Agisce sugli stati emotivi per armonizzare le emozioni e ristabilire l'equilibrio energetico.</p><p class="praticata">Praticata da: <strong>Carmen, Monica</strong></p></div></details>
+
+      <details class="disc-item"><summary>Counseling Core Energetico</summary><div class="disc-body"><p>Processo evolutivo fondato da John Pierrakos che integra corpo, emozioni, mente e spiritualità. Attraverso respirazione, movimento corporeo e relazione, si lavora per superare le barriere alla piena espressione di sé.</p><p class="praticata">Praticata da: <strong>Valentina</strong></p></div></details>
+
+      <details class="disc-item"><summary>Danzaterapia dei Chakra</summary><div class="disc-body"><p>Pratica che unisce il movimento libero del corpo alla consapevolezza dei centri energetici. Attraverso la danza si stimolano e riequilibrano i chakra, liberando emozioni trattenute.</p><p class="praticata">Praticata da: <strong>Paolo</strong></p></div></details>
+
+      <details class="disc-item"><summary>Metodo Ankalà</summary><div class="disc-body"><p>Lavora con le memorie dell'acqua contenuta nel nostro corpo. Facilita il rilascio di traumi, blocchi e memorie ancestrali. L'acqua diventa un ponte tra corpo e spirito nel percorso di guarigione.</p><p class="praticata">Praticata da: <strong>Cristina, Stefano</strong></p></div></details>
+
+      <details class="disc-item"><summary>Cristalloterapia</summary><div class="disc-body"><p>Utilizza pietre e cristalli come strumenti di guarigione energetica. Ogni cristallo possiede una specifica frequenza vibratoria che, a contatto con il corpo, favorisce il riequilibrio dei centri energetici.</p><p class="praticata">Praticata da: <strong>Carlo Alberto, Miretta</strong></p></div></details>
+
+      <details class="disc-item"><summary>Medicina Esogetica</summary><div class="disc-body"><p>Concilia antiche tradizioni curative con le scoperte della fisica moderna. Attraverso la cromopuntura aiuta la persona a comprendere il mondo interiore, equilibrare il karma e lavorare sulle memorie ancestrali.</p><p class="praticata">Praticata da: <strong>Carmen</strong></p></div></details>
+
+      <details class="disc-item"><summary>Naturopatia e Nutraceutica</summary><div class="disc-body"><p>La Naturopatia promuove il benessere attraverso metodi naturali. La Nutraceutica studia le proprietà benefiche degli alimenti. Carmen offre percorsi individuali di igiene alimentare con ricerca delle intolleranze tramite biorisonanza.</p><p class="praticata">Praticata da: <strong>Carmen, Monica</strong></p></div></details>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="shell">
+    <h2 class="sec-title">Domande Frequenti</h2>
+    <p class="sec-sub">Tutto quello che devi sapere sul nostro percorso</p>
+    <div class="faq-list">
+      <details class="faq-item"><summary>Come posso iscrivermi agli incontri?</summary><div class="faq-body"><p>Scrivi a <a href="mailto:percorsodicrescitalucca@gmail.com" style="color:var(--primary)">percorsodicrescitalucca@gmail.com</a> oppure contatta Stefano Balducci su WhatsApp al <a href="https://wa.me/393423033404" style="color:var(--primary)">342 303 3404</a>. Ti forniremo tutte le informazioni necessarie per partecipare.</p></div></details>
+      <details class="faq-item"><summary>È necessaria esperienza pregressa?</summary><div class="faq-body"><p>No, il percorso è aperto a tutti, anche a chi non ha alcuna esperienza nel mondo olistico. Il nostro gruppo ti accompagnerà passo dopo passo con apertura e gioia. Ciò che conta è la curiosità e l'apertura verso nuove esperienze.</p></div></details>
+      <details class="faq-item"><summary>Quanto costa partecipare?</summary><div class="faq-body"><p>Il costo varia in base all'evento e alla sede. Contattaci per avere informazioni dettagliate sui costi del prossimo incontro. Il nostro obiettivo è rendere il percorso accessibile a tutti.</p></div></details>
+      <details class="faq-item"><summary>Dove si svolgono gli incontri?</summary><div class="faq-body"><p>Gli incontri si svolgono in tutta Italia. Le sedi vengono indicate per ogni evento nella sezione Prossimi Eventi. Abbiamo organizzato incontri in Toscana, Veneto, Emilia-Romagna e altre regioni.</p></div></details>
+      <details class="faq-item"><summary>Cosa devo portare agli incontri?</summary><div class="faq-body"><p>Ti consigliamo di indossare abiti comodi, portare un tappetino da yoga o un cuscino per la meditazione, una copertina e una bottiglia d'acqua. Per gli eventi di più giorni, riceverai indicazioni specifiche via WhatsApp dopo l'iscrizione.</p></div></details>
+      <details class="faq-item"><summary>Posso partecipare a un singolo incontro senza impegno?</summary><div class="faq-body"><p>Sì, ogni incontro è un'esperienza completa in sé. Puoi partecipare anche a un solo evento per scoprire se il percorso fa per te. Non c'è alcun obbligo di continuità, anche se il percorso completo offre una crescita più profonda.</p></div></details>
+      <details class="faq-item"><summary>Gli incontri sono adatti anche a scettici?</summary><div class="faq-body"><p>Assolutamente sì! Non chiediamo di credere a nulla, ma solo di essere aperti all'esperienza. Molti dei nostri partecipanti iniziano con scetticismo e restano sorpresi dalle esperienze vissute. Il percorso è basato sulla pratica diretta, non sulla teoria.</p></div></details>
+      <details class="faq-item"><summary>Come posso restare aggiornato sui prossimi eventi?</summary><div class="faq-body"><p>Il modo migliore è unirti al nostro gruppo WhatsApp. Contatta Stefano Balducci al <a href="https://wa.me/393423033404" style="color:var(--primary)">342 303 3404</a> per essere aggiunto. In alternativa scrivi a <a href="mailto:percorsodicrescitalucca@gmail.com" style="color:var(--primary)">percorsodicrescitalucca@gmail.com</a>.</p></div></details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTATTI -->
+<section id="contatti">
+  <div class="shell contatti-grid">
+    <div class="contatti-info">
+      <h2 class="sec-title">Contattaci</h2>
+      <p class="sec-sub">Siamo qui per te. Scrivici per qualsiasi domanda o per iscriverti al prossimo incontro.</p>
+      <div class="contact-row">
+        <span class="contact-icon">✉️</span>
+        <a href="mailto:percorsodicrescitalucca@gmail.com">percorsodicrescitalucca@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-icon">💬</span>
+        <a href="https://wa.me/393423033404" target="_blank" rel="noopener">WhatsApp Stefano Balducci · 342 303 3404</a>
+      </div>
+      <div class="contact-row">
+        <span class="contact-icon">📍</span>
+        <span style="font-size:var(--tx-sm);color:var(--muted)">Incontri in Toscana, Veneto e tutta Italia</span>
+      </div>
+      <a class="btn btn-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sul%20percorso%20di%20crescita" target="_blank" rel="noopener" style="margin-top:var(--sp-2)">💬 Scrivici su WhatsApp</a>
+    </div>
+    <div>
+      <div style="background:var(--surface);border-radius:var(--r-xl);border:1px solid oklch(from var(--border) l c h/.85);padding:var(--sp-6);box-shadow:var(--sh-md)">
+        <h3 style="font-size:var(--tx-lg);margin-bottom:var(--sp-4)">Scrivi un messaggio</h3>
+        <form id="contactForm">
+          <label>Nome e cognome<input type="text" id="cNome" autocomplete="name" placeholder="Il tuo nome"/></label>
+          <label>Email<input type="email" id="cEmail" autocomplete="email" placeholder="La tua email"/></label>
+          <label>Messaggio<textarea id="cMsg" placeholder="Come possiamo aiutarti?"></textarea></label>
+          <button type="submit" class="btn btn-primary">💬 Invia su WhatsApp</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <div class="shell">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <strong style="font-size:var(--tx-base)">Percorso di Crescita e Consapevolezza</strong>
+        <p>Un percorso di crescita ed evoluzione personale e spirituale. Incontri mensili in Toscana, Veneto e tutta Italia. Organizzato da Carlo Alberto Calcagno.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigazione</h4>
+        <ul>
+          <li><a href="#chi-siamo">Chi Siamo</a></li>
+          <li><a href="#eventi">Prossimi Eventi</a></li>
+          <li><a href="#operatori">Operatori</a></li>
+          <li><a href="#discipline">Discipline</a></li>
+          <li><a href="#galleria">Galleria</a></li>
+          <li><a href="#meditazione">Meditazione</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contatti</h4>
+        <ul>
+          <li><a href="mailto:percorsodicrescitalucca@gmail.com">Email</a></li>
+          <li><a href="https://wa.me/393423033404" target="_blank" rel="noopener">WhatsApp Stefano</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Percorso di Crescita e Consapevolezza · Tutti i diritti riservati</p>
+      <p style="display:flex;gap:1rem">
+        <a href="#" style="color:var(--muted)">Privacy Policy</a>
+        <a href="#" style="color:var(--muted)">Cookie Policy</a>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // ── TEMA ──
+  (function(){
+    const root = document.documentElement;
+    const btn = document.querySelector('[data-theme-toggle]');
+    let mode = localStorage.getItem('theme') ||
+      (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+    root.setAttribute('data-theme', mode);
+    btn?.addEventListener('click', () => {
+      mode = mode === 'dark' ? 'light' : 'dark';
+      root.setAttribute('data-theme', mode);
+      localStorage.setItem('theme', mode);
+    });
+    // mobile nav
+    const hdr = document.getElementById('header');
+    document.getElementById('mobBtn')?.addEventListener('click', () => {
+      const o = hdr.classList.toggle('open');
+      document.getElementById('mobBtn').setAttribute('aria-expanded', o);
+    });
+    document.querySelectorAll('.nav-panel a').forEach(a =>
+      a.addEventListener('click', () => hdr.classList.remove('open'))
+    );
+  })();
+
+  // ── TABS ──
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  // ── COUNTDOWN al 12 aprile 2026 ──
+  function updateCountdown() {
+    const target = new Date('2026-04-12T10:00:00');
+    const now = new Date();
+    const diff = target - now;
+    if (diff <= 0) { document.getElementById('countdown').style.display='none'; return; }
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = d;
+    document.getElementById('cd-hours').textContent = String(h).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(m).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(s).padStart(2,'0');
+  }
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+
+  // ── FORM → WHATSAPP ──
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const nome = document.getElementById('cNome').value.trim();
+    const email = document.getElementById('cEmail').value.trim();
+    const msg = document.getElementById('cMsg').value.trim();
+    if (!nome || !msg) { alert('Compila nome e messaggio.'); return; }
+    const testo = encodeURIComponent('Ciao Stefano, sono ' + nome +
+      (email ? ' (' + email + ')' : '') + '.\n\n' + msg);
+    window.open('https://wa.me/393423033404?text=' + testo, '_blank');
+  });
+</script>
+
+</body>
+</html>
