@@ -335,33 +335,58 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
   </div>
 </div>
 </section>
-<section id="chi-siamo">
-<div class="shell chisiamo-grid">
-  <div class="chisiamo-text">
-    <h2 class="sec-title">Chi Siamo</h2>
-    <p class="sec-sub">Un gruppo di professionisti del percorso olistico dedicati alla crescita spirituale</p>
-    <p>Siamo un gruppo di professionisti del percorso olistico che ha deciso di impegnare il proprio tempo una volta al mese per offrire ai partecipanti l'opportunita' di &ldquo;sbirciare oltre il velo&rdquo;.</p>
-    <p>Attraverso esperienze dirette e condivise, impareremo a percepire realt&agrave; sottili, spesso invisibili ai nostri occhi.</p>
-    <p>Sar&agrave; un'occasione per esplorare grandi domande: Cosa accade dopo la morte? La reincarnazione esiste? Qual &egrave; il mio scopo? Quali doni e talenti mi appartengono?</p>
-    <p>Sarete accompagnati passo dopo passo in un percorso di crescita ed evoluzione personale e spirituale. Fra meditazioni e pratiche energetiche, vivrete giornate intense e trasformative.</p>
+<section id="chi-siamo" style="padding:0;overflow:hidden">
+  <!-- SCALA HERO BANNER -->
+  <div style="position:relative;height:420px;overflow:hidden">
+    <img src="./scala.jpg" alt="Scala luminosa" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block"/>
+    <div style="position:absolute;inset:0;background:linear-gradient(to right, rgba(42,38,32,.75) 0%, rgba(42,38,32,.4) 50%, rgba(42,38,32,.1) 100%)"></div>
+    <div style="position:absolute;inset:0;display:flex;align-items:center;padding:0 clamp(1rem,5vw,4rem);max-width:var(--max);margin-inline:auto">
+      <div style="max-width:520px">
+        <h2 style="font-size:var(--tx-2xl);color:#fff;line-height:1.1;margin-bottom:var(--sp-4)">Chi Siamo</h2>
+        <p style="font-size:var(--tx-base);color:rgba(255,255,255,.85);line-height:1.7;margin-bottom:var(--sp-5)">Siamo un gruppo di professionisti del percorso olistico che offre ai partecipanti l'opportunit&agrave; di &ldquo;sbirciare oltre il velo&rdquo;. Fra meditazioni e pratiche energetiche, vivrete giornate intense e trasformative.</p>
+        <a class="btn btn-primary" href="#eventi" style="backdrop-filter:blur(4px)">Scopri i prossimi eventi</a>
+      </div>
+    </div>
   </div>
-  <div style="border-radius:var(--r-lg);overflow:hidden;box-shadow:var(--sh-md);min-height:400px">
-    <img src="./scala.jpg" alt="Scala luminosa" style="width:100%;height:100%;object-fit:cover;display:block" loading="lazy"/>
+
+  <!-- TESTO + ICONE -->
+  <div class="shell" style="padding-block:clamp(var(--sp-8),6vw,var(--sp-12))">
+    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--sp-8);align-items:start">
+      <!-- Testo -->
+      <div>
+        <p style="font-size:var(--tx-base);color:var(--muted);line-height:1.8;margin-bottom:var(--sp-4)">Attraverso esperienze dirette e condivise, impareremo a percepire realt&agrave; sottili, spesso invisibili ai nostri occhi. Sar&agrave; un'occasione per esplorare grandi domande che l'essere umano si pone da sempre.</p>
+        <p style="font-size:var(--tx-base);color:var(--muted);line-height:1.8;margin-bottom:var(--sp-5)">Sarete accompagnati passo dopo passo in un percorso di crescita ed evoluzione personale e spirituale. Uscirete arricchiti, con il cuore pi&ugrave; aperto e la curiosit&agrave; di continuare il cammino insieme.</p>
+        <div style="display:flex;gap:var(--sp-4);flex-wrap:wrap">
+          <div style="text-align:center;padding:var(--sp-4) var(--sp-5);background:var(--surface);border-radius:var(--r-lg);border:1px solid rgba(214,210,200,.7);flex:1;min-width:100px">
+            <div style="font-size:1.8rem;font-weight:700;color:var(--primary)">13+</div>
+            <div style="font-size:var(--tx-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Operatori</div>
+          </div>
+          <div style="text-align:center;padding:var(--sp-4) var(--sp-5);background:var(--surface);border-radius:var(--r-lg);border:1px solid rgba(214,210,200,.7);flex:1;min-width:100px">
+            <div style="font-size:1.8rem;font-weight:700;color:var(--primary)">16+</div>
+            <div style="font-size:var(--tx-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Discipline</div>
+          </div>
+          <div style="text-align:center;padding:var(--sp-4) var(--sp-5);background:var(--surface);border-radius:var(--r-lg);border:1px solid rgba(214,210,200,.7);flex:1;min-width:100px">
+            <div style="font-size:1.8rem;font-weight:700;color:var(--primary)">6+</div>
+            <div style="font-size:var(--tx-xs);color:var(--muted);text-transform:uppercase;letter-spacing:.08em">Citt&agrave;</div>
+          </div>
+        </div>
+      </div>
+      <!-- Icone discipline -->
+      <div class="disc-icons">
+        <div class="disc-icon"><span class="disc-icon-em">&#128302;</span><div class="disc-icon-text"><strong>Anima ed Energia</strong><span>Esplorazione della dimensione spirituale</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128156;</span><div class="disc-icon-text"><strong>Guarigione Energetica</strong><span>Diverse discipline che sperimenteremo insieme</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#127744;</span><div class="disc-icon-text"><strong>Karma, Reincarnazione e Chakra</strong><span>Comprensione dei cicli vitali</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#127183;</span><div class="disc-icon-text"><strong>Tarocchi</strong><span>Simbolismo e lettura intuitiva</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#9995;</span><div class="disc-icon-text"><strong>Theta Healing e Pranoterapia</strong><span>Tecniche di guarigione profonda</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128214;</span><div class="disc-icon-text"><strong>Registri Akashici</strong><span>Accesso alla memoria universale</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128142;</span><div class="disc-icon-text"><strong>Cristalli e la loro Funzione</strong><span>Guarigione con le pietre</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128290;</span><div class="disc-icon-text"><strong>Numerologia e Mappa dei Talenti</strong><span>Scoperta dei doni personali</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128124;</span><div class="disc-icon-text"><strong>Angeli e Arcangeli</strong><span>Il loro ruolo nella nostra vita</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128375;</span><div class="disc-icon-text"><strong>Comunicazione con le Guide</strong><span>Connessione con i cari defunti</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128151;</span><div class="disc-icon-text"><strong>Amore Incondizionato</strong><span>Pratiche di auto-guarigione</span></div></div>
+      </div>
+    </div>
   </div>
-  <div class="disc-icons">
-    <div class="disc-icon"><span class="disc-icon-em">&#128302;</span><div class="disc-icon-text"><strong>Anima ed Energia</strong><span>Esplorazione della dimensione spirituale</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128156;</span><div class="disc-icon-text"><strong>Guarigione Energetica</strong><span>Diverse discipline che sperimenteremo insieme</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#127744;</span><div class="disc-icon-text"><strong>Karma, Reincarnazione e Chakra</strong><span>Comprensione dei cicli vitali</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#127183;</span><div class="disc-icon-text"><strong>Tarocchi</strong><span>Simbolismo e lettura intuitiva</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#9995;</span><div class="disc-icon-text"><strong>Theta Healing e Pranoterapia</strong><span>Tecniche di guarigione profonda</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128214;</span><div class="disc-icon-text"><strong>Registri Akashici</strong><span>Accesso alla memoria universale</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128142;</span><div class="disc-icon-text"><strong>Cristalli e la loro Funzione</strong><span>Guarigione con le pietre</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128290;</span><div class="disc-icon-text"><strong>Numerologia e Mappa dei Talenti</strong><span>Scoperta dei doni personali</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128124;</span><div class="disc-icon-text"><strong>Angeli e Arcangeli</strong><span>Il loro ruolo nella nostra vita</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128375;</span><div class="disc-icon-text"><strong>Comunicazione con le Guide</strong><span>Connessione con i cari defunti</span></div></div>
-    <div class="disc-icon"><span class="disc-icon-em">&#128151;</span><div class="disc-icon-text"><strong>Amore Incondizionato</strong><span>Pratiche di auto-guarigione</span></div></div>
-  </div>
-</div>
 </section>
 <section id="eventi">
 <div class="shell">
