@@ -862,6 +862,105 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
   </div>
 </div>
 
-<script src="./app.js"></script>
+<script>
+// TEMA
+(function(){
+  var r=document.documentElement,b=document.querySelector("[data-theme-toggle]");
+  var m=localStorage.getItem("theme")||(matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light");
+  r.setAttribute("data-theme",m);
+  if(b)b.addEventListener("click",function(){m=m==="dark"?"light":"dark";r.setAttribute("data-theme",m);localStorage.setItem("theme",m);});
+  var h=document.getElementById("header"),mob=document.getElementById("mobBtn");
+  if(mob)mob.addEventListener("click",function(){var o=h.classList.toggle("open");mob.setAttribute("aria-expanded",o?"true":"false");});
+  document.querySelectorAll(".nav-panel a").forEach(function(a){a.addEventListener("click",function(){h.classList.remove("open");});});
+})();
+
+// TABS - CRITICAL
+function switchTab(id,btn){
+  document.querySelectorAll(".tab-content").forEach(function(t){t.classList.remove("active");});
+  document.querySelectorAll(".tab-btn").forEach(function(b){b.classList.remove("active");});
+  document.getElementById("tab-"+id).classList.add("active");
+  btn.classList.add("active");
+}
+
+// COUNTDOWN
+function updateCountdown(){
+  var d=new Date("2026-04-12T10:00:00")-new Date();
+  if(d<=0){var c=document.getElementById("countdown");if(c)c.style.display="none";return;}
+  document.getElementById("cd-days").textContent=Math.floor(d/86400000);
+  document.getElementById("cd-hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0");
+  document.getElementById("cd-mins").textContent=String(Math.floor((d%3600000)/60000)).padStart(2,"0");
+  document.getElementById("cd-secs").textContent=String(Math.floor((d%60000)/1000)).padStart(2,"0");
+}
+updateCountdown();setInterval(updateCountdown,1000);
+
+// FORM
+document.getElementById("contactForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=document.getElementById("cNome").value.trim(),em=document.getElementById("cEmail").value.trim(),msg=document.getElementById("cMsg").value.trim();
+  if(!n||!msg){alert("Compila nome e messaggio.");return;}
+  window.open("https://wa.me/393423033404?text="+encodeURIComponent("Ciao Stefano, sono "+n+(em?" ("+em+")":"")+".\n\n"+msg),"_blank");
+});
+
+// BROCHURE MODAL - CRITICAL
+function closeBro(){
+  document.getElementById("broOverlay").classList.remove("open");
+  document.body.style.overflow="";
+}
+document.addEventListener("keydown",function(e){if(e.key==="Escape")closeBro();});
+
+function openBro(id){
+  var bd=window._bd||{};
+  var d=bd[id];if(!d)return;
+  document.getElementById("broCity").textContent=d.c;
+  document.getElementById("broTitle").textContent=d.t;
+  document.getElementById("broMeta").innerHTML=d.m;
+  document.getElementById("broProgram").innerHTML=d.p.map(function(i){return "<li>"+i+"</li>";}).join("");
+  document.getElementById("broStaff").innerHTML=d.s;
+  document.getElementById("broWa").href="https://wa.me/393423033404?text="+d.w;
+  document.getElementById("broPdf").href=d.f;
+  var dw=document.getElementById("broDescWrap");
+  if(d.d){document.getElementById("broDesc").innerHTML=d.d;dw.style.display="block";}
+  else{dw.style.display="none";}
+  document.getElementById("broOverlay").classList.add("open");
+  document.body.style.overflow="hidden";
+}
+
+// BROCHURE DATA - loaded last (safe if truncated)
+(function(){
+  var C="https://files.manuscdn.com/user_upload_by_module/session_file/310519663319415429/";
+  function sm(s,a,n){return '<div class="bro-staff-member"><img class="bro-staff-avatar" src="'+s+'" alt="'+a+'"/><span class="bro-staff-name">'+n+'</span></div>';}
+  var st=sm(C+"IGIxErTLntRsDXru.jpeg","S","Stefano Balducci")+sm(C+"WLrEFZfmGncoYZzr.jpeg","P","Paolo Bardi")+sm(C+"zKVEkBDPGHkktEvd.jpeg","M","Miretta Frediani");
+  var dIO="<strong>IO SONO IL MIO MAESTRO</strong> Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tuoi tre Corpi: mentale, fisico e spirituale.";
+  var dLU="<strong>Il Risveglio dell\'Essenza</strong> Una giornata di trasformazione profonda. <strong>La Danza dei Sette Veli</strong> I chakra si liberano gesto dopo gesto.";
+  window._bd={
+    firenze:{c:"Firenze Quantica",t:"Guarigione quantica di gruppo",
+      m:"<strong>Dom 12 Aprile 2026 - 10:00-18:00</strong><br>Circolo La Loggetta, Via Aretina 301, Firenze (FI)",
+      p:["Guarigione quantica","Trasmutazione emozionale","Connessione col se superiore","Pratiche sincronizzate","Meditazioni guidate","Pasto condiviso"],
+      d:dIO,s:st,w:"Firenze%20Quantica%2012%20aprile",f:"./brochure-firenze-quantica.pdf"},
+    lucca:{c:"Lucca Quantica",t:"Danza dei 7 Veli",
+      m:"<strong>Dom 19 Aprile 2026 - 10:00-18:00</strong><br>Via Ludovica 1658, Sesto di Moriano, Lucca (LU)",
+      p:["Guarigione quantica","Danza libera 7 veli","Meditazione guidata","Pratiche energetiche","Riequilibrio chakra","Pasto condiviso"],
+      d:dLU,s:st+sm("./federica.jpg","F","Federica"),w:"Lucca%20Quantica%2019%20aprile",f:"./brochure-lucca-quantica.pdf"},
+    comeana:{c:"Comeana - Prato",t:"Connessione con le Guide Spirituali",
+      m:"<strong>Dom 17 Maggio 2026 - 10:00-18:00</strong><br>Villa Macia, Via Macia 102, Comeana (PO)",
+      p:["Riconoscere le Guide","Stabilire il contatto","Protezione e discernimento","Meditazione","Scrittura automatica","Pendolo"],
+      d:"",s:sm(C+"IGIxErTLntRsDXru.jpeg","S","Stefano Balducci")+sm("./img-marzia.jpg","M","Marzia")+sm("./img-carmen.jpg","C","Carmen"),
+      w:"Connessione%20Guide%2017%20maggio",f:"./brochure-guide-spirituali.pdf"},
+    vada:{c:"Vada - Livorno",t:"Percorso di Crescita - 1 Modulo",
+      m:"<strong>Sab 23 - Dom 24 Maggio 2026</strong><br>ASD Balliamo, Via Lombardia, Vada (LI)",
+      p:["Apertura del cerchio","Meditazioni","Pratiche energetiche","Channeling","Cena condivisa","Theta-healing - Reiki","Cristalli - Tarocchi - Registri Akashici"],
+      d:"",s:sm(C+"IGIxErTLntRsDXru.jpeg","S","Stefano Balducci")+sm("./img-carmen.jpg","C","Carmen")+sm("./img-marzia.jpg","M","Marzia")+sm("./img-matilde.jpg","M","Matilde"),
+      w:"Vada%201%20Modulo%2023%20maggio",f:"./brochure-2modulo-vada.pdf"},
+    vicenza:{c:"Vicenza Quantica",t:"Guarigione quantica di gruppo",
+      m:"<strong>Dom 31 Maggio 2026 - 10:00-18:00</strong><br>Strada di Saviabona 328, Vicenza (VI)",
+      p:["Guarigione quantica","Trasmutazione emozionale","Connessione col se superiore","Meditazioni guidate","Pranzo condiviso"],
+      d:dIO,s:st,w:"Vicenza%20Quantica%2031%20maggio",f:"./brochure-vicenza-quantica.pdf"},
+    piacenza:{c:"Piacenza Quantica",t:"Guarigione quantica di gruppo",
+      m:"<strong>Sab 30 Maggio 2026 - 10:00-18:00</strong><br>Il Soffio Vitale, Piacenza (PC)",
+      p:["Guarigione quantica","Trasmutazione emozionale","Connessione col se superiore","Pratiche sincronizzate","Meditazioni guidate"],
+      d:dIO,s:st,w:"Piacenza%20Quantica%2030%20maggio",f:"./brochure-piacenza-quantica.pdf"}
+  };
+})();
+</script>
 </body>
 </html>
