@@ -1,37 +1,464 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="it" data-theme="light">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Percorso di Crescita — In aggiornamento</title>
+<title>Percorso di Crescita e Consapevolezza | Italia</title>
+<meta name="description" content="Un percorso di crescita ed evoluzione personale e spirituale con Stefano Balducci.">
 <style>
-*{box-sizing:border-box;margin:0;padding:0}
-body{min-height:100vh;display:flex;align-items:center;justify-content:center;
-  font-family:system-ui,sans-serif;background:#f7f5f0;color:#2a2620;text-align:center;padding:2rem}
-.card{max-width:480px;background:#fff;border-radius:1.5rem;padding:3rem 2.5rem;
-  box-shadow:0 8px 32px rgba(0,0,0,.08);border:1px solid #e8e4dc}
-.logo{width:56px;height:56px;background:#5b4fcf;border-radius:50%;display:inline-grid;
-  place-items:center;margin-bottom:1.5rem}
-h1{font-size:1.6rem;font-weight:700;margin-bottom:.75rem}
-p{color:#7a7570;line-height:1.7;margin-bottom:1.5rem}
-.eta{display:inline-flex;align-items:center;gap:.5rem;background:#f0eefb;
-  color:#5b4fcf;padding:.5rem 1.25rem;border-radius:99px;font-size:.9rem;font-weight:500}
-a{color:#5b4fcf}
+:root{--bg:#f8f6f1;--surface:#fffefb;--surface2:#f3f0ea;--off:#ede9e0;--border:rgba(180,165,140,.35);--border-s:rgba(180,165,140,.6);--text:#1e1a14;--muted:#7a7060;--primary:#6c4ff0;--primary-h:#5a3fd4;--primary-bg:rgba(108,79,240,.09);--accent:#01888e;--r-sm:.375rem;--r-md:.6rem;--r-lg:.9rem;--r-xl:1.25rem;--r-2xl:1.75rem;--r-full:9999px;--sh-sm:0 1px 3px rgba(0,0,0,.07);--sh-md:0 4px 16px rgba(0,0,0,.08);--sh-lg:0 12px 40px rgba(0,0,0,.1);--sh-xl:0 24px 64px rgba(0,0,0,.14);--max:1000px}
+[data-theme=dark]{--bg:#121110;--surface:#1a1815;--surface2:#201e1a;--off:#252220;--border:rgba(255,255,255,.1);--border-s:rgba(255,255,255,.18);--text:#d8d4cc;--muted:#8a8478;--primary:#9c85f5;--primary-h:#8b74e8;--primary-bg:rgba(156,133,245,.12)}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth;scroll-padding-top:4.5rem}
+body{font-family:system-ui,-apple-system,sans-serif;font-size:clamp(.95rem,.9rem + .25vw,1.05rem);line-height:1.65;color:var(--text);background:var(--bg);min-height:100vh}
+img{display:block;max-width:100%;height:auto}a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--primary);outline-offset:3px;border-radius:var(--r-sm)}
+.shell{max-width:1200px;margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
+main{max-width:var(--max);margin-inline:auto;padding-inline:clamp(1rem,4vw,2rem)}
+section{padding-block:clamp(3rem,7vw,5rem)}
+.sec-label{font-size:clamp(.72rem,.68rem + .2vw,.82rem);text-transform:uppercase;letter-spacing:.14em;font-weight:600;color:var(--primary);margin-bottom:.5rem}
+.sec-title{font-size:clamp(1.4rem,1.1rem + 1.5vw,2rem);font-weight:800;line-height:1.2;margin-bottom:.5rem}
+.sec-sub{color:var(--muted);max-width:54ch;line-height:1.7;margin-bottom:2rem}
+.badge{display:inline-flex;align-items:center;border-radius:var(--r-full);padding:.2rem .75rem;font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:600}
+.badge-teal{background:rgba(1,136,142,.85);color:#fff;backdrop-filter:blur(6px)}
+.badge-purple{background:rgba(108,79,240,.85);color:#fff;backdrop-filter:blur(6px)}
+.badge-muted{background:rgba(122,112,96,.15);color:var(--muted)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.4rem;padding:.7rem 1.4rem;border-radius:var(--r-full);font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:600;border:1.5px solid transparent;transition:all .18s}
+.btn-primary{background:var(--primary);color:#fff;border-color:var(--primary)}
+.btn-primary:hover{background:var(--primary-h);transform:translateY(-1px);box-shadow:0 4px 16px rgba(108,79,240,.3)}
+.btn-outline{background:transparent;color:var(--text);border-color:var(--border-s)}
+.btn-outline:hover{background:var(--surface2);border-color:var(--primary);color:var(--primary)}
+.btn-sm{padding:.42rem .9rem;font-size:clamp(.72rem,.68rem + .2vw,.82rem)}
+/* HEADER */
+.site-header{position:sticky;top:0;z-index:50;border-bottom:1px solid var(--border);backdrop-filter:blur(16px) saturate(180%);background:rgba(248,246,241,.88);transition:background .3s}
+[data-theme=dark] .site-header{background:rgba(18,17,16,.88)}
+.header-inner{max-width:var(--max);margin-inline:auto;padding:.8rem clamp(1rem,4vw,2rem);display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.brand{display:flex;align-items:center;gap:.65rem;flex-shrink:0}
+.brand-mark{width:36px;height:36px;border-radius:var(--r-full);background:var(--primary);display:grid;place-items:center;box-shadow:0 2px 8px rgba(108,79,240,.35)}
+.brand-text strong{display:block;font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:700;line-height:1.15}
+.brand-text span{display:block;font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted)}
+.nav-links{display:flex;gap:1.5rem;font-size:clamp(.85rem,.8rem + .25vw,.95rem)}
+.nav-links a{color:var(--muted);font-weight:500;transition:color .18s}
+.nav-links a:hover{color:var(--primary)}
+.header-actions{display:flex;align-items:center;gap:.5rem}
+.theme-btn{width:34px;height:34px;border-radius:var(--r-full);border:1.5px solid var(--border-s);display:grid;place-items:center;transition:all .18s}
+.theme-btn:hover{border-color:var(--primary);color:var(--primary)}
+.mob-btn{display:none;width:36px;height:36px;border-radius:var(--r-md);border:1.5px solid var(--border-s);flex-direction:column;align-items:center;justify-content:center;gap:4px}
+.mob-btn span{display:block;width:18px;height:2px;background:currentColor;border-radius:1px;transition:all .25s}
+.nav-panel{display:none;position:absolute;left:1rem;right:1rem;top:calc(100% + .5rem);background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);box-shadow:var(--sh-lg);padding:1rem}
+.nav-panel a{display:block;padding:.65rem .75rem;border-radius:var(--r-md);font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:500;color:var(--muted);transition:all .15s}
+.nav-panel a:hover{background:var(--primary-bg);color:var(--primary)}
+.site-header.open .nav-panel{display:block}
+/* HERO */
+.hero{padding-top:clamp(2.5rem,7vw,5rem);padding-bottom:clamp(2rem,5vw,4rem)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(2rem,5vw,4rem);align-items:center}
+.hero-img{border-radius:var(--r-2xl);overflow:hidden;aspect-ratio:4/3;box-shadow:var(--sh-xl)}
+.hero-img img{width:100%;height:100%;object-fit:cover}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.4rem;font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--primary);margin-bottom:.75rem}
+.hero h1{font-size:clamp(2rem,1.3rem + 2.5vw,3.2rem);font-weight:900;line-height:1.1;margin-bottom:1rem;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--primary)}
+.hero-lead{color:var(--muted);line-height:1.75;margin-bottom:1.5rem;max-width:42ch}
+.hero-cta{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.countdown-wrap{border-top:1px solid var(--border);padding-top:1rem}
+.countdown-label{font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted);text-transform:uppercase;letter-spacing:.1em;margin-bottom:.5rem}
+.countdown{display:flex;gap:1.25rem}
+.cd-item{text-align:center}
+.cd-num{font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1;display:block;font-variant-numeric:tabular-nums}
+.cd-lbl{font-size:.6rem;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);display:block;margin-top:.1rem}
+/* CHI SIAMO */
+.chisiamo-banner{position:relative;border-radius:var(--r-2xl);overflow:hidden;height:clamp(360px,50vw,480px)}
+.chisiamo-banner img{width:100%;height:100%;object-fit:cover;object-position:center 25%}
+.chisiamo-overlay{position:absolute;inset:0;background:linear-gradient(105deg,rgba(18,14,8,.78) 0%,rgba(18,14,8,.4) 55%,transparent 100%)}
+.chisiamo-text{position:absolute;inset:0;display:flex;align-items:center;padding:0 clamp(1.5rem,6vw,4rem);max-width:var(--max);margin-inline:auto}
+.chisiamo-inner{max-width:500px}
+.chisiamo-inner h2{font-size:clamp(2rem,1.3rem + 2.5vw,3.2rem);font-weight:900;color:#fff;line-height:1.15;margin-bottom:1rem}
+.chisiamo-inner p{color:rgba(255,255,255,.82);line-height:1.75;margin-bottom:1.25rem}
+.chisiamo-body{padding-block:clamp(2.5rem,5vw,4rem)}
+.chisiamo-cols{display:grid;grid-template-columns:1fr 1.3fr;gap:3rem;align-items:start}
+.stats-row{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.5rem}
+.stat-box{flex:1;min-width:80px;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:.9rem 1rem;text-align:center}
+.stat-num{font-size:1.75rem;font-weight:800;color:var(--primary);line-height:1}
+.stat-lbl{font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted);text-transform:uppercase;letter-spacing:.07em;margin-top:.2rem}
+.disc-grid{display:grid;grid-template-columns:1fr 1fr;gap:.65rem}
+.disc-pill{display:flex;align-items:flex-start;gap:.6rem;background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:.65rem .75rem}
+.disc-em{font-size:1.2rem;flex-shrink:0;line-height:1;margin-top:.05rem}
+.disc-label{font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:600;line-height:1.3}
+.disc-sub{font-size:.67rem;color:var(--muted);line-height:1.3;margin-top:.1rem}
+/* PROGRAMMA */
+.programma-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem}
+.prog-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.75rem}
+.prog-card h3{font-size:clamp(1.1rem,1rem + .5vw,1.35rem);font-weight:700;margin-bottom:1.25rem}
+.prog-list{list-style:none;display:flex;flex-direction:column;gap:.55rem}
+.prog-list li{display:flex;gap:.6rem;font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted)}
+.prog-list li::before{content:"◆";color:var(--primary);flex-shrink:0;margin-top:.15rem;font-size:.55rem}
+.target-pills{display:flex;flex-wrap:wrap;gap:.4rem;margin-top:1rem}
+.target-pill{display:inline-flex;align-items:center;gap:.35rem;padding:.3rem .75rem;border-radius:var(--r-full);font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:500;background:var(--primary-bg);color:var(--primary)}
+.prog-quote{margin-top:1.25rem;padding:.9rem 1rem;background:var(--primary-bg);border-left:3px solid var(--primary);border-radius:0 var(--r-md) var(--r-md) 0;font-style:italic;color:var(--muted);font-size:clamp(.85rem,.8rem + .25vw,.95rem);line-height:1.7}
+/* EVENTI */
+.eventi-tabs{display:flex;gap:.4rem;flex-wrap:wrap;margin-bottom:1.75rem}
+.tab-btn{padding:.4rem 1rem;border-radius:var(--r-full);font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:500;border:1.5px solid var(--border-s);background:var(--surface);color:var(--muted);transition:all .18s}
+.tab-btn.active{background:var(--primary);color:#fff;border-color:var(--primary);box-shadow:0 2px 8px rgba(108,79,240,.3)}
+.tab-content{display:none}
+.tab-content.active{display:block}
+.events-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1.5rem}
+.event-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-xl);overflow:hidden;display:flex;flex-direction:column;box-shadow:var(--sh-sm);transition:transform .2s,box-shadow .2s}
+.event-card:hover{transform:translateY(-3px);box-shadow:var(--sh-lg)}
+.event-cover{position:relative;height:170px;overflow:hidden;background:var(--off)}
+.event-cover img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .4s}
+.event-card:hover .event-cover img{transform:scale(1.04)}
+.event-cover .badge{position:absolute;top:.75rem;left:.75rem}
+.event-body{padding:1.1rem 1.25rem;display:flex;flex-direction:column;gap:.6rem;flex:1}
+.event-date-chip{display:inline-flex;align-items:center;gap:.35rem;font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:600;background:var(--primary-bg);color:var(--primary);border-radius:var(--r-full);padding:.2rem .65rem;align-self:flex-start}
+.event-city{font-size:clamp(.72rem,.68rem + .2vw,.82rem);text-transform:uppercase;letter-spacing:.1em;color:var(--primary);font-weight:700}
+.event-card h3{font-size:clamp(1.1rem,1rem + .5vw,1.35rem);font-weight:700;line-height:1.3}
+.event-meta{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.65}
+.event-meta strong{color:var(--text)}
+.event-desc{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.6}
+.event-actions{display:flex;gap:.4rem;flex-wrap:wrap;margin-top:auto;padding-top:.5rem}
+.btn-ev{display:inline-flex;align-items:center;gap:.3rem;padding:.38rem .8rem;border-radius:var(--r-full);font-size:clamp(.72rem,.68rem + .2vw,.82rem);font-weight:600;border:1.5px solid transparent;cursor:pointer;text-decoration:none;transition:all .15s}
+.btn-bro{background:var(--surface2);border-color:var(--border-s);color:var(--muted)}
+.btn-bro:hover{background:var(--off);color:var(--text)}
+.btn-map{background:var(--surface2);border-color:var(--border-s);color:var(--muted)}
+.btn-map:hover{background:var(--off)}
+.btn-ev-wa{background:#25d366;color:#fff;border-color:#25d366}
+.btn-ev-wa:hover{background:#1ebe5d}
+.events-solo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+.solo-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);padding:1.1rem 1.25rem;display:flex;flex-direction:column;gap:.55rem}
+.solo-card h4{font-size:clamp(.95rem,.9rem + .25vw,1.05rem);font-weight:700}
+.past-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem}
+.past-card{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg);overflow:hidden;opacity:.75}
+.past-cover{height:110px;overflow:hidden}
+.past-cover img{width:100%;height:100%;object-fit:cover}
+.past-body{padding:.7rem 1rem}
+.past-body h4{font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:600}
+.past-body p{font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted)}
+/* OPERATORI */
+#operatori{background:var(--surface)}
+.op-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1.1rem;margin-top:2rem}
+.op-card{background:var(--bg);border:1px solid var(--border);border-radius:var(--r-xl);padding:1.25rem;display:flex;flex-direction:column;gap:.65rem;align-items:center;text-align:center;transition:box-shadow .2s,transform .2s}
+.op-card:hover{box-shadow:var(--sh-md);transform:translateY(-2px)}
+.op-avatar{width:86px;height:86px;border-radius:var(--r-full);object-fit:cover;border:2px solid rgba(108,79,240,.25);box-shadow:0 2px 8px rgba(0,0,0,.1)}
+svg.op-avatar{background:transparent}
+.op-name{font-size:clamp(.95rem,.9rem + .25vw,1.05rem);font-weight:700}
+.op-role{font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--primary);font-weight:600;text-transform:uppercase;letter-spacing:.07em}
+.op-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem}
+.op-tag{font-size:.58rem;padding:.1rem .45rem;border-radius:var(--r-full);background:var(--primary-bg);color:var(--primary);font-weight:500}
+/* GALLERIA */
+.gallery-grid{columns:3;gap:.75rem;margin-top:2rem}
+.gallery-grid img{width:100%;border-radius:var(--r-lg);margin-bottom:.75rem;break-inside:avoid;cursor:zoom-in;transition:transform .2s,box-shadow .2s;box-shadow:var(--sh-sm)}
+.gallery-grid img:hover{transform:scale(1.02);box-shadow:var(--sh-lg)}
+/* DISCIPLINE */
+.disc-full{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:.65rem}
+.disc-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg)}
+.disc-item summary{padding:.9rem 1.1rem;cursor:pointer;font-weight:600;font-size:clamp(.85rem,.8rem + .25vw,.95rem);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:.75rem}
+.disc-item summary::after{content:"+";color:var(--primary);font-size:1.1rem;flex-shrink:0}
+.disc-item[open] summary::after{content:"−"}
+.disc-item[open] summary{color:var(--primary)}
+.disc-body{padding:0 1.1rem .9rem;font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.7}
+/* FAQ */
+.faq-list{display:flex;flex-direction:column;gap:.65rem;max-width:720px}
+.faq-item{background:var(--surface);border:1px solid var(--border);border-radius:var(--r-lg)}
+.faq-item summary{padding:.9rem 1.1rem;cursor:pointer;font-weight:600;font-size:clamp(.85rem,.8rem + .25vw,.95rem);list-style:none;display:flex;justify-content:space-between;align-items:center;gap:.75rem}
+.faq-item summary::after{content:"+";color:var(--primary);font-size:1.1rem;flex-shrink:0}
+.faq-item[open] summary::after{content:"−"}
+.faq-item[open] summary{color:var(--primary)}
+.faq-body{padding:0 1.1rem .9rem;font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.7}
+/* CONTATTI */
+#contatti{background:var(--surface)}
+.contatti-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start}
+.contact-row{display:flex;align-items:center;gap:.75rem;padding:.75rem 1rem;background:var(--bg);border:1px solid var(--border);border-radius:var(--r-lg);margin-bottom:.65rem}
+.contact-icon{font-size:1.3rem}
+.contact-info small{display:block;font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted)}
+.contact-info a,.contact-info span{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--primary)}
+.contact-note{margin-top:1.25rem;padding:.9rem 1rem;background:var(--primary-bg);border-radius:var(--r-lg);border-left:3px solid var(--primary);font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.7}
+form{display:grid;gap:.65rem}
+label{display:grid;gap:.25rem;font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:500}
+input,textarea{width:100%;padding:.75rem 1rem;border:1.5px solid var(--border-s);border-radius:var(--r-md);background:var(--bg);font:inherit;color:var(--text);transition:border .18s}
+input:focus,textarea:focus{outline:none;border-color:var(--primary)}
+textarea{min-height:110px;resize:vertical}
+/* FOOTER */
+footer{background:var(--surface2);border-top:1px solid var(--border);padding-block:2.5rem 1.5rem}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
+.footer-brand p{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);margin-top:.5rem;max-width:30ch;line-height:1.6}
+.footer-col h4{font-size:clamp(.85rem,.8rem + .25vw,.95rem);font-weight:700;margin-bottom:.75rem}
+.footer-col ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.footer-col a{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);transition:color .18s}
+.footer-col a:hover{color:var(--primary)}
+.footer-bottom{padding-top:1.25rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:.75rem}
+.footer-bottom p{font-size:clamp(.72rem,.68rem + .2vw,.82rem);color:var(--muted)}
+/* MODAL */
+.bro-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:100;backdrop-filter:blur(4px);align-items:center;justify-content:center;padding:1rem}
+.bro-overlay.open{display:flex}
+.bro-modal{background:var(--bg);border-radius:var(--r-2xl);border:1px solid var(--border);box-shadow:var(--sh-xl);max-width:480px;width:100%;max-height:90vh;overflow-y:auto;display:flex;flex-direction:column}
+.bro-head{padding:1.25rem 1.5rem 1rem;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;background:var(--surface);border-radius:var(--r-2xl) var(--r-2xl) 0 0}
+.bro-head h2{font-size:clamp(1.1rem,1rem + .5vw,1.35rem);line-height:1.3}
+.bro-close{width:32px;height:32px;border-radius:var(--r-full);border:1.5px solid var(--border-s);display:grid;place-items:center;color:var(--muted);transition:all .18s}
+.bro-close:hover{background:var(--surface2)}
+.bro-body{padding:1.25rem 1.5rem;display:flex;flex-direction:column;gap:1rem}
+.bro-meta{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.8}
+.bro-meta strong{color:var(--text)}
+.bro-sec-lbl{font-size:clamp(.72rem,.68rem + .2vw,.82rem);text-transform:uppercase;letter-spacing:.1em;color:var(--primary);font-weight:700;margin-bottom:.4rem}
+.bro-prog{background:var(--surface2);border-radius:var(--r-md);padding:.75rem 1rem}
+.bro-prog ul{list-style:none;display:flex;flex-direction:column;gap:.4rem}
+.bro-prog li{font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);display:flex;gap:.5rem}
+.bro-prog li::before{content:"·";color:var(--primary);font-weight:700;flex-shrink:0}
+.bro-foot{padding:1rem 1.5rem 1.25rem;border-top:1px solid var(--border);background:var(--surface);border-radius:0 0 var(--r-2xl) var(--r-2xl)}
+.bro-foot a{display:flex;align-items:center;justify-content:center;gap:.4rem;width:100%;padding:.7rem;border-radius:var(--r-full);background:#25d366;color:#fff;font-weight:700;font-size:clamp(.85rem,.8rem + .25vw,.95rem)}
+.bro-foot a:hover{background:#1ebe5d}
+.lb-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:200;align-items:center;justify-content:center;cursor:zoom-out}
+.lb-overlay.open{display:flex}
+.lb-overlay img{max-width:90vw;max-height:90vh;border-radius:var(--r-xl);object-fit:contain}
+#cookie-banner{position:fixed;bottom:0;left:0;right:0;z-index:9999;background:#1a1a2e;color:#e0e0f0;padding:1rem 1.5rem;box-shadow:0 -4px 24px rgba(0,0,0,.4);font-size:.88rem;transform:translateY(100%);transition:transform .4s ease}
+#cookie-banner.visible{transform:translateY(0)}
+.cb-inner{max-width:900px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;gap:1rem;justify-content:space-between}
+#cookie-banner a{color:#a78bfa}
+.cb-no{padding:.48rem 1.1rem;border-radius:var(--r-full);border:1px solid #666;background:transparent;color:#ccc;cursor:pointer;font-size:.82rem}
+.cb-yes{padding:.48rem 1.3rem;border-radius:var(--r-full);border:none;background:linear-gradient(135deg,#7c3aed,#4f46e5);color:#fff;cursor:pointer;font-weight:700;font-size:.82rem}
+@media(max-width:900px){.hero-grid,.chisiamo-cols,.programma-grid,.contatti-grid{grid-template-columns:1fr}.hero-img{order:-1;max-height:320px}.nav-links{display:none}.mob-btn{display:flex}.events-grid,.events-solo{grid-template-columns:1fr}.past-grid{grid-template-columns:repeat(2,1fr)}.op-grid{grid-template-columns:repeat(2,1fr)}.gallery-grid{columns:2}.disc-full,.footer-grid{grid-template-columns:1fr}.disc-grid{grid-template-columns:1fr}}
+@media(max-width:540px){.op-grid{grid-template-columns:repeat(2,1fr)}.past-grid{grid-template-columns:1fr}.gallery-grid{columns:1}}
 </style>
 </head>
 <body>
-<div class="card">
-  <div class="logo">
-    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round">
-      <circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/>
-    </svg>
+<header class="site-header" id="header">
+<div class="header-inner">
+  <a class="brand" href="#top">
+    <div class="brand-mark"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+    <div class="brand-text"><strong>Percorso di Crescita</strong><span>e Consapevolezza | Italia</span></div>
+  </a>
+  <nav class="nav-links">
+    <a href="#chi-siamo">Chi Siamo</a><a href="#eventi">Eventi</a><a href="#operatori">Operatori</a><a href="#discipline">Discipline</a><a href="#galleria">Galleria</a><a href="#faq">FAQ</a>
+  </nav>
+  <div class="header-actions">
+    <a class="btn btn-primary btn-sm" href="#contatti">Contattaci</a>
+    <button class="theme-btn" data-theme-toggle aria-label="Tema"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg></button>
+    <button class="mob-btn" id="mobBtn" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
-  <h1>Stiamo aggiornando il sito</h1>
-  <p>Percorso di Crescita e Consapevolezza<br>sarà di nuovo disponibile a breve.</p>
-  <span class="eta">⏳ Torna presto</span>
-  <p style="margin-top:1.5rem;font-size:.85rem">
-    Info: <a href="https://wa.me/393423033404">WhatsApp 342 303 3404</a>
-  </p>
+  <nav class="nav-panel" id="navPanel">
+    <a href="#chi-siamo">Chi Siamo</a><a href="#eventi">Eventi</a><a href="#operatori">Operatori</a><a href="#discipline">Discipline</a><a href="#galleria">Galleria</a><a href="#faq">FAQ</a><a href="#contatti">Contattaci</a>
+  </nav>
 </div>
+</header>
+<main id="main">
+<section class="hero" id="top">
+<div class="hero-grid">
+  <div>
+    <div class="hero-eyebrow">&#10024; Prossimo incontro tra pochi giorni</div>
+    <h1>Percorso di crescita e <em>consapevolezza</em></h1>
+    <p class="hero-lead">Un percorso di evoluzione personale e spirituale. Scopri la tua sensibilit&#224; energetica attraverso meditazione, guarigione e pratiche condivise.</p>
+    <div class="hero-cta"><a class="btn btn-primary" href="#eventi">Scopri gli eventi</a><a class="btn btn-outline" href="#contatti">Informazioni</a></div>
+    <div class="countdown-wrap">
+      <p class="countdown-label">Prossimo evento &mdash; Firenze 12 Aprile 2026</p>
+      <div class="countdown" id="countdown">
+        <div class="cd-item"><span class="cd-num" id="cd-days">5</span><span class="cd-lbl">Giorni</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-hours">0</span><span class="cd-lbl">Ore</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-mins">0</span><span class="cd-lbl">Min</span></div>
+        <div class="cd-item"><span class="cd-num" id="cd-secs">0</span><span class="cd-lbl">Sec</span></div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-img"><img src="./hero.jpg" alt="Percorso di Crescita" fetchpriority="high" onerror="this.src='./Scala.jpg'"></div>
+</div>
+</section>
+<section id="chi-siamo" style="padding:0;overflow:hidden">
+  <div class="chisiamo-banner">
+    <img src="./chisiamo.jpg" alt="Chi Siamo" loading="lazy" onerror="this.src='./Scala.jpg'">
+    <div class="chisiamo-overlay"></div>
+    <div class="chisiamo-text"><div class="chisiamo-inner">
+      <h2>Chi Siamo</h2>
+      <p>Siamo un gruppo di professionisti del percorso olistico che offre ai partecipanti l&rsquo;opportunit&#224; di &ldquo;sbirciare oltre il velo&rdquo;. Fra meditazioni e pratiche energetiche, vivrete giornate intense e trasformative.</p>
+      <a class="btn btn-primary" href="#eventi">Scopri i prossimi eventi</a>
+    </div></div>
+  </div>
+  <div class="chisiamo-body shell">
+    <div class="chisiamo-cols">
+      <div>
+        <p style="font-size:clamp(.95rem,.9rem + .25vw,1.05rem);color:var(--muted);line-height:1.8;margin-bottom:1.25rem">Attraverso esperienze dirette e condivise, impareremo a percepire realt&#224; sottili, spesso invisibili ai nostri occhi. Sar&#224; un&rsquo;occasione per esplorare grandi domande che l&rsquo;essere umano si pone da sempre.</p>
+        <p style="font-size:clamp(.95rem,.9rem + .25vw,1.05rem);color:var(--muted);line-height:1.8;margin-bottom:1.75rem">Sarete accompagnati passo dopo passo in un percorso di crescita ed evoluzione personale e spirituale. Uscirete arricchiti, con il cuore pi&#249; aperto e la curiosit&#224; di continuare il cammino insieme.</p>
+        <div class="stats-row">
+          <div class="stat-box"><div class="stat-num">15+</div><div class="stat-lbl">Operatori</div></div>
+          <div class="stat-box"><div class="stat-num">16+</div><div class="stat-lbl">Discipline</div></div>
+          <div class="stat-box"><div class="stat-num">6+</div><div class="stat-lbl">Citt&#224;</div></div>
+        </div>
+      </div>
+      <div class="disc-grid">
+        <div class="disc-pill"><span class="disc-em">&#128302;</span><div><div class="disc-label">Anima ed Energia</div><div class="disc-sub">Dimensione spirituale</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128156;</span><div><div class="disc-label">Guarigione Energetica</div><div class="disc-sub">Pratiche condivise</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#127756;</span><div><div class="disc-label">Karma e Chakra</div><div class="disc-sub">Cicli vitali</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128206;</span><div><div class="disc-label">Tarocchi</div><div class="disc-sub">Lettura intuitiva</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#10003;</span><div><div class="disc-label">Theta Healing</div><div class="disc-sub">Guarigione profonda</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128214;</span><div><div class="disc-label">Registri Akashici</div><div class="disc-sub">Memoria universale</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128142;</span><div><div class="disc-label">Cristalli</div><div class="disc-sub">Guarigione con le pietre</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128162;</span><div><div class="disc-label">Numerologia</div><div class="disc-sub">Doni personali</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#127775;</span><div><div class="disc-label">Angeli e Arcangeli</div><div class="disc-sub">Guide di luce</div></div></div>
+        <div class="disc-pill"><span class="disc-em">&#128607;</span><div><div class="disc-label">Amore Incondizionato</div><div class="disc-sub">Auto-guarigione</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+<section id="programma">
+<div class="sec-label">Il percorso</div><h2 class="sec-title">Programma</h2><p class="sec-sub">Obiettivi e a chi &#232; rivolto</p>
+<div class="programma-grid">
+  <div class="prog-card"><h3>Obiettivi</h3><ul class="prog-list"><li>Scoprire e sviluppare la propria sensibilit&#224; energetica</li><li>Comprendere karma, reincarnazione e chakra</li><li>Conoscere strumenti simbolici per la crescita</li><li>Sperimentare theta healing, pranoterapia, cristalli</li><li>Coltivare la connessione con piani sottili e guide spirituali</li></ul></div>
+  <div class="prog-card"><h3>A Chi &#232; Rivolto</h3><p style="font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);line-height:1.75;margin-bottom:1rem">Questo percorso &#232; pensato per te che senti un richiamo interiore, una curiosit&#224; per ci&#242; che non si vede ma si percepisce. Non &#232; necessaria alcuna esperienza pregressa.</p><div class="target-pills"><span class="target-pill">&#127807; Principianti</span><span class="target-pill">&#128141; In ricerca</span><span class="target-pill">&#128607; Operatori olistici</span><span class="target-pill">&#10024; Curiosi</span></div><div class="prog-quote">&ldquo;Sar&#224; un momento di convivialit&#224; e connessione, in cui conoscersi e nutrirsi insieme nella gioia e nella semplicit&#224;.&rdquo;</div></div>
+</div>
+</section>
+<section id="eventi">
+<div class="sec-label">Calendario</div><h2 class="sec-title">Prossimi Eventi</h2><p class="sec-sub">Ogni mese un&rsquo;occasione per crescere insieme.</p>
+<div class="eventi-tabs">
+  <button class="tab-btn active" onclick="switchTab('gruppo',this)">&#128101; Gruppo</button>
+  <button class="tab-btn" onclick="switchTab('singoli',this)">&#128100; Singoli</button>
+  <button class="tab-btn" onclick="switchTab('passati',this)">&#10004; Passati</button>
+</div>
+<div class="tab-content active" id="tab-gruppo">
+<div class="events-grid">
+  <article class="event-card"><div class="event-cover"><img src="./ev-firenze.jpg" alt="Firenze" loading="lazy" onerror="this.src='./firenze.JPG'"><span class="badge badge-teal">&#127800; 12 Apr 2026</span></div><div class="event-body"><span class="event-date-chip">&#127800; 12 Aprile 2026</span><span class="event-city">Firenze Quantica</span><h3>Io sono il mio maestro</h3><p class="event-meta"><strong>Dom 12 Aprile &middot; 10:00&ndash;18:00</strong><br>&#128205; Circolo La Loggetta &middot; Via Aretina 301, Firenze</p><p class="event-desc">Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tre Corpi: Mentale, Fisico e Spirituale.</p><div class="event-actions"><button class="btn-ev btn-bro" onclick="openBro('firenze')">&#128196; Brochure</button><a class="btn-ev btn-map" href="https://maps.google.com/?q=Circolo+La+Loggetta+Via+Aretina+301+Firenze" target="_blank" rel="noopener">&#128205; Mappa</a><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+informazioni+Firenze+12+aprile" target="_blank" rel="noopener">&#128172; WhatsApp</a></div></div></article>
+  <article class="event-card"><div class="event-cover"><img src="./ev-lucca.jpg" alt="Lucca" loading="lazy" onerror="this.src='./Lucca.jpeg'"><span class="badge badge-teal">&#127807; 19 Apr 2026</span></div><div class="event-body"><span class="event-date-chip">&#127807; 19 Aprile 2026</span><span class="event-city">Lucca Quantica</span><h3>Il risveglio dell&rsquo;anima</h3><p class="event-meta"><strong>Dom 19 Aprile &middot; 10:00&ndash;18:00</strong><br>&#128205; Via Ludovica 1658 &middot; Sesto di Moriano, Lucca</p><p class="event-desc">Guarigione Quantica e Danza dei 7 Veli &mdash; un percorso di trasformazione per riscoprire la propria natura autentica.</p><div class="event-actions"><button class="btn-ev btn-bro" onclick="openBro('lucca')">&#128196; Brochure</button><a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+Ludovica+1658+Sesto+di+Moriano+Lucca" target="_blank" rel="noopener">&#128205; Mappa</a><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+informazioni+Lucca+19+aprile" target="_blank" rel="noopener">&#128172; WhatsApp</a></div></div></article>
+  <article class="event-card"><div class="event-cover"><img src="./ev-piacenza.jpg" alt="Piacenza" loading="lazy" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Piazza_Cavalli%2C_Piacenza.jpg/800px-Piazza_Cavalli%2C_Piacenza.jpg'"><span class="badge badge-purple">&#9889; 30 Mag 2026</span></div><div class="event-body"><span class="event-date-chip">&#9889; 30 Maggio 2026</span><span class="event-city">Piacenza Quantica</span><h3>Io sono il mio maestro</h3><p class="event-meta"><strong>Sab 30 Maggio &middot; 10:00&ndash;18:00</strong><br>&#128205; Il Soffio Vitale &middot; Piacenza</p><p class="event-desc">Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tre Corpi: Mentale, Fisico e Spirituale.</p><div class="event-actions"><button class="btn-ev btn-bro" onclick="openBro('piacenza')">&#128196; Brochure</button><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+informazioni+Piacenza+30+maggio" target="_blank" rel="noopener">&#128172; WhatsApp</a></div></div></article>
+  <article class="event-card"><div class="event-cover"><img src="./ev-vicenza.jpg" alt="Vicenza" loading="lazy" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/55/Basilica_Palladiana_-_Vicenza.jpg/800px-Basilica_Palladiana_-_Vicenza.jpg'"><span class="badge badge-purple">&#127807; 31 Mag 2026</span></div><div class="event-body"><span class="event-date-chip">&#127807; 31 Maggio 2026</span><span class="event-city">Vicenza Quantica</span><h3>Io sono il mio maestro</h3><p class="event-meta"><strong>Dom 31 Maggio &middot; 10:00&ndash;18:00</strong><br>&#128205; Strada di Saviabona 328 &middot; Vicenza</p><p class="event-desc">Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tre Corpi: Mentale, Fisico e Spirituale.</p><div class="event-actions"><button class="btn-ev btn-bro" onclick="openBro('vicenza')">&#128196; Brochure</button><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+informazioni+Vicenza+31+maggio" target="_blank" rel="noopener">&#128172; WhatsApp</a></div></div></article>
+  <article class="event-card"><div class="event-cover"><img src="./ev-comeana.jpg" alt="Comeana" loading="lazy" onerror="this.src='./comeana.jpg'"><span class="badge badge-muted">&#127819; Giu 2026</span></div><div class="event-body"><span class="event-date-chip">&#127819; Giugno 2026</span><span class="event-city">Comeana &middot; Prato</span><h3>Io sono il mio maestro</h3><p class="event-meta"><strong>Data in definizione</strong><br>&#128205; Comeana, Prato</p><p class="event-desc">Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tre Corpi: Mentale, Fisico e Spirituale.</p><div class="event-actions"><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+aggiornami+su+Comeana" target="_blank" rel="noopener">&#128172; Aggiornami</a></div></div></article>
+  <article class="event-card"><div class="event-cover"><img src="./ev-livorno.jpg" alt="Livorno" loading="lazy" onerror="this.src='./Livorno.jpg'"><span class="badge badge-muted">&#127754; Lug 2026</span></div><div class="event-body"><span class="event-date-chip">&#127754; Luglio 2026</span><span class="event-city">Vada &middot; Livorno</span><h3>Io sono il mio maestro</h3><p class="event-meta"><strong>Data in definizione</strong><br>&#128205; Vada, Livorno</p><p class="event-desc">Dedica a te stesso una giornata in esclusiva. Le sedute di guarigione quantica agiscono sui tre Corpi: Mentale, Fisico e Spirituale.</p><div class="event-actions"><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+aggiornami+su+Livorno" target="_blank" rel="noopener">&#128172; Aggiornami</a></div></div></article>
+</div></div>
+<div class="tab-content" id="tab-singoli">
+<div class="events-solo">
+  <div class="solo-card"><span class="event-date-chip">&#128167; 17 Aprile 2026</span><h4>Riflessi d&rsquo;Acqua &mdash; Meditazione</h4><p class="event-meta">&#128205; Circolo &ldquo;La Soffitta&rdquo; &middot; Via Saviabona 107, Cavazzale (VI)<br>Venerd&#236; ore 20:00&ndash;22:30</p><div class="event-actions"><a class="btn-ev btn-ev-wa" href="https://wa.me/393479005251" target="_blank" rel="noopener">&#128172; 347 900 5251</a></div></div>
+  <div class="solo-card"><span class="event-date-chip">&#127819; Set 2026</span><h4>Impastando e Meditando &mdash; Villaverla (VI)</h4><p class="event-meta">&#128205; Teresa Country House &middot; Villaverla (VI)<br>Data in definizione</p><p style="font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted)">Un&rsquo;esperienza unica: prepariamo la pizza insieme, scoprendo i nostri talenti tra un impasto e l&rsquo;altro.</p><div class="event-actions"><a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao+Stefano%2C+aggiornami+su+Impastando+e+Meditando" target="_blank" rel="noopener">&#128172; Aggiornami</a></div></div>
+</div></div>
+<div class="tab-content" id="tab-passati">
+<div class="past-grid">
+  <div class="past-card"><div class="past-cover"><img src="./firenze.JPG" alt="Firenze 2025" loading="lazy"></div><div class="past-body"><h4>Firenze Quantica 2025</h4><p>Guarigione quantica di gruppo</p></div></div>
+  <div class="past-card"><div class="past-cover"><img src="./Lucca.jpeg" alt="Lucca 2025" loading="lazy"></div><div class="past-body"><h4>Lucca &mdash; Danza dei 7 Veli</h4><p>Percorso di trasformazione</p></div></div>
+  <div class="past-card"><div class="past-cover"><img src="./comeana.jpg" alt="Comeana 2025" loading="lazy"></div><div class="past-body"><h4>Comeana 2025</h4><p>Guarigione e meditazione</p></div></div>
+  <div class="past-card"><div class="past-cover"><img src="./Livorno.jpg" alt="Livorno 2025" loading="lazy"></div><div class="past-body"><h4>Vada &middot; Livorno 2025</h4><p>Percorso di crescita estivo</p></div></div>
+  <div class="past-card"><div class="past-cover"><img src="./Scala.jpg" alt="Massa 2025" loading="lazy"></div><div class="past-body"><h4>Massa 2025</h4><p>Guarigione e condivisione</p></div></div>
+</div></div>
+</section>
+<section id="operatori">
+<div class="sec-label">Il team</div><h2 class="sec-title">I Nostri Operatori</h2><p class="sec-sub">Un team di professionisti olistici che ti accompagner&#224; nel percorso.</p>
+<div class="op-grid">
+  <div class="op-card"><img class="op-avatar" src="./op-carmen.jpg" alt="Carmen" loading="lazy" onerror="this.outerHTML=svgAv('C','#6c4ff0')"><div class="op-name">Carmen</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Guarigione</span><span class="op-tag">Meditazione</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-federica.jpg" alt="Federica" loading="lazy" onerror="this.outerHTML=svgAv('F','#6c4ff0')"><div class="op-name">Federica</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Theta Healing</span><span class="op-tag">Cristalli</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-flavio.jpg" alt="Flavio" loading="lazy" onerror="this.outerHTML=svgAv('F','#5a3fd4')"><div class="op-name">Flavio</div><div class="op-role">Operatore Olistico</div><div class="op-tags"><span class="op-tag">Registri Akashici</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-marzia.jpg" alt="Marzia" loading="lazy" onerror="this.outerHTML=svgAv('M','#6c4ff0')"><div class="op-name">Marzia</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Pranoterapia</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-matilde.jpg" alt="Matilde" loading="lazy" onerror="this.outerHTML=svgAv('M','#5a3fd4')"><div class="op-name">Matilde</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Numerologia</span><span class="op-tag">Tarocchi</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-monica.jpg" alt="Monica" loading="lazy" onerror="this.outerHTML=svgAv('M','#7c3aed')"><div class="op-name">Monica</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Angeli</span><span class="op-tag">Guide</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-stefano.jpg" alt="Stefano" loading="lazy" onerror="this.outerHTML=svgAv('S','#3d2a9a')"><div class="op-name">Stefano</div><div class="op-role">Guida Spirituale</div><div class="op-tags"><span class="op-tag">Guarigione Quantica</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-paolo.jpg" alt="Paolo" loading="lazy" onerror="this.outerHTML=svgAv('P','#6c4ff0')"><div class="op-name">Paolo</div><div class="op-role">Operatore Olistico</div><div class="op-tags"><span class="op-tag">Meditazione</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-miretta.jpg" alt="Miretta" loading="lazy" onerror="this.outerHTML=svgAv('M','#5a3fd4')"><div class="op-name">Miretta</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Guarigione Energetica</span></div></div>
+  <div class="op-card"><img class="op-avatar" src="./op-carloalberto.jpg" alt="Carlo Alberto" loading="lazy" onerror="this.outerHTML=svgAv('C','#7c3aed')"><div class="op-name">Carlo Alberto</div><div class="op-role">Operatore Olistico</div><div class="op-tags"><span class="op-tag">Registri Akashici</span></div></div>
+  <div class="op-card"><svg class="op-avatar" viewBox="0 0 88 88"><circle cx="44" cy="44" r="44" fill="#6c4ff0"/><text x="44" y="58" text-anchor="middle" fill="white" font-size="32" font-family="system-ui" font-weight="700">A</text></svg><div class="op-name">Andrea</div><div class="op-role">Operatore Olistico</div><div class="op-tags"><span class="op-tag">Theta Healing</span></div></div>
+  <div class="op-card"><svg class="op-avatar" viewBox="0 0 88 88"><circle cx="44" cy="44" r="44" fill="#5a3fd4"/><text x="44" y="58" text-anchor="middle" fill="white" font-size="32" font-family="system-ui" font-weight="700">V</text></svg><div class="op-name">Valentina</div><div class="op-role">Operatrice Olistica</div><div class="op-tags"><span class="op-tag">Cristalli</span></div></div>
+</div>
+</section>
+<section id="galleria" style="background:var(--surface)">
+<div class="sec-label">Momenti</div><h2 class="sec-title">Galleria</h2><p class="sec-sub">Momenti di crescita, condivisione e trasformazione dai nostri incontri.</p>
+<div class="gallery-grid">
+  <img src="./gal-1.jpg" alt="Galleria 1" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-2.jpg" alt="Galleria 2" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-3.jpg" alt="Galleria 3" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-4.jpg" alt="Galleria 4" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-5.jpg" alt="Galleria 5" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-6.jpg" alt="Galleria 6" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-7.jpg" alt="Galleria 7" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-8.jpg" alt="Galleria 8" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-9.jpg" alt="Galleria 9" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-10.jpg" alt="Galleria 10" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-11.jpg" alt="Galleria 11" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+  <img src="./gal-12.jpg" alt="Galleria 12" loading="lazy" onclick="openLb(this.src)" onerror="this.style.display='none'">
+</div>
+</section>
+<section id="discipline">
+<div class="sec-label">Pratiche</div><h2 class="sec-title">Le Nostre Discipline</h2><p class="sec-sub">Un ventaglio di pratiche per esplorare e trasformare la tua vita dall&rsquo;interno.</p>
+<div class="disc-full">
+  <details class="disc-item"><summary>&#128302; Guarigione Quantica</summary><div class="disc-body"><p>La Guarigione Quantica agisce simultaneamente sui tre corpi dell&rsquo;essere: Mentale, Fisico e Spirituale. Attraverso tecniche specifiche si lavora sulla trasmutazione emozionale e la connessione con il s&#233; superiore.</p></div></details>
+  <details class="disc-item"><summary>&#128156; Pranoterapia e Theta Healing</summary><div class="disc-body"><p>Tecniche di guarigione energetica profonda che lavorano sull&rsquo;energia vitale del corpo. La pranoterapia purifica e riequilibra i campi energetici, mentre il theta healing agisce sulle credenze limitanti.</p></div></details>
+  <details class="disc-item"><summary>&#127756; Karma e Reincarnazione</summary><div class="disc-body"><p>Studio e comprensione dei cicli vitali, delle leggi karmiche e del processo di reincarnazione. Un percorso di consapevolezza per comprendere il significato delle esperienze della vita presente.</p></div></details>
+  <details class="disc-item"><summary>&#128142; Cristalli e Pietre</summary><div class="disc-body"><p>I cristalli sono potenti strumenti di guarigione energetica. Ogni pietra ha specifiche propriet&#224; vibrazionali che possono supportare il processo di guarigione fisica, emotiva e spirituale.</p></div></details>
+  <details class="disc-item"><summary>&#128206; Tarocchi Intuitivi</summary><div class="disc-body"><p>I Tarocchi come specchio dell&rsquo;anima: non strumenti di divinazione ma archetipi simbolici per esplorare il proprio inconscio e trovare chiarezza nelle situazioni di vita.</p></div></details>
+  <details class="disc-item"><summary>&#128214; Registri Akashici</summary><div class="disc-body"><p>Accesso alla memoria universale dell&rsquo;anima. I Registri Akashici conservano tutte le esperienze di ogni essere vivente attraverso tutti i tempi e le dimensioni.</p></div></details>
+  <details class="disc-item"><summary>&#128162; Numerologia</summary><div class="disc-body"><p>La Mappa dei Talenti attraverso la numerologia rivela i doni innati, le sfide evolutive e il percorso di vita di ogni individuo attraverso l&rsquo;analisi della data di nascita e del nome.</p></div></details>
+  <details class="disc-item"><summary>&#127775; Angeli e Arcangeli</summary><div class="disc-body"><p>Il lavoro con gli Angeli e gli Arcangeli come guide e supporto nel percorso evolutivo. Tecniche di connessione, comunicazione e co-creazione con queste energie di luce.</p></div></details>
+</div>
+</section>
+<section id="faq">
+<div class="sec-label">Domande</div><h2 class="sec-title">Domande Frequenti</h2><p class="sec-sub">Tutto quello che vuoi sapere prima di partecipare.</p>
+<div class="faq-list">
+  <details class="faq-item"><summary>Ho bisogno di esperienza pregressa?</summary><div class="faq-body"><p>Assolutamente no! I nostri eventi accolgono persone di qualsiasi livello, dai principianti assoluti agli operatori olistici esperti. L&rsquo;importante &#232; portare curiosit&#224; e apertura.</p></div></details>
+  <details class="faq-item"><summary>Quanto dura un evento di gruppo?</summary><div class="faq-body"><p>Gli eventi di gruppo durano tipicamente una giornata intera, dalle 10:00 alle 18:00, incluso un pranzo condiviso.</p></div></details>
+  <details class="faq-item"><summary>Come ci si iscrive?</summary><div class="faq-body"><p>Puoi iscriverti contattando direttamente Stefano via WhatsApp al 342 303 3404 oppure via email. I posti sono limitati per garantire la qualit&#224; dell&rsquo;esperienza.</p></div></details>
+  <details class="faq-item"><summary>Qual &#232; il costo di partecipazione?</summary><div class="faq-body"><p>Il costo varia in base all&rsquo;evento. Contatta Stefano per avere informazioni aggiornate sui prezzi e sulle eventuali agevolazioni disponibili.</p></div></details>
+  <details class="faq-item"><summary>Cosa devo portare?</summary><div class="faq-body"><p>Abbigliamento comodo, un tappetino da yoga se ne hai uno, e una copertina leggera. Per il pranzo condiviso &#232; gradita una portata da condividere.</p></div></details>
+  <details class="faq-item"><summary>Gli eventi si tengono al coperto?</summary><div class="faq-body"><p>La maggior parte degli eventi si svolge in spazi al chiuso. Alcuni eventi estivi possono avere momenti all&rsquo;aperto. I dettagli sono sempre specificati nella scheda evento.</p></div></details>
+</div>
+</section>
+<section id="contatti">
+<div class="sec-label">Scrivici</div><h2 class="sec-title">Contattaci</h2><p class="sec-sub">Siamo felici di rispondere alle tue domande e accoglierti nel percorso.</p>
+<div class="contatti-grid">
+  <div>
+    <div class="contact-row"><span class="contact-icon">&#128172;</span><div class="contact-info"><small>WhatsApp</small><a href="https://wa.me/393423033404" target="_blank">+39 342 303 3404</a></div></div>
+    <div class="contact-row"><span class="contact-icon">&#9993;&#65039;</span><div class="contact-info"><small>Email</small><a href="mailto:percorsodicrescitalucca@gmail.com">percorsodicrescitalucca@gmail.com</a></div></div>
+    <div class="contact-row"><span class="contact-icon">&#128205;</span><div class="contact-info"><small>Sede</small><span>Via dei Cucchi 224/b, 55100 San Pietro a Vico, Lucca</span></div></div>
+    <div class="contact-note">Per informazioni su eventi, iscrizioni e collaborazioni, il modo pi&#249; veloce &#232; WhatsApp. Rispondiamo entro poche ore.</div>
+  </div>
+  <form onsubmit="handleForm(event)">
+    <label>Nome<input type="text" name="nome" placeholder="Il tuo nome" required></label>
+    <label>Email<input type="email" name="email" placeholder="La tua email" required></label>
+    <label>Messaggio<textarea name="msg" placeholder="Come possiamo aiutarti?" required></textarea></label>
+    <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center">Invia messaggio &#8594;</button>
+  </form>
+</div>
+</section>
+</main>
+<footer>
+<div class="shell">
+  <div class="footer-grid">
+    <div class="footer-brand"><strong style="font-size:clamp(.95rem,.9rem + .25vw,1.05rem)">Percorso di Crescita e Consapevolezza</strong><p>Un percorso di evoluzione personale e spirituale in tutta Italia.</p></div>
+    <div class="footer-col"><h4>Navigazione</h4><ul><li><a href="#chi-siamo">Chi Siamo</a></li><li><a href="#eventi">Eventi</a></li><li><a href="#operatori">Operatori</a></li><li><a href="#discipline">Discipline</a></li><li><a href="#galleria">Galleria</a></li><li><a href="#faq">FAQ</a></li></ul></div>
+    <div class="footer-col"><h4>Contatti</h4><ul><li><a href="https://wa.me/393423033404">WhatsApp</a></li><li><a href="mailto:percorsodicrescitalucca@gmail.com">Email</a></li><li><a href="/percorso-privacy-policy.html">Privacy Policy</a></li><li><a href="/percorso-cookie-policy.html">Cookie Policy</a></li></ul></div>
+  </div>
+  <div class="footer-bottom"><p>&copy; 2026 Percorso di Crescita e Consapevolezza &mdash; Stefano Balducci</p><p>Realizzato con &#10084;&#65039; in Italia</p></div>
+</div>
+</footer>
+<div class="bro-overlay" id="broOverlay" onclick="if(event.target===this)closeBro()">
+  <div class="bro-modal">
+    <div class="bro-head"><div><h2 id="broTitle">Brochure</h2><div style="font-size:clamp(.85rem,.8rem + .25vw,.95rem);color:var(--muted);margin-top:.2rem" id="broCity"></div></div><button class="bro-close" onclick="closeBro()">&#10005;</button></div>
+    <div class="bro-body"><div id="broMeta" class="bro-meta"></div><div><div class="bro-sec-lbl">Programma</div><div class="bro-prog"><ul id="broProg"></ul></div></div></div>
+    <div class="bro-foot"><a id="broWa" href="#" target="_blank" rel="noopener">&#128172; Contatta su WhatsApp</a></div>
+  </div>
+</div>
+<div class="lb-overlay" id="lbOverlay" onclick="closeLb()"><img id="lbImg" src="" alt=""></div>
+<div id="cookie-banner"><div class="cb-inner"><div style="flex:1;min-width:260px">&#127850; <strong>Questo sito usa cookie</strong> &mdash; tecnici e, con il tuo consenso, analitici. <a href="/percorso-cookie-policy.html">Cookie Policy</a></div><div style="display:flex;gap:.6rem"><button class="cb-no" onclick="cookieChoice(false)">Solo essenziali</button><button class="cb-yes" onclick="cookieChoice(true)">Accetta &#10003;</button></div></div></div>
+<script>
+(function(){
+var GA='G-7DJHR3QMX1';
+function loadGA(){if(window._gaL)return;window._gaL=1;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id='+GA;s.async=1;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function g(){dataLayer.push(arguments)}window.gtag=g;g('js',new Date());g('config',GA);}
+var consent=localStorage.getItem('cookie_consent');
+if(consent==='accepted')loadGA();
+else if(!consent)setTimeout(function(){var b=document.getElementById('cookie-banner');if(b)b.classList.add('visible');},900);
+window.cookieChoice=function(ok){localStorage.setItem('cookie_consent',ok?'accepted':'rejected');var b=document.getElementById('cookie-banner');if(b)b.classList.remove('visible');if(ok)loadGA();};
+var theme=localStorage.getItem('theme')||'light';
+document.documentElement.setAttribute('data-theme',theme);
+document.querySelectorAll('[data-theme-toggle]').forEach(function(btn){btn.addEventListener('click',function(){var t=document.documentElement.getAttribute('data-theme')==='dark'?'light':'dark';document.documentElement.setAttribute('data-theme',t);localStorage.setItem('theme',t);});});
+var mob=document.getElementById('mobBtn');
+if(mob)mob.addEventListener('click',function(){var h=document.getElementById('header');h.classList.toggle('open');});
+document.addEventListener('click',function(e){var h=document.getElementById('header');if(h&&!h.contains(e.target))h.classList.remove('open');});
+var target=new Date('2026-04-12T10:00:00');
+function tick(){var now=new Date(),diff=target-now;if(diff<0){var c=document.getElementById('countdown');if(c)c.style.display='none';return;}var d=Math.floor(diff/86400000),h=Math.floor(diff%86400000/3600000),m=Math.floor(diff%3600000/60000),s=Math.floor(diff%60000/1000);['cd-days','cd-hours','cd-mins','cd-secs'].forEach(function(id,i){var el=document.getElementById(id);if(el)el.textContent=[d,h,m,s][i];});}
+tick();setInterval(tick,1000);
+window.switchTab=function(id,btn){document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});var el=document.getElementById('tab-'+id);if(el)el.classList.add('active');if(btn)btn.classList.add('active');};
+window.svgAv=function(l,c){return "<svg class='op-avatar' viewBox='0 0 88 88'><circle cx='44' cy='44' r='44' fill='"+c+"'/><text x='44' y='58' text-anchor='middle' fill='white' font-size='32' font-family='system-ui' font-weight='700'>"+l+"</text></svg>";};
+var broData={
+  firenze:{title:'Firenze Quantica — 12 Aprile 2026',city:'Io sono il mio maestro',meta:'<strong>Dom 12 Aprile 2026 · 10:00–18:00</strong><br>📍 Circolo La Loggetta · Via Aretina 301, Firenze',program:['Guarigione Quantica di gruppo','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],wa:'Ciao+Stefano%2C+informazioni+Firenze+12+aprile'},
+  lucca:{title:'Lucca Quantica — 19 Aprile 2026',city:"Il risveglio dell'anima",meta:'<strong>Dom 19 Aprile 2026 · 10:00–18:00</strong><br>📍 Via Ludovica 1658 · Sesto di Moriano, Lucca',program:['Guarigione Quantica','Danza dei 7 Veli','Meditazione guidata','Pasto condiviso'],wa:'Ciao+Stefano%2C+informazioni+Lucca+19+aprile'},
+  piacenza:{title:'Piacenza Quantica — 30 Maggio 2026',city:'Io sono il mio maestro',meta:'<strong>Sab 30 Maggio 2026 · 10:00–18:00</strong><br>📍 Il Soffio Vitale · Piacenza',program:['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],wa:'Ciao+Stefano%2C+informazioni+Piacenza+30+maggio'},
+  vicenza:{title:'Vicenza Quantica — 31 Maggio 2026',city:'Io sono il mio maestro',meta:'<strong>Dom 31 Maggio 2026 · 10:00–18:00</strong><br>📍 Strada di Saviabona 328 · Vicenza',program:['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],wa:'Ciao+Stefano%2C+informazioni+Vicenza+31+maggio'}
+};
+window.openBro=function(id){var d=broData[id];if(!d)return;var el;el=document.getElementById('broTitle');if(el)el.textContent=d.title;el=document.getElementById('broCity');if(el)el.textContent=d.city;el=document.getElementById('broMeta');if(el)el.innerHTML=d.meta;el=document.getElementById('broProg');if(el)el.innerHTML=d.program.map(function(p){return'<li>'+p+'</li>';}).join('');el=document.getElementById('broWa');if(el)el.href='https://wa.me/393423033404?text='+d.wa;el=document.getElementById('broOverlay');if(el)el.classList.add('open');};
+window.closeBro=function(){var el=document.getElementById('broOverlay');if(el)el.classList.remove('open');};
+window.openLb=function(src){var i=document.getElementById('lbImg');var o=document.getElementById('lbOverlay');if(i)i.src=src;if(o)o.classList.add('open');};
+window.closeLb=function(){var o=document.getElementById('lbOverlay');if(o)o.classList.remove('open');};
+document.addEventListener('keydown',function(e){if(e.key==='Escape'){closeBro();closeLb();}});
+window.handleForm=function(e){e.preventDefault();var n=e.target.nome.value,em=e.target.email.value,msg=e.target.msg.value;window.open('https://wa.me/393423033404?text=Ciao+Stefano%2C+sono+'+encodeURIComponent(n)+'+('+encodeURIComponent(em)+')%3A+'+encodeURIComponent(msg),'_blank');};
+})();
+</script>
 </body>
 </html>
