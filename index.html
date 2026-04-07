@@ -14,7 +14,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Percorso di Crescita | Stefano Balducci">
   <meta name="twitter:image" content="https://percorsodicrescitalucca.it/hero.jpg">
-  <link rel="stylesheet" crossorigin="anonymous" href="./main.css"><link rel="stylesheet" crossorigin="anonymous" href="./main(1).css"><link rel="stylesheet" crossorigin="anonymous" href="./main(2).css"><script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Stefano Balducci","url":"https://percorsodicrescitalucca.it","telephone":"+393423033404","email":"percorsodicrescitalucca@gmail.com"}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Stefano Balducci","url":"https://percorsodicrescitalucca.it","telephone":"+393423033404","email":"percorsodicrescitalucca@gmail.com"}</script>
   
   
   
@@ -33,7 +33,6 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Stefano Balducci","jobTitle":"Spiritual Guide & Coach","url":"https://percorsodicrescitalucca.it","telephone":"+393423033404","address":{"@type":"PostalAddress","streetAddress":"Via dei Cucchi 224/b","addressLocality":"San Pietro a Vico, Lucca","postalCode":"55100","addressCountry":"IT"},"email":"percorsodicrescitalucca@gmail.com"}</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="Un percorso di crescita ed evoluzione personale e spirituale. Incontri mensili in Toscana, Veneto e tutta Italia.">
-<link href="./css" rel="stylesheet">
 <style>
 
 :root,[data-theme="light"]{
@@ -316,8 +315,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
   <script>
     function loadGA(){if(window._gaLoaded)return;window._gaLoaded=true;var s=document.createElement('script');s.src='https://www.googletagmanager.com/gtag/js?id=G-7DJHR3QMX1';s.async=true;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}window.gtag=gtag;gtag('js',new Date());gtag('config','G-7DJHR3QMX1');}
     if(localStorage.getItem('cookie_consent')==='accepted')loadGA();
-  </script><script src="./js" async=""></script><script src="./js(1)" async=""></script>
-
+  </script>
   
 </head>
 <body>
@@ -761,7 +759,7 @@ id="broCity"></div>
   </div>
 </div>
 
-<script data-cfasync="false" src="./email-decode.min.js.download"></script><script>
+<script>
 // TEMA
 (function(){
   var r=document.documentElement,b=document.querySelector("[data-theme-toggle]");
@@ -871,31 +869,42 @@ function openBro(id){
   <script>
     const broData = {
       firenze: {
-        img: 'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EB%3C/text%3E%3C/svg%3E""18:00</strong><br>📍 Circolo La Loggetta, Via Aretina 301, Firenze (FI)',
-        program: ['Tecniche di guarigione quantica','Trasmutazione emozionale','Connessione con il sé superiore','Pratiche sincronizzate di gruppo','Meditazioni guidate','Il pasto sarà condivisione di quello che porterà ogni partecipante'],
-        wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20sull%27evento%20di%20Firenze%20del%2012%20aprile',
+        img: 'https://guarigionequantica.eu/brochure-firenze.png',
+        title: 'Firenze Quantica — 12 Aprile 2026',
+        subtitle: 'Io sono il mio maestro',
+        meta: '<strong>📅 Dom 12 Aprile 2026 · 10:00–18:00</strong><br>📍 Circolo La Loggetta, Via Aretina 301, Firenze (FI)',
+        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
+        wa: 'Ciao%20Stefano%2C%20informazioni%20Firenze%2012%20aprile',
         staff: 'base'
       },
       lucca: {
-        img: 'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EB%3C/text%3E%3C/svg%3E"Il risveglio dell'anima",
-        meta: '<strong>📅 Domenica 19 aprile 2026 · 10:00""18:00</strong><br>📍 Via Ludovica 1658, Sesto di Moriano, Lucca (LU)',
-        program: ['Guarigione quantica di gruppo','Danza libera "" i 7 veli dell'essenza','Meditazione guidata','Pratiche quantiche','Riequilibrio chakra','Il pasto sarà condivisione di quello che porterà ogni partecipante'],
-        wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20sull%27evento%20di%20Lucca%20del%2019%20aprile',
-        staff: 'lucca'
+        img: 'https://guarigionequantica.eu/brochure-lucca.png',
+        title: 'Lucca Quantica — 19 Aprile 2026',
+        subtitle: 'Il risveglio dell\'anima',
+        meta: '<strong>📅 Dom 19 Aprile 2026 · 10:00–18:00</strong><br>📍 Via Ludovica 1658, Sesto di Moriano, Lucca (LU)',
+        program: ['Guarigione Quantica','Danza dei 7 Veli','Meditazione guidata','Pasto condiviso'],
+        wa: 'Ciao%20Stefano%2C%20informazioni%20Lucca%2019%20aprile',
+        staff: 'base'
       },
       piacenza: {
-        img: 'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EB%3C/text%3E%3C/svg%3E""18:00</strong><br>📍 Il Soffio Vitale, Piacenza (PC)',
-        program: ['Tecniche di guarigione quantica','Trasmutazione emozionale','Connessione con il sé superiore','Pratiche sincronizzate di gruppo','Meditazioni guidate'],
-        wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20sull%27evento%20di%20Piacenza%20del%2030%20maggio',
+        img: 'https://guarigionequantica.eu/brochure-piacenza.png',
+        title: 'Piacenza Quantica — 30 Maggio 2026',
+        subtitle: 'Io sono il mio maestro',
+        meta: '<strong>📅 Sab 30 Maggio 2026 · 10:00–18:00</strong><br>📍 Il Soffio Vitale, Piacenza (PC)',
+        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
+        wa: 'Ciao%20Stefano%2C%20informazioni%20Piacenza%2030%20maggio',
         staff: 'base'
       },
       vicenza: {
-        img: 'data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EB%3C/text%3E%3C/svg%3E""18:00</strong><br>📍 Strada di Saviabona 328, Vicenza (VI)',
-        program: ['Tecniche di guarigione quantica','Pratiche sincronizzate','Meditazioni guidate','Pranzo condiviso','Condivisione e integrazione pomeridiana'],
-        wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20sull%27evento%20di%20Vicenza%20del%2031%20maggio',
+        img: 'https://guarigionequantica.eu/brochure-vicenza.png',
+        title: 'Vicenza Quantica — 31 Maggio 2026',
+        subtitle: 'Io sono il mio maestro',
+        meta: '<strong>📅 Dom 31 Maggio 2026 · 10:00–18:00</strong><br>📍 Strada di Saviabona 328, Vicenza (VI)',
+        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
+        wa: 'Ciao%20Stefano%2C%20informazioni%20Vicenza%2031%20maggio',
         staff: 'base'
       }
-    };
+    }
 
     const staffBase = `<div class="bro-staff-grid">
       <div class="bro-staff-item"><img class="bro-av" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3ES%3C/text%3E%3C/svg%3E" alt="Stefano"><div><span class="bro-staff-name">Stefano Balducci</span><span class="bro-staff-role">Operatore</span></div></div>
