@@ -867,64 +867,111 @@ function openBro(id){
   
 
   <script>
-    const broData = {
-      firenze: {
-        img: 'https://guarigionequantica.eu/brochure-firenze.png',
-        title: 'Firenze Quantica — 12 Aprile 2026',
-        subtitle: 'Io sono il mio maestro',
-        meta: '<strong>📅 Dom 12 Aprile 2026 · 10:00–18:00</strong><br>📍 Circolo La Loggetta, Via Aretina 301, Firenze (FI)',
-        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
-        wa: 'Ciao%20Stefano%2C%20informazioni%20Firenze%2012%20aprile',
-        staff: 'base'
-      },
-      lucca: {
-        img: 'https://guarigionequantica.eu/brochure-lucca.png',
-        title: 'Lucca Quantica — 19 Aprile 2026',
-        subtitle: 'Il risveglio dell\'anima',
-        meta: '<strong>📅 Dom 19 Aprile 2026 · 10:00–18:00</strong><br>📍 Via Ludovica 1658, Sesto di Moriano, Lucca (LU)',
-        program: ['Guarigione Quantica','Danza dei 7 Veli','Meditazione guidata','Pasto condiviso'],
-        wa: 'Ciao%20Stefano%2C%20informazioni%20Lucca%2019%20aprile',
-        staff: 'base'
-      },
-      piacenza: {
-        img: 'https://guarigionequantica.eu/brochure-piacenza.png',
-        title: 'Piacenza Quantica — 30 Maggio 2026',
-        subtitle: 'Io sono il mio maestro',
-        meta: '<strong>📅 Sab 30 Maggio 2026 · 10:00–18:00</strong><br>📍 Il Soffio Vitale, Piacenza (PC)',
-        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
-        wa: 'Ciao%20Stefano%2C%20informazioni%20Piacenza%2030%20maggio',
-        staff: 'base'
-      },
-      vicenza: {
-        img: 'https://guarigionequantica.eu/brochure-vicenza.png',
-        title: 'Vicenza Quantica — 31 Maggio 2026',
-        subtitle: 'Io sono il mio maestro',
-        meta: '<strong>📅 Dom 31 Maggio 2026 · 10:00–18:00</strong><br>📍 Strada di Saviabona 328, Vicenza (VI)',
-        program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
-        wa: 'Ciao%20Stefano%2C%20informazioni%20Vicenza%2031%20maggio',
-        staff: 'base'
-      }
+  // ── Tab switching ──────────────────────────────────────────────
+  function switchTab(id, btn) {
+    document.querySelectorAll('.tab-content').forEach(function(t){t.classList.remove('active');});
+    document.querySelectorAll('.tab-btn').forEach(function(b){b.classList.remove('active');});
+    var el = document.getElementById('tab-'+id);
+    if (el) el.classList.add('active');
+    if (btn) btn.classList.add('active');
+  }
+
+  // ── Countdown ──────────────────────────────────────────────────
+  (function(){
+    var target = new Date('2026-04-12T10:00:00');
+    function update(){
+      var now = new Date(), diff = target - now;
+      if (diff < 0) { document.getElementById('countdown').style.display='none'; return; }
+      var d=Math.floor(diff/86400000), h=Math.floor(diff%86400000/3600000),
+          m=Math.floor(diff%3600000/60000), s=Math.floor(diff%60000/1000);
+      var cd = document.getElementById('cd-days');
+      var ch = document.getElementById('cd-hours');
+      var cm = document.getElementById('cd-mins');
+      var cs = document.getElementById('cd-secs');
+      if(cd) cd.textContent=d;
+      if(ch) ch.textContent=h;
+      if(cm) cm.textContent=m;
+      if(cs) cs.textContent=s;
     }
+    update(); setInterval(update,1000);
+  })();
 
-    const staffBase = `<div class="bro-staff-grid">
-      <div class="bro-staff-item"><img class="bro-av" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3ES%3C/text%3E%3C/svg%3E" alt="Stefano"><div><span class="bro-staff-name">Stefano Balducci</span><span class="bro-staff-role">Operatore</span></div></div>
-      <div class="bro-staff-item"><img class="bro-av" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EP%3C/text%3E%3C/svg%3E" alt="Paolo"><div><span class="bro-staff-name">Paolo Bardi</span><span class="bro-staff-role">Operatore</span></div></div>
-      <div class="bro-staff-item"><img class="bro-av" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Ccircle cx='100' cy='100' r='100' fill='%238b82e8'/%3E%3Ctext x='100' y='128' text-anchor='middle' fill='white' font-size='80' font-family='system-ui' font-weight='600'%3EM%3C/text%3E%3C/svg%3E" alt="Miretta"><div><span class="bro-staff-name">Miretta Frediani</span><span class="bro-staff-role">Operatrice</span></div></div>
-    </div>`;
+  // ── Mobile nav ─────────────────────────────────────────────────
+  var mobBtn = document.getElementById('mobBtn');
+  if(mobBtn) mobBtn.addEventListener('click', function(){
+    document.getElementById('header').classList.toggle('open');
+    mobBtn.setAttribute('aria-expanded', document.getElementById('header').classList.contains('open'));
+  });
 
-    const staffLucca = staffBase + `<div class="bro-staff-grid" style="margin-top:.5rem">
-      <div class="bro-staff-item"><img class="bro-av" src="./federica.jpg" alt="Federica"><div><span class="bro-staff-name">Federica</span><span class="bro-staff-role">Operatrice</span></div></div>
-    </div>`;
+  // ── Theme toggle ───────────────────────────────────────────────
+  (function(){
+    var saved = localStorage.getItem('theme') || 'light';
+    document.documentElement.setAttribute('data-theme', saved);
+    document.querySelectorAll('[data-theme-toggle]').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var t = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', t);
+        localStorage.setItem('theme', t);
+      });
+    });
+  })();
 
-    function openBro(id) {
-      const d = broData[id];
-      document.getElementById('broCity').textContent = d.city;
-      document.getElementById('broTitle').textContent = d.title;
-      document.getElementById('broMeta').innerHTML = d.meta;
-      document.getElementById('broProgram').innerHTML = d.program.map(i => '<li>'+i+'</li>').join('');
-      document.getElementById('broStaff').innerHTML = d.staff === 'lucca' ? staffLucca : staffBase;
-      document.getElementById('broWa').href = 'https://wa.me/393
-</body>
+  // ── Brochure data ──────────────────────────────────────────────
+  var broData = {
+    firenze: {
+      title: 'Firenze Quantica — 12 Aprile 2026',
+      subtitle: 'Io sono il mio maestro',
+      img: 'https://guarigionequantica.eu/brochure-firenze.png',
+      meta: '<strong>Dom 12 Aprile 2026 · 10:00–18:00</strong><br>📍 Circolo La Loggetta · Via Aretina 301, Firenze (FI)',
+      program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso in cerchio'],
+      wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20per%20Firenze%2012%20aprile'
+    },
+    lucca: {
+      title: 'Lucca Quantica — 19 Aprile 2026',
+      subtitle: "Il risveglio dell'anima",
+      img: 'https://guarigionequantica.eu/brochure-lucca.png',
+      meta: '<strong>Dom 19 Aprile 2026 · 10:00–18:00</strong><br>📍 Via Ludovica 1658 · Sesto di Moriano, Lucca (LU)',
+      program: ['Guarigione Quantica','Danza dei 7 Veli','Meditazione guidata','Pasto condiviso'],
+      wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20per%20Lucca%2019%20aprile'
+    },
+    piacenza: {
+      title: 'Piacenza Quantica — 30 Maggio 2026',
+      subtitle: 'Io sono il mio maestro',
+      img: 'https://guarigionequantica.eu/brochure-piacenza.png',
+      meta: '<strong>Sab 30 Maggio 2026 · 10:00–18:00</strong><br>📍 Il Soffio Vitale · Piacenza (PC)',
+      program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
+      wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20per%20Piacenza%2030%20maggio'
+    },
+    vicenza: {
+      title: 'Vicenza Quantica — 31 Maggio 2026',
+      subtitle: 'Io sono il mio maestro',
+      img: 'https://guarigionequantica.eu/brochure-vicenza.png',
+      meta: '<strong>Dom 31 Maggio 2026 · 10:00–18:00</strong><br>📍 Strada di Saviabona 328 · Vicenza (VI)',
+      program: ['Guarigione Quantica','Trasmutazione emozionale','Meditazioni guidate','Pasto condiviso'],
+      wa: 'Ciao%20Stefano%2C%20vorrei%20informazioni%20per%20Vicenza%2031%20maggio'
+    }
+  };
 
+  // ── Brochure modal ─────────────────────────────────────────────
+  function openBro(id) {
+    var d = broData[id];
+    if (!d) return;
+    var el;
+    el = document.getElementById('broTitle');   if(el) el.textContent = d.title || '';
+    el = document.getElementById('broCity');    if(el) el.textContent = d.subtitle || '';
+    el = document.getElementById('broImg');
+    if(el){ el.src = d.img || ''; el.style.display = d.img ? 'block' : 'none'; }
+    el = document.getElementById('broMeta');    if(el) el.innerHTML = d.meta || '';
+    el = document.getElementById('broProg');
+    if(el && d.program){ el.innerHTML = d.program.map(function(p){return '<li>'+p+'</li>';}).join(''); }
+    el = document.getElementById('broWa');
+    if(el) el.href = 'https://wa.me/393423033404?text=' + (d.wa || '');
+    el = document.getElementById('broOverlay'); if(el) el.classList.add('open');
+  }
+  function closeBro() {
+    var el = document.getElementById('broOverlay');
+    if(el) el.classList.remove('open');
+  }
 </script>
-</body></html>
+</body>
+</html>
