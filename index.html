@@ -88,9 +88,19 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 45%;
   z-index: 0;
-  filter: brightness(0.55);
+  filter: brightness(0.48) saturate(1.1);
+}
+
+.hero-latin {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: .12em;
+  margin-bottom: 1.2rem;
+  margin-top: -.8rem;
 }
 .hero-text {
   position: relative; z-index: 1;
@@ -717,7 +727,17 @@ footer .footer-links a:hover { color: var(--sage); }
   .hamburger { display: flex; }
   #hero { grid-template-columns: 1fr; }
   .hero-visual { height: 55vw; min-height: 260px; }
-  .hero-text { padding: 2rem 1.4rem; }
+  
+.hero-latin {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: .95rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: .12em;
+  margin-bottom: 1.2rem;
+  margin-top: -.8rem;
+}
+.hero-text { padding: 2rem 1.4rem; }
   #about, #contatti { grid-template-columns: 1fr; gap: 2rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
   .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
@@ -745,9 +765,10 @@ footer .footer-links a:hover { color: var(--sage); }
 </nav>
 
 <section id="hero">
-  <img src="Scala.jpg" class="hero-bg" alt="Percorso di crescita verso la luce">
+  <img src="hero.jpg" class="hero-bg" alt="Difficilia Quae Pulchra">
   <div class="hero-text">
     <span class="hero-eyebrow">✦ Toscana · Emilia-Romagna · Veneto · e tutta Italia</span>
+    <div class="hero-latin"><em>Difficilia Quae Pulchra</em></div>
     <h1 class="hero-title">Un <em>cammino</em><br>verso te stesso</h1>
     <p class="hero-sub">Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore, attraverso eventi, pratiche energetiche e incontri con professionisti del benessere.</p>
     <div class="btn-group" style="justify-content:center">
@@ -998,6 +1019,7 @@ const OPERATORI = [
   },
   {
     nome: "Silvia",
+    fotoPos: "center 20%",
     ruolo: "Operatrice del Benessere",
     bio: "Accompagna le persone in percorsi di ascolto e consapevolezza attraverso Numerologia, Tarocco simbolico e trattamenti energetici.",
     tags: ["Numerologia", "Tarocco simbolico", "Trattamenti energetici"],
@@ -1194,7 +1216,7 @@ const EVENTI_PASSATI = [
 document.getElementById('operatoriGrid').innerHTML = OPERATORI.map(op => `
   <div class="operator-card reveal">
     ${op.foto
-      ? `<img src="${op.foto}" class="op-photo" alt="${op.nome}" loading="lazy">`
+      ? `<img src="${op.foto}" class="op-photo" alt="${op.nome}" loading="lazy" style="${op.fotoPos ? 'object-position:'+op.fotoPos : ''}">`
       : `<div class="op-photo-placeholder">\u{1F464}</div>`}
     <div class="op-info">
       <div class="op-name">${op.nome}</div>
