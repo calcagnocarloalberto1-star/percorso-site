@@ -43,11 +43,11 @@ nav {
 nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem;
+  font-size: .95rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: .02em;
+  letter-spacing: .01em;
 }
 .nav-logo span { color: var(--sage); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -577,11 +577,11 @@ footer {
 }
 footer .logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: white;
   font-weight: 600;
 }
-footer .logo span { color: var(--sage); }
+footer .logo span { color: var(--sage); font-size: 1.1rem; }
 footer p { font-size: .82rem; }
 footer .footer-links { display: flex; gap: 1.5rem; }
 footer .footer-links a {
@@ -731,7 +731,7 @@ footer .footer-links a:hover { color: var(--sage); }
 <!-- NAV -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Percorso di <span>Crescita</span></a>
+    <a href="#hero" class="nav-logo">Percorso di <span>Crescita e Consapevolezza</span></a>
     <ul class="nav-links">
       <li><a href="#operatori">Operatori</a></li>
       <li><a href="#eventi">Eventi</a></li>
@@ -882,7 +882,7 @@ footer .footer-links a:hover { color: var(--sage); }
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="logo">Percorso di <span>Crescita</span></div>
+    <div class="logo">Percorso di <span>Crescita e Consapevolezza</span></div>
     <p style="margin-top:.4rem">© 2026 Stefano Balducci — Percorso di Crescita e Consapevolezza</p>
   </div>
   <div class="footer-links">
@@ -1065,6 +1065,18 @@ const EVENTI_GRUPPO = [
     brochure: "brochure-piacenza-quantica.pdf",
     programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
     wa: "Ciao, vorrei informazioni su Piacenza Quantica del 30 Maggio 2026"
+  },
+  {
+    titolo: "Vicenza Quantica", sottotitolo: "Guarigione Quantica di Gruppo",
+    data: "Dom 31 Maggio 2026 · 10:00–18:00",
+    luogo: "Strada di Saviabona 328, Vicenza",
+    indirizzo: "Strada di Saviabona 328, Vicenza (VI)", city: "Vicenza",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Collage_Vicenza.jpg/960px-Collage_Vicenza.jpg",
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Il pranzo è in condivisione: ognuno porta qualcosa da gustare insieme.",
+    tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata"],
+    programma: ["Tecniche di guarigione quantica", "Pratiche sincronizzate di gruppo", "Meditazioni guidate", "Pranzo condiviso", "Condivisione e integrazione pomeridiana"],
+    brochure: "brochure-piacenza-quantica.pdf",
+    wa: "Ciao, vorrei informazioni su Vicenza Quantica del 31 Maggio 2026"
   },
   {
     titolo: "Impastando e Meditando", sottotitolo: "Pizza e percorso olistico",
