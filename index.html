@@ -1214,7 +1214,8 @@ const EVENTI_GRUPPO = [
     data: "Dom 31 Maggio 2026 · 10:00–18:00",
     luogo: "Strada di Saviabona 328, Vicenza",
     indirizzo: "Strada di Saviabona 328, Vicenza (VI)", city: "Vicenza",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Collage_Vicenza.jpg/960px-Collage_Vicenza.jpg",
+    img: "Vicenza.jpg",
+    imgPos: "center 50%",
     desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Il pranzo è in condivisione: ognuno porta qualcosa da gustare insieme.",
     tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata"],
     programma: ["Tecniche di guarigione quantica", "Pratiche sincronizzate di gruppo", "Meditazioni guidate", "Pranzo condiviso", "Condivisione e integrazione pomeridiana"],
@@ -1226,7 +1227,8 @@ const EVENTI_GRUPPO = [
     titolo: "Impastando e Meditando", sottotitolo: "Pizza e percorso olistico",
     data: "Settembre 2026 \xb7 data in definizione", luogo: "Teresa Country House, Villaverla (VI)",
     indirizzo: "Teresa Country House, Villaverla (VI)", city: "Vicenza",
-    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Collage_Vicenza.jpg/960px-Collage_Vicenza.jpg",
+    img: "Vicenza.jpg",
+    imgPos: "center 50%",
     desc: "Due giorni unici in cui impastare diventa un atto meditativo e la convivialit\u00e0 nutre l\u2019anima.",
     tags: ["Theta Healing", "Reiki", "Cristalli", "Convivialit\u00e0"],
     brochure: "brochure-impastando-meditando.pdf",
@@ -1351,7 +1353,7 @@ function renderEventCard(ev, pastStyle='') {
   <div class="event-card has-cover reveal" style="${pastStyle}">
     ${ev.img ? `
     <div class="event-cover">
-      <img src="${ev.img}" alt="${ev.city || ev.luogo}" loading="lazy">
+      <img src="${ev.img}" alt="${ev.city || ev.luogo}" loading="lazy" style="${ev.imgPos ? 'object-position:'+ev.imgPos : ''}">
       <div class="event-cover-overlay"></div>
       <span class="city-badge">📍 ${ev.city || ev.luogo}</span>
     </div>` : ''}
