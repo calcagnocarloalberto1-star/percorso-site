@@ -73,14 +73,26 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
 /* ─── HERO ─── */
 #hero {
   min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  position: relative;
+  display: flex;
   align-items: center;
+  justify-content: center;
+  text-align: center;
   padding-top: 80px;
   overflow: hidden;
 }
+.hero-bg {
+  position: absolute; inset: 0;
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  z-index: 0;
+  filter: brightness(0.55);
+}
 .hero-text {
-  padding: 4rem 3rem 4rem 6vw;
+  position: relative; z-index: 1;
+  padding: 3rem 2rem;
+  max-width: 680px;
   animation: fadeUp .9s ease both;
 }
 .hero-eyebrow {
@@ -89,101 +101,66 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
   font-weight: 500;
   letter-spacing: .14em;
   text-transform: uppercase;
-  color: var(--sage);
-  background: rgba(143,173,138,0.12);
+  color: rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.15);
   padding: .35rem .9rem;
   border-radius: 9999px;
   margin-bottom: 1.5rem;
 }
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  font-size: clamp(2.8rem, 6vw, 5rem);
   font-weight: 600;
   line-height: 1.1;
-  color: var(--ink);
+  color: white;
   margin-bottom: 1.5rem;
 }
 .hero-title em {
   font-style: italic;
-  color: var(--clay);
+  color: #c8e6c4;
 }
 .hero-sub {
   font-size: 1.05rem;
-  color: var(--warm);
+  color: rgba(255,255,255,0.82);
   line-height: 1.8;
-  max-width: 460px;
-  margin-bottom: 2.5rem;
+  max-width: 520px;
+  margin: 0 auto 2.5rem;
 }
-.btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+.hero-visual { display: none; }
+.hero-badge { display: none; }
 .btn-primary {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .85rem 2rem;
-  background: var(--ink);
-  color: white;
+  background: white;
+  color: var(--ink);
   border-radius: 9999px;
   text-decoration: none;
   font-weight: 500;
   font-size: .95rem;
   transition: background .2s, transform .2s;
 }
-.btn-primary:hover { background: var(--clay); transform: translateY(-2px); }
+.btn-primary:hover { background: var(--sage); color: white; transform: translateY(-2px); }
 .btn-secondary {
   display: inline-flex; align-items: center; gap: .5rem;
   padding: .85rem 2rem;
   background: transparent;
-  color: var(--ink);
-  border: 1.5px solid var(--sage);
+  color: white;
+  border: 1.5px solid rgba(255,255,255,0.6);
   border-radius: 9999px;
   text-decoration: none;
   font-weight: 500;
   font-size: .95rem;
   transition: all .2s;
 }
-.btn-secondary:hover { background: var(--sage); color: white; }
-.hero-visual {
-  height: 100vh;
-  position: relative;
-  overflow: hidden;
-  animation: fadeIn 1.2s ease both;
-}
-.hero-visual::before {
-  content: '';
-  position: absolute; inset: 0;
-  background: linear-gradient(135deg, #c4845a22 0%, #8fad8a44 50%, #c4845a22 100%);
-  z-index: 1;
-}
-.hero-bg {
-  width: 100%; height: 100%;
-  object-fit: cover;
-  filter: saturate(0.8) brightness(0.92);
-}
-.hero-badge {
-  position: absolute;
-  bottom: 3rem; left: -2rem;
-  background: white;
-  border-radius: var(--radius);
-  padding: 1.2rem 1.5rem;
-  box-shadow: 0 8px 32px rgba(30,26,20,0.12);
-  z-index: 2;
-  animation: floatIn 1s .4s ease both;
-  max-width: 220px;
-}
-.hero-badge .badge-num {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--clay);
-  line-height: 1;
-}
-.hero-badge .badge-label {
-  font-size: .78rem;
-  color: var(--warm);
-  margin-top: .25rem;
-  line-height: 1.4;
-}
+.btn-secondary:hover { background: rgba(255,255,255,0.15); }
 
 /* ─── SECTION BASE ─── */
 section { padding: 6rem 6vw; }
+section:not(#hero) { max-width: 1400px; margin-left: auto; margin-right: auto; width: 100%; }
+/* wrapper for full-width bg sections */
+#operatori, #galleria { background: var(--cream); }
+#eventi, #contatti { background: var(--light); }
+#meditazioni { background: var(--ink); }
 .section-tag {
   font-size: .75rem;
   letter-spacing: .15em;
@@ -666,22 +643,15 @@ footer .footer-links a:hover { color: var(--sage); }
   </div>
 </nav>
 
-<!-- HERO -->
 <section id="hero">
+  <img src="Scala.jpg" class="hero-bg" alt="Percorso di crescita verso la luce">
   <div class="hero-text">
-    <span class="hero-eyebrow">✦ Dal 2015 con passione</span>
+    <span class="hero-eyebrow">✦ Toscana · Emilia-Romagna · Veneto · e tutta Italia</span>
     <h1 class="hero-title">Un <em>cammino</em><br>verso te stesso</h1>
-    <p class="hero-sub">Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore, attraverso eventi, meditazioni guidate e incontri con professionisti del benessere.</p>
-    <div class="btn-group">
+    <p class="hero-sub">Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore, attraverso eventi, pratiche energetiche e incontri con professionisti del benessere.</p>
+    <div class="btn-group" style="justify-content:center">
       <a href="#eventi" class="btn-primary">🌿 Scopri gli eventi</a>
-      <a href="#about" class="btn-secondary">Chi siamo</a>
-    </div>
-  </div>
-  <div class="hero-visual">
-    <img src="Scala.jpg" class="hero-bg" alt="Percorso di crescita verso la luce">
-    <div class="hero-badge">
-      <div class="badge-num">10+</div>
-      <div class="badge-label">anni di percorsi di crescita personale</div>
+      <a href="#operatori" class="btn-secondary">Il nostro team</a>
     </div>
   </div>
 </section>
