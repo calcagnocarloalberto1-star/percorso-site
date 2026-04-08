@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Connessione con le Guide Spirituali — Percorso di Crescita</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --sage:   #8fad8a;
+    --sage2:  #6b9466;
+    --clay:   #c4845a;
+    --cream:  #faf7f2;
+    --ink:    #1e1a14;
+    --mist:   #ede8e0;
+    --warm:   #6b5340;
+    --light:  #f5f0e8;
+  }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: #e8e4dc;
+    color: var(--ink);
+    padding: 2rem;
+    min-height: 100vh;
+  }
+
+  .page {
+    max-width: 794px;
+    margin: 0 auto;
+    background: var(--cream);
+    box-shadow: 0 8px 48px rgba(30,26,20,0.18);
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+  }
+  .hero-img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
+    filter: brightness(0.62) saturate(0.85);
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(30,26,20,0.1) 0%, rgba(30,26,20,0.65) 100%);
+  }
+  .hero-content {
+    position: absolute; bottom: 2.2rem; left: 2.5rem; right: 2.5rem;
+    color: white;
+  }
+  .brand-tag {
+    display: inline-flex; align-items: center; gap: .5rem;
+    font-size: .7rem; font-weight: 500; letter-spacing: .14em;
+    text-transform: uppercase; color: rgba(255,255,255,.75);
+    margin-bottom: .8rem;
+  }
+  .brand-tag::before {
+    content: '';
+    display: inline-block; width: 28px; height: 1.5px;
+    background: var(--sage);
+  }
+  .hero-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.6rem; font-weight: 600; line-height: 1.1;
+    margin-bottom: .5rem;
+  }
+  .hero-subtitle {
+    font-size: .9rem; opacity: .85; font-style: italic;
+    font-family: 'Cormorant Garamond', serif; font-size: 1.1rem;
+  }
+
+  /* ── INFO STRIP ── */
+  .info-strip {
+    background: var(--ink);
+    display: grid; grid-template-columns: 1fr 1fr 1fr;
+    padding: 1.1rem 2.5rem; gap: 1rem;
+  }
+  .info-item {
+    color: white;
+  }
+  .info-label {
+    font-size: .65rem; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--sage); margin-bottom: .2rem; font-weight: 500;
+  }
+  .info-value {
+    font-size: .88rem; font-weight: 400; line-height: 1.4;
+    color: rgba(255,255,255,.9);
+  }
+
+  /* ── BODY ── */
+  .body {
+    padding: 2.5rem 2.5rem 0;
+  }
+
+  /* ── INTRO ── */
+  .intro-text {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem; line-height: 1.75; color: var(--warm);
+    border-left: 3px solid var(--sage);
+    padding-left: 1.2rem;
+    margin-bottom: 2rem;
+    font-style: italic;
+  }
+  .body-text {
+    font-size: .9rem; line-height: 1.85; color: #4a3e32;
+    margin-bottom: 1.2rem; text-align: justify;
+  }
+
+  /* ── SECTION ── */
+  .section {
+    margin-bottom: 2rem;
+    padding-top: 1.8rem;
+    border-top: 1px solid var(--mist);
+  }
+  .section-eyebrow {
+    font-size: .65rem; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--sage); font-weight: 500; margin-bottom: .4rem;
+  }
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.6rem; font-weight: 600; color: var(--ink);
+    margin-bottom: 1rem; line-height: 1.2;
+  }
+
+  /* ── PROGRAMMA GRID ── */
+  .program-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: .7rem; margin-bottom: 1.2rem;
+  }
+  .program-item {
+    display: flex; align-items: flex-start; gap: .6rem;
+    background: var(--light);
+    border-radius: 8px;
+    padding: .7rem .9rem;
+    border-left: 3px solid var(--sage);
+  }
+  .program-dot {
+    width: 6px; height: 6px; border-radius: 50%;
+    background: var(--clay); flex-shrink: 0; margin-top: 6px;
+  }
+  .program-text {
+    font-size: .82rem; color: var(--warm); line-height: 1.45; font-weight: 500;
+  }
+
+  /* ── OBIETTIVI ── */
+  .obiettivi-list {
+    display: flex; flex-direction: column; gap: .5rem;
+  }
+  .obiettivo-item {
+    display: flex; align-items: flex-start; gap: .7rem;
+    padding: .6rem 0;
+    border-bottom: 1px solid rgba(143,173,138,.2);
+  }
+  .obiettivo-item:last-child { border-bottom: none; }
+  .obiettivo-num {
+    width: 22px; height: 22px; border-radius: 50%;
+    background: var(--sage); color: white;
+    font-size: .68rem; font-weight: 600;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0; margin-top: 1px;
+  }
+  .obiettivo-text {
+    font-size: .85rem; color: var(--warm); line-height: 1.5; text-align: justify;
+  }
+
+  /* ── TECNICHE ── */
+  .tecniche-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: .6rem;
+  }
+  .tecnica-card {
+    background: white; border-radius: 10px;
+    border: 1px solid var(--mist);
+    padding: .9rem 1rem;
+  }
+  .tecnica-icon {
+    width: 28px; height: 28px; border-radius: 6px;
+    background: rgba(143,173,138,.15);
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: .5rem; font-size: 14px;
+  }
+  .tecnica-title {
+    font-size: .8rem; font-weight: 500; color: var(--ink);
+    margin-bottom: .25rem;
+  }
+  .tecnica-desc {
+    font-size: .75rem; color: var(--warm); line-height: 1.45; text-align: justify;
+  }
+
+  /* ── OPERATORI ── */
+  .operatori-section {
+    background: var(--ink);
+    padding: 2rem 2.5rem;
+    margin-top: 2rem;
+  }
+  .operatori-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.3rem; font-weight: 600; color: white;
+    margin-bottom: .4rem;
+  }
+  .operatori-sub {
+    font-size: .78rem; color: rgba(255,255,255,.5);
+    margin-bottom: 1.5rem; line-height: 1.5;
+  }
+  .operatori-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+  .op-card {
+    background: rgba(255,255,255,.06);
+    border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .op-photo {
+    width: 100%; height: 90px;
+    object-fit: cover; object-position: center top;
+    display: block;
+    filter: grayscale(20%) brightness(0.9);
+  }
+  .op-info {
+    padding: .6rem .7rem;
+  }
+  .op-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: .95rem; font-weight: 600; color: white;
+    margin-bottom: .1rem;
+  }
+  .op-role {
+    font-size: .65rem; color: var(--sage);
+    text-transform: uppercase; letter-spacing: .05em; font-weight: 500;
+    margin-bottom: .35rem;
+  }
+  .op-tags {
+    display: flex; flex-wrap: wrap; gap: 3px;
+  }
+  .op-tag {
+    font-size: .6rem; background: rgba(143,173,138,.18);
+    color: rgba(255,255,255,.6); border-radius: 4px;
+    padding: 1px 5px;
+  }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: var(--light);
+    padding: 1.4rem 2.5rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--mist);
+  }
+  .footer-brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem; font-weight: 600; color: var(--ink);
+  }
+  .footer-brand span { color: var(--sage); }
+  .footer-contact {
+    text-align: right;
+  }
+  .footer-contact-label {
+    font-size: .65rem; text-transform: uppercase; letter-spacing: .1em;
+    color: var(--warm); margin-bottom: .2rem;
+  }
+  .footer-contact-value {
+    font-size: .88rem; font-weight: 500; color: var(--ink);
+  }
+  .footer-divider {
+    width: 1px; height: 36px; background: var(--mist);
+  }
+  .footer-email {
+    font-size: .78rem; color: var(--warm); margin-top: .15rem;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; max-width: 100%; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="hero-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santi_Michele_e_Francesco_30.jpg/960px-Santi_Michele_e_Francesco_30.jpg"
+      alt="Carmignano, Prato">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="brand-tag">Percorso di Crescita e Consapevolezza</div>
+      <h1 class="hero-title">Connessione con le<br>Guide Spirituali</h1>
+      <div class="hero-subtitle">Corso 1° livello base</div>
+    </div>
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-label">📅 Data</div>
+      <div class="info-value">Domenica 17 Maggio 2026<br>10:00 – 18:00</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">📍 Luogo</div>
+      <div class="info-value">Villa Macia, Comeana (PO)<br>Via Macia 102, Carmignano</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">💬 Iscrizioni</div>
+      <div class="info-value">WhatsApp Stefano<br>342 303 3404</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- INTRO -->
+    <blockquote class="intro-text">
+      Il dialogo con le proprie guide spirituali è un tema affascinante e intimo come un sussurro nel cuore.
+    </blockquote>
+
+    <p class="body-text">
+      Immagina di sederti in un angolo tranquillo della tua anima, lì dove i pensieri si placano e l'eco del mondo esterno si attenua. È in questo spazio di quiete interiore che la possibilità di connettersi con le guide spirituali si fa più nitida.
+    </p>
+    <p class="body-text">
+      Non c'è un unico modo "giusto" per intavolare questa conversazione. Per alcuni, si manifesta come un'intuizione improvvisa, un lampo di saggezza. Per altri, assume la forma di un sogno vivido, carico di simbolismi. Queste guide — che siano angeli custodi, spiriti guida o antenati saggi — sono lì per sostenerci nel nostro cammino, offrendoci prospettive più ampie e un faro di luce quando ci sentiamo smarriti.
+    </p>
+
+    <!-- PROGRAMMA -->
+    <div class="section">
+      <div class="section-eyebrow">✦ Contenuti del corso</div>
+      <h2 class="section-title">Programma</h2>
+      <div class="program-grid">
+        <div class="program-item">
+          <div class="program-dot"></div>
+          <div class="program-text">Cosa sono le guide spirituali e il loro ruolo</div>
+        </div>
+        <div class="program-item">
+          <div class="program-dot"></div>
+          <div class="program-text">I diversi modi per connettersi — prove pratiche dal vivo</div>
+        </div>
+        <div class="program-item">
+          <div class="program-dot"></div>
+          <div class="program-text">Le varie esperienze dei partecipanti</div>
+        </div>
+        <div class="program-item">
+          <div class="program-dot"></div>
+          <div class="program-text">I benefici del colloquio con le guide</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- OBIETTIVI -->
+    <div class="section">
+      <div class="section-eyebrow">✦ Al termine del corso</div>
+      <h2 class="section-title">Cosa imparerai</h2>
+      <div class="obiettivi-list">
+        <div class="obiettivo-item">
+          <div class="obiettivo-num">1</div>
+          <div class="obiettivo-text">Comprendere chi sono le guide spirituali e il loro ruolo nella nostra vita</div>
+        </div>
+        <div class="obiettivo-item">
+          <div class="obiettivo-num">2</div>
+          <div class="obiettivo-text">Riconoscere i diversi modi in cui le guide comunicano con noi</div>
+        </div>
+        <div class="obiettivo-item">
+          <div class="obiettivo-num">3</div>
+          <div class="obiettivo-text">Imparare tecniche pratiche per entrare in contatto con le proprie guide</div>
+        </div>
+        <div class="obiettivo-item">
+          <div class="obiettivo-num">4</div>
+          <div class="obiettivo-text">Sviluppare la fiducia nella propria intuizione e nella guida interiore</div>
+        </div>
+        <div class="obiettivo-item">
+          <div class="obiettivo-num">5</div>
+          <div class="obiettivo-text">Integrare la guida spirituale nella vita quotidiana</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TECNICHE -->
+    <div class="section">
+      <div class="section-eyebrow">✦ Struttura del corso</div>
+      <h2 class="section-title">Tecniche pratiche di connessione</h2>
+      <div class="tecniche-grid">
+        <div class="tecnica-card">
+          <div class="tecnica-icon">🧘</div>
+          <div class="tecnica-title">Meditazione guidata</div>
+          <div class="tecnica-desc">Esercizi specifici per aprire il canale di comunicazione con le guide</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">✨</div>
+          <div class="tecnica-title">Visualizzazione creativa</div>
+          <div class="tecnica-desc">Utilizzare l'immaginazione per incontrare le guide in spazi interiori protetti</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">📓</div>
+          <div class="tecnica-title">Journaling intuitivo</div>
+          <div class="tecnica-desc">Porre domande e lasciare fluire liberamente le risposte attraverso la scrittura</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">🕊</div>
+          <div class="tecnica-title">Preghiera consapevole</div>
+          <div class="tecnica-desc">Un dialogo aperto e sincero, un ascolto del corpo come canale di messaggi</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- OPERATORI -->
+  <div class="operatori-section">
+    <div class="operatori-title">I Nostri Operatori</div>
+    <div class="operatori-sub">Il nostro gruppo è composto da operatori olistici qualificati, ognuno con le proprie specializzazioni e un unico obiettivo: accompagnarti nel tuo percorso di crescita e consapevolezza.</div>
+    <div class="operatori-grid" style="grid-template-columns: repeat(5, 1fr);">
+      <div class="op-card">
+        <img class="op-photo" src="stefano.jpg" alt="Stefano" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Stefano</div>
+          <div class="op-role">Operatore Olistico</div>
+          <div class="op-tags">
+            <span class="op-tag">Pranoterapia</span>
+            <span class="op-tag">Guarigione michelica</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="andrea.jpg" alt="Andrea" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Andrea</div>
+          <div class="op-role">Channeling · Medium</div>
+          <div class="op-tags">
+            <span class="op-tag">Channeling</span>
+            <span class="op-tag">Medianità</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="carloalberto.jpg" alt="Carlo Alberto" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Carlo Alberto</div>
+          <div class="op-role">Operatore dell'Energia</div>
+          <div class="op-tags">
+            <span class="op-tag">Registri Akashici</span>
+            <span class="op-tag">Guarigione quantica</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="carmen.jpg" alt="Carmen" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Carmen</div>
+          <div class="op-role">Naturopata · Med. Esogetica</div>
+          <div class="op-tags">
+            <span class="op-tag">Fiori di Bach</span>
+            <span class="op-tag">Biorisonanza</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="cristina.jpg" alt="Cristina" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Cristina</div>
+          <div class="op-role">Operatrice Olistica</div>
+          <div class="op-tags">
+            <span class="op-tag">Massaggio</span>
+            <span class="op-tag">Metodo Ankalà</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="federica.jpg" alt="Federica" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Federica</div>
+          <div class="op-role">Chef · Danze Sciamaniche</div>
+          <div class="op-tags">
+            <span class="op-tag">Cucina consapevole</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="Flavio_jpg.jpeg" alt="Flavio" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Flavio</div>
+          <div class="op-role">Spiritual Quantum Coach</div>
+          <div class="op-tags">
+            <span class="op-tag">PNL</span>
+            <span class="op-tag">Life Coach</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="mariachiara.jpg" alt="Maria Chiara" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Maria Chiara</div>
+          <div class="op-role">L'Infermiera dell'Anima</div>
+          <div class="op-tags">
+            <span class="op-tag">Ascolto attivo</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="marzia.jpg" alt="Marzia" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Marzia</div>
+          <div class="op-role">Channeling · Reiki</div>
+          <div class="op-tags">
+            <span class="op-tag">Channeling</span>
+            <span class="op-tag">Reiki</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="matilde.jpg" alt="Matilde" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Matilde</div>
+          <div class="op-role">Pranoterapeuta</div>
+          <div class="op-tags">
+            <span class="op-tag">Pranoterapia</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="Miretta.jpeg" alt="Miretta" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Miretta</div>
+          <div class="op-role">Operatrice Olistica</div>
+          <div class="op-tags">
+            <span class="op-tag">Theta Healing</span>
+            <span class="op-tag">Reiki</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="monica.jpg" alt="Monica" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Monica</div>
+          <div class="op-role">Operatrice Olistica</div>
+          <div class="op-tags">
+            <span class="op-tag">Floriterapia</span>
+            <span class="op-tag">Naturopatia</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="Paolo.jpg" alt="Paolo" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Paolo</div>
+          <div class="op-role">Registri Akashici</div>
+          <div class="op-tags">
+            <span class="op-tag">Pranoterapia</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="silvia.jpg" alt="Silvia" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Silvia</div>
+          <div class="op-role">Operatrice del Benessere</div>
+          <div class="op-tags">
+            <span class="op-tag">Numerologia</span>
+            <span class="op-tag">Tarocco</span>
+          </div>
+        </div>
+      </div>
+      <div class="op-card">
+        <img class="op-photo" src="valentina.jpg" alt="Valentina" onerror="this.style.background='#3a3226';this.style.height='90px'">
+        <div class="op-info">
+          <div class="op-name">Valentina</div>
+          <div class="op-role">Counselor e Coach</div>
+          <div class="op-tags">
+            <span class="op-tag">BioGestaltico</span>
+            <span class="op-tag">Coaching</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Percorso di <span>Crescita</span></div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact">
+      <div class="footer-contact-label">Iscrizioni e info</div>
+      <div class="footer-contact-value">💬 342 303 3404</div>
+      <div class="footer-email">percorsodicrescitalucca@gmail.com</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
