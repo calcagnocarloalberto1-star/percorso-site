@@ -1040,7 +1040,7 @@ const EVENTI_GRUPPO = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santi_Michele_e_Francesco_30.jpg/960px-Santi_Michele_e_Francesco_30.jpg",
     desc: "Un corso pratico per imparare a riconoscere, percepire e dialogare con le proprie Guide Spirituali.",
     tags: ["Guide Spirituali", "Meditazione", "Scrittura Automatica", "Pendolo"],
-    brochure: "brochure-guide-spirituali.pdf",
+    brochure: "brochure-guide-spirituali-comeana.html",
     wa: "Ciao, vorrei informazioni sul corso Guide Spirituali del 17 Maggio 2026"
   },
   {
@@ -1161,6 +1161,21 @@ const EVENTI_PASSATI = [
   },
 ];
 
+// Operatori
+document.getElementById('operatoriGrid').innerHTML = OPERATORI.map(op => `
+  <div class="operator-card reveal">
+    ${op.foto
+      ? `<img src="${op.foto}" class="op-photo" alt="${op.nome}" loading="lazy">`
+      : `<div class="op-photo-placeholder">\u{1F464}</div>`}
+    <div class="op-info">
+      <div class="op-name">${op.nome}</div>
+      <div class="op-role">${op.ruolo}</div>
+      <div class="op-bio">${op.bio}</div>
+      ${op.tags ? `<div class="event-tags" style="margin-top:.7rem">${op.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : ''}
+    </div>
+  </div>
+`).join('');
+
 // Render gruppo events
 function renderEventCard(ev, pastStyle='') {
   return `
@@ -1209,6 +1224,62 @@ document.getElementById('eventiSingoliGrid').innerHTML = EVENTI_SINGOLI.map(ev =
 
 // Render passati events
 document.getElementById('eventiPassatiGrid').innerHTML = EVENTI_PASSATI.map(ev => renderEventCard(ev, 'opacity:.75')).join('');
+
+// Galleria
+const GALLERIA = [
+  { src: "galleria-1.jpg", alt: "Il gruppo al 1\u00b0 Modulo Piacenza" },
+  { src: "galleria-2.jpg", alt: "Sessione di gruppo" },
+  { src: "galleria-3.jpg", alt: "Pranoterapia in pratica" },
+  { src: "galleria-4.jpg", alt: "Sessione energetica individuale" },
+  { src: "galleria-5.jpg", alt: "Il gruppo dopo le pratiche" },
+  { src: "galleria-6.jpg", alt: "Momento di gioia condivisa" },
+  { src: "galleria-7.jpg", alt: "Il gruppo a Piacenza Quantica" },
+];
+document.getElementById('galleryGrid').innerHTML = GALLERIA.map(g => `
+  <div class="gallery-item" onclick="openLightbox('${g.src}','${g.alt}')">
+    <img src="${g.src}" class="gallery-img" alt="${g.alt}" loading="lazy">
+  </div>
+`).join('');
+
+// Lightbox
+function openLightbox(src, alt) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Form → WhatsApp
+function sendWA(e) {
+  e.preventDefault();
+  const nome = document.getElementById('cNome').value;
+  const email = document.getElementById('cEmail').value;
+  const msg = document.getElementById('cMsg').value;
+  window.open('https://wa.me/393423033404?text=' + encodeURIComponent(`Ciao, sono ${nome}${email?' ('+email+')':''}.
+
+${msg}`), '_blank');
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isVisible = links.style.display === 'flex';
+  links.style.display = isVisible ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'absolute';
+  links.style.top = '64px';
+  links.style.left = '0'; links.style.right = '0';
+  links.style.background = '#faf7f2';
+  links.style.padding = '1rem 2rem 1.5rem';
+  links.style.borderBottom = '1px solid #ede8e0';
+  links.style.boxShadow = '0 8px 24px rgba(30,26,20,0.08)';
+}
 
 // Scroll reveal
 function initReveal() {
