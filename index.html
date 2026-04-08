@@ -30,11 +30,15 @@ body {
 /* ─── NAV ─── */
 nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 1.1rem 4rem;
   background: rgba(250,247,242,0.95);
   border-bottom: 1px solid rgba(143,173,138,0.2);
   transition: box-shadow .3s;
+}
+.nav-inner {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1.1rem 6vw;
+  display: flex; align-items: center; justify-content: space-between;
 }
 nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
 .nav-logo {
@@ -630,15 +634,17 @@ footer .footer-links a:hover { color: var(--sage); }
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#hero" class="nav-logo">Percorso di <span>Crescita</span></a>
-  <ul class="nav-links">
-    <li><a href="#operatori">Operatori</a></li>
-    <li><a href="#eventi">Eventi</a></li>
-    <li><a href="#galleria">Galleria</a></li>
-    <li><a href="https://wa.me/393423033404" class="nav-cta">📱 Contattaci</a></li>
-  </ul>
-  <div class="hamburger" onclick="toggleMenu()">
-    <span></span><span></span><span></span>
+  <div class="nav-inner">
+    <a href="#hero" class="nav-logo">Percorso di <span>Crescita</span></a>
+    <ul class="nav-links">
+      <li><a href="#operatori">Operatori</a></li>
+      <li><a href="#eventi">Eventi</a></li>
+      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="https://wa.me/393423033404" class="nav-cta">📱 Contattaci</a></li>
+    </ul>
+    <div class="hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
   </div>
 </nav>
 
