@@ -1018,9 +1018,10 @@ const EVENTI_GRUPPO = [
     data: "Dom 12 Aprile 2026 \xb7 10:00\u201318:00", luogo: "Circolo La Loggetta, Firenze",
     indirizzo: "Via Aretina 301, Firenze", city: "Firenze",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/960px-FirenzeDec092023_01.jpg",
-    desc: "Una giornata dedicata alla trasmutazione delle emozioni negative in positive attraverso la Guarigione Quantica di Gruppo.",
-    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Meditazione"],
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più per la tua massima evoluzione e connetterti con il lavoro delle tue guide. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Grazie all’energia sottile ed ad alta frequenza avrai l’opportunità di trasmutare le emozioni negative in positive, liberandoti di pesi eterici e pensieri ricorrenti negativi.",
+    tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata", "Connessione guide"],
     brochure: "brochure-firenze-quantica.pdf",
+    programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
     wa: "Ciao, vorrei informazioni su Firenze Quantica del 12 Aprile 2026"
   },
   {
@@ -1028,9 +1029,10 @@ const EVENTI_GRUPPO = [
     data: "Dom 19 Aprile 2026 \xb7 10:00\u201318:00", luogo: "Sesto di Moriano, Lucca",
     indirizzo: "Via Ludovica 1658, Sesto di Moriano (LU)", city: "Lucca",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Italy_-_Lucca_-_2.jpg/960px-Italy_-_Lucca_-_2.jpg",
-    desc: "Un percorso simbolico attraverso i 7 veli che separano l\u2019essere umano dalla propria essenza pi\u00f9 autentica.",
-    tags: ["Guarigione Quantica", "Danza Libera", "Riequilibrio Chakra"],
+    desc: "Un percorso simbolico di liberazione attraverso i 7 veli che ci separano dalla nostra essenza più autentica. Connettiti con il tuo Sé superiore, lavora con le tue guide e trasforma le vibrazioni energetiche che non ti servono più. Le sedute agiscono sui tre Corpi — mentale, fisico e spirituale — per portarti in uno spazio di amore cosmico che poi porterai nella tua vita quotidiana.",
+    tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata", "Connessione guide"],
     brochure: "brochure-lucca-quantica.pdf",
+    programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
     wa: "Ciao, vorrei informazioni su Lucca Quantica del 19 Aprile 2026"
   },
   {
@@ -1058,9 +1060,10 @@ const EVENTI_GRUPPO = [
     data: "Sab 30 Maggio 2026 \xb7 10:00\u201318:00", luogo: "Il Soffio Vitale, Piacenza",
     indirizzo: "Il Soffio Vitale, Piacenza", city: "Piacenza",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Piazza_Cavalli_vista_aerea.jpg/960px-Piazza_Cavalli_vista_aerea.jpg",
-    desc: "Una giornata dedicata alla trasmutazione delle emozioni negative in positive attraverso la Guarigione Quantica di Gruppo.",
-    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Meditazioni guidate"],
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più per la tua massima evoluzione e connetterti con il lavoro delle tue guide. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Grazie all’energia sottile ed ad alta frequenza avrai l’opportunità di trasmutare le emozioni negative in positive, liberandoti di pesi eterici e pensieri ricorrenti negativi.",
+    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Tre Corpi", "Meditazioni guidate"],
     brochure: "brochure-piacenza-quantica.pdf",
+    programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
     wa: "Ciao, vorrei informazioni su Piacenza Quantica del 30 Maggio 2026"
   },
   {
@@ -1076,6 +1079,16 @@ const EVENTI_GRUPPO = [
 ];
 
 const EVENTI_SINGOLI = [
+  {
+    operatore: "Paolo",
+    titolo: "Registri Akashici \u2013 Seduta individuale",
+    data: "Su appuntamento",
+    luogo: "Piacenza e dintorni",
+    mapsUrl: "https://maps.google.com/?q=Piacenza",
+    contatto: "https://wa.me/393423033404",
+    contattoLabel: "\ud83d\udcac Stefano 342 303 3404",
+    desc: "Paolo pratica meditazione attiva da oltre 40 anni. Lettore dei Registri Akashici e pranoterapista tradizionale ed evolutivo — disponibile per sedute individuali o di gruppo."
+  },
   {
     operatore: "Valentina",
     titolo: "Loggia del Colibr\u00ec Arcobaleno \u2013 3\xb0 incontro",
@@ -1193,6 +1206,7 @@ function renderEventCard(ev, pastStyle='') {
     </div>
     <div class="event-body">
       <div class="event-desc">${ev.desc}</div>
+      ${ev.programma ? `<div style="margin:.8rem 0;padding:.7rem .9rem;background:rgba(143,173,138,0.1);border-radius:8px;border-left:2px solid var(--sage)"><div style="font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:.4rem">Programma della giornata</div>${ev.programma.map(p=>`<div style="font-size:.78rem;color:var(--warm);padding:.15rem 0;display:flex;gap:.4rem"><span style="color:var(--sage)">✦</span>${p}</div>`).join('')}</div>` : ''}
       <div class="event-tags">${ev.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.indirizzo)}" target="_blank" style="font-size:.78rem;color:var(--sage);text-decoration:none">🗺 Apri su Google Maps</a>
     </div>
