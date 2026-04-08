@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>2° Modulo · Vada — Percorso di Crescita e Consapevolezza</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --sage:  #8fad8a; --sage2: #6b9466; --clay: #c4845a;
+    --cream: #faf7f2; --ink:   #1e1a14; --mist: #ede8e0;
+    --warm:  #6b5340; --light: #f5f0e8;
+  }
+  body { font-family: 'DM Sans', sans-serif; background: #dde3dc; color: var(--ink); padding: 2rem; }
+  .page { max-width: 794px; margin: 0 auto; background: var(--cream); box-shadow: 0 8px 48px rgba(30,26,20,0.18); }
+
+  /* HERO */
+  .hero { position: relative; height: 300px; overflow: hidden; }
+  .hero-img { width:100%; height:100%; object-fit:cover; object-position:center 60%; filter:brightness(0.6) saturate(0.9); }
+  .hero-overlay { position:absolute; inset:0; background:linear-gradient(to bottom, rgba(30,26,20,0.05) 0%, rgba(30,26,20,0.65) 100%); }
+  .hero-content { position:absolute; bottom:2rem; left:2.5rem; right:2.5rem; color:white; }
+  .brand-tag { display:inline-flex; align-items:center; gap:.5rem; font-size:.7rem; font-weight:500; letter-spacing:.14em; text-transform:uppercase; color:rgba(255,255,255,.75); margin-bottom:.8rem; }
+  .brand-tag::before { content:''; display:inline-block; width:28px; height:1.5px; background:var(--sage); }
+  .hero-title { font-family:'Cormorant Garamond',serif; font-size:2.6rem; font-weight:600; line-height:1.1; margin-bottom:.4rem; }
+  .hero-subtitle { font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-style:italic; opacity:.85; }
+
+  /* INFO STRIP */
+  .info-strip { background:var(--ink); display:grid; grid-template-columns:1fr 1fr 1fr; padding:1.1rem 2.5rem; gap:1rem; }
+  .info-item { color:white; }
+  .info-label { font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--sage); margin-bottom:.2rem; font-weight:500; }
+  .info-value { font-size:.85rem; font-weight:400; line-height:1.5; color:rgba(255,255,255,.9); }
+
+  /* BODY */
+  .body { padding: 2.5rem 2.5rem 0; }
+  .intro-text { font-family:'Cormorant Garamond',serif; font-size:1.15rem; line-height:1.75; color:var(--warm); border-left:3px solid var(--sage); padding-left:1.2rem; margin-bottom:1.5rem; font-style:italic; text-align:justify; }
+  .body-text { font-size:.9rem; line-height:1.85; color:#4a3e32; margin-bottom:1rem; text-align:justify; }
+  .domande { list-style:none; margin:.8rem 0 1.2rem 0; }
+  .domande li { font-size:.88rem; color:var(--sage2); font-weight:500; padding:.25rem 0; display:flex; gap:.5rem; }
+  .domande li::before { content:'✦'; color:var(--clay); flex-shrink:0; }
+
+  /* SECTION */
+  .section { margin-bottom:0; padding-top:1.8rem; border-top:1px solid var(--mist); }
+  .section-eyebrow { font-size:.65rem; letter-spacing:.14em; text-transform:uppercase; color:var(--sage); font-weight:500; margin-bottom:.4rem; }
+  .section-title { font-family:'Cormorant Garamond',serif; font-size:1.55rem; font-weight:600; color:var(--ink); margin-bottom:1rem; line-height:1.2; }
+
+  /* PROGRAMMA A DUE COLONNE */
+  .program-cols { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-bottom:1.8rem; }
+  .program-day { background:var(--light); border-radius:10px; overflow:hidden; }
+  .program-day-header { background:var(--ink); color:white; padding:.6rem 1rem; font-size:.75rem; font-weight:600; letter-spacing:.08em; text-transform:uppercase; }
+  .program-day-header span { color:var(--sage); }
+  .program-row { display:flex; gap:.6rem; align-items:baseline; padding:.35rem 1rem; border-bottom:1px solid var(--mist); }
+  .program-row:last-child { border-bottom:none; }
+  .program-row.break { background:rgba(143,173,138,0.1); }
+  .program-time { font-size:.7rem; font-weight:600; color:var(--clay); min-width:38px; flex-shrink:0; }
+  .program-act { font-size:.75rem; color:var(--warm); line-height:1.35; }
+
+  /* COSA PORTARE */
+  .tecniche-grid { display:grid; grid-template-columns:1fr 1fr; gap:.6rem; margin-bottom:1rem; }
+  .tecnica-card { background:white; border-radius:10px; border:1px solid var(--mist); padding:.9rem 1rem; }
+  .tecnica-icon { width:28px; height:28px; border-radius:6px; background:rgba(143,173,138,.15); display:flex; align-items:center; justify-content:center; margin-bottom:.5rem; font-size:14px; }
+  .tecnica-title { font-size:.8rem; font-weight:500; color:var(--ink); margin-bottom:.25rem; }
+  .tecnica-desc { font-size:.75rem; color:var(--warm); line-height:1.45; text-align:justify; }
+  .pranzo-box { margin-top:1rem; padding:.9rem 1.1rem; background:rgba(143,173,138,0.12); border-radius:10px; border-left:3px solid var(--sage); margin-bottom:1.8rem; }
+  .pranzo-label { font-size:.7rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--sage); margin-bottom:.35rem; }
+  .pranzo-text { font-size:.85rem; color:var(--warm); line-height:1.6; text-align:justify; }
+
+  /* MAPPA */
+  .mappa-section { margin-bottom:0; padding-top:1.8rem; border-top:1px solid var(--mist); padding-bottom:1.8rem; }
+  .map-container { border-radius:10px; overflow:hidden; border:1px solid var(--mist); height:220px; }
+  .map-container iframe { width:100%; height:100%; border:none; display:block; }
+  .map-address { font-size:.8rem; color:var(--warm); margin-top:.6rem; display:flex; gap:.4rem; align-items:center; }
+
+  /* OPERATORI */
+  .operatori-section { background:var(--ink); padding:2rem 2.5rem; }
+  .operatori-title { font-family:'Cormorant Garamond',serif; font-size:1.3rem; font-weight:600; color:white; margin-bottom:.4rem; }
+  .operatori-sub { font-size:.78rem; color:rgba(255,255,255,.5); margin-bottom:1.5rem; line-height:1.5; text-align:justify; }
+  .operatori-grid { display:grid; grid-template-columns:repeat(5,1fr); gap:.8rem; }
+  .op-card { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:10px; overflow:hidden; }
+  .op-photo { width:100%; height:130px; object-fit:cover; object-position:center 15%; display:block; filter:brightness(0.92); }
+  .op-info { padding:.6rem .7rem; }
+  .op-name { font-family:'Cormorant Garamond',serif; font-size:.95rem; font-weight:600; color:white; margin-bottom:.1rem; }
+  .op-role { font-size:.65rem; color:var(--sage); text-transform:uppercase; letter-spacing:.05em; font-weight:500; }
+
+  /* FOOTER */
+  .footer { background:var(--light); padding:1.4rem 2.5rem; display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--mist); }
+  .footer-brand { font-family:'Cormorant Garamond',serif; font-size:1rem; font-weight:600; color:var(--ink); }
+  .footer-brand span { color:var(--sage); }
+  .footer-divider { width:1px; height:36px; background:var(--mist); }
+  .footer-contact { text-align:right; }
+  .footer-contact-label { font-size:.65rem; text-transform:uppercase; letter-spacing:.1em; color:var(--warm); margin-bottom:.2rem; }
+  .footer-contact-value { font-size:.88rem; font-weight:500; color:var(--ink); }
+  .footer-email { font-size:.78rem; color:var(--warm); margin-top:.15rem; }
+
+  @media print { body { background:white; padding:0; } .page { box-shadow:none; max-width:100%; } }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <div class="hero">
+    <img class="hero-img"
+      src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Livorno%2C_veduta_aerea_2015.jpg/960px-Livorno%2C_veduta_aerea_2015.jpg"
+      alt="Vada, Livorno">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="brand-tag">Percorso di Crescita e Consapevolezza</div>
+      <h1 class="hero-title">2° Modulo · Vada</h1>
+      <div class="hero-subtitle">Pratiche olistiche immersi nell'energia del mare</div>
+    </div>
+  </div>
+
+  <!-- INFO STRIP -->
+  <div class="info-strip">
+    <div class="info-item">
+      <div class="info-label">📅 Date</div>
+      <div class="info-value">Sab 23 Maggio · 13:30–22:00<br>Dom 24 Maggio · 09:30–18:00</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">📍 Luogo</div>
+      <div class="info-value">ASD Balliamo<br>Via Lombardia, La Mazzanta, Vada (LI)</div>
+    </div>
+    <div class="info-item">
+      <div class="info-label">💬 Iscrizioni</div>
+      <div class="info-value">WhatsApp Stefano<br>342 303 3404</div>
+    </div>
+  </div>
+
+  <!-- BODY -->
+  <div class="body">
+
+    <!-- CHI SIAMO -->
+    <blockquote class="intro-text">
+      Siamo un gruppo di professionisti del percorso olistico che ha deciso di impegnare il proprio tempo una volta al mese per offrire ai partecipanti l'opportunità di "sbirciare oltre il velo".
+    </blockquote>
+    <p class="body-text">
+      Attraverso esperienze dirette e condivise, impareremo a percepire realtà sottili, spesso invisibili ai nostri occhi. Due giorni immersi nell'energia del mare, tra pratiche di gruppo, sessioni individuali e momenti di connessione profonda.
+    </p>
+    <ul class="domande">
+      <li>Cosa accade dopo la morte?</li>
+      <li>La reincarnazione esiste?</li>
+      <li>Qual è il mio scopo?</li>
+      <li>Quali doni e talenti mi appartengono? Come posso riconoscerli e nutrirli?</li>
+    </ul>
+    <p class="body-text">Uscirete arricchiti, con il cuore più aperto e la curiosità di continuare il cammino insieme.</p>
+
+    <!-- PROGRAMMA -->
+    <div class="section">
+      <div class="section-eyebrow">✦ Due giorni insieme</div>
+      <h2 class="section-title">Programma</h2>
+      <div class="program-cols">
+
+        <!-- SABATO -->
+        <div class="program-day">
+          <div class="program-day-header">Sabato <span>23 Maggio</span></div>
+          <div class="program-row"><span class="program-time">13:30</span><span class="program-act">Registrazione partecipanti</span></div>
+          <div class="program-row"><span class="program-time">14:00</span><span class="program-act">Spiegazione dell'incontro</span></div>
+          <div class="program-row"><span class="program-time">14:30</span><span class="program-act">Come mai siete qui oggi?</span></div>
+          <div class="program-row"><span class="program-time">15:00</span><span class="program-act">Introduzione delle nostre attività</span></div>
+          <div class="program-row"><span class="program-time">16:10</span><span class="program-act">Psicosomatica — Introduzione</span></div>
+          <div class="program-row"><span class="program-time">16:45</span><span class="program-act">Anima e Corpo</span></div>
+          <div class="program-row break"><span class="program-time">17:30</span><span class="program-act">☕ Merenda</span></div>
+          <div class="program-row"><span class="program-time">17:45</span><span class="program-act">Meditazione apertura canali</span></div>
+          <div class="program-row"><span class="program-time">18:00</span><span class="program-act">Giochi con l'energia per apertura canali</span></div>
+          <div class="program-row"><span class="program-time">18:10</span><span class="program-act">Gioco di Mosca Cieca</span></div>
+          <div class="program-row"><span class="program-time">18:40</span><span class="program-act">Guarigione di gruppo sui blocchi</span></div>
+          <div class="program-row break"><span class="program-time">19:30</span><span class="program-act">🍽 Cena</span></div>
+          <div class="program-row"><span class="program-time">20:30</span><span class="program-act">Tavolo come sistema di connessione</span></div>
+          <div class="program-row"><span class="program-time">22:00</span><span class="program-act">Termine giornata</span></div>
+        </div>
+
+        <!-- DOMENICA -->
+        <div class="program-day">
+          <div class="program-day-header">Domenica <span>24 Maggio</span></div>
+          <div class="program-row"><span class="program-time">09:30</span><span class="program-act">Meditazione di gruppo</span></div>
+          <div class="program-row"><span class="program-time">10:00</span><span class="program-act">Reiki</span></div>
+          <div class="program-row"><span class="program-time">10:30</span><span class="program-act">Numerologia e Tarocchi</span></div>
+          <div class="program-row"><span class="program-time">11:00</span><span class="program-act">Connessione con le Guide e Guarigione</span></div>
+          <div class="program-row"><span class="program-time">11:30</span><span class="program-act">Registri Akashici</span></div>
+          <div class="program-row"><span class="program-time">12:00</span><span class="program-act">Attività di Counselor</span></div>
+          <div class="program-row"><span class="program-time">12:30</span><span class="program-act">Theta Healing</span></div>
+          <div class="program-row"><span class="program-time">13:00</span><span class="program-act">Pranoterapia con i cristalli</span></div>
+          <div class="program-row break"><span class="program-time">13:30</span><span class="program-act">🍽 Pranzo condiviso</span></div>
+          <div class="program-row"><span class="program-time">14:00</span><span class="program-act">Inizio sessioni individuali</span></div>
+          <div class="program-row"><span class="program-time">14:15</span><span class="program-act">Il pendolino come strumento di aiuto</span></div>
+          <div class="program-row"><span class="program-time">14:45</span><span class="program-act">Prove di Power Healing con il pendolino</span></div>
+          <div class="program-row"><span class="program-time">15:30</span><span class="program-act">Prove di connessione con le Guide</span></div>
+          <div class="program-row"><span class="program-time">17:00</span><span class="program-act">Guarigione di gruppo — Ferite del cuore</span></div>
+          <div class="program-row"><span class="program-time">17:40</span><span class="program-act">Conclusioni e commenti alla due giorni</span></div>
+          <div class="program-row"><span class="program-time">18:00</span><span class="program-act">Termine incontro</span></div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- COSA PORTARE -->
+    <div class="section">
+      <div class="section-eyebrow">✦ Prima di venire</div>
+      <h2 class="section-title">Cosa portare</h2>
+      <div class="tecniche-grid">
+        <div class="tecnica-card">
+          <div class="tecnica-icon">📓</div>
+          <div class="tecnica-title">Blocco notes e penna</div>
+          <div class="tecnica-desc">Per annotare intuizioni, messaggi e riflessioni durante le pratiche</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">🔮</div>
+          <div class="tecnica-title">Pendolino</div>
+          <div class="tecnica-desc">Uno strumento prezioso — porta il tuo se ne hai uno, lo useremo insieme</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">🧘</div>
+          <div class="tecnica-title">Tappetino per meditazioni</div>
+          <div class="tecnica-desc">Per stare comodi durante le pratiche guidate a terra</div>
+        </div>
+        <div class="tecnica-card">
+          <div class="tecnica-icon">😌</div>
+          <div class="tecnica-title">Mascherina per gli occhi</div>
+          <div class="tecnica-desc">Per favorire il raccoglimento interiore durante le meditazioni più profonde</div>
+        </div>
+      </div>
+      <div class="pranzo-box">
+        <div class="pranzo-label">🍽 Pasti condivisi</div>
+        <div class="pranzo-text">Per la merenda del sabato, la cena e il pranzo della domenica ognuno porta qualcosa da gustare in condivisione con il gruppo. Un gesto semplice e autentico per nutrire insieme il corpo e lo spirito.</div>
+      </div>
+    </div>
+
+    <!-- MAPPA -->
+    <div class="mappa-section">
+      <div class="section-eyebrow">✦ Come raggiungerci</div>
+      <h2 class="section-title" style="margin-bottom:.8rem">Dove siamo</h2>
+      <div class="map-container">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3000!2d10.4550!3d43.3280!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12d5f95c5c5c5c5c%3A0x0!2sVia+Lombardia%2C+La+Mazzanta%2C+57016+Vada+LI!5e0!3m2!1sit!2sit!4v1713000000000!5m2!1sit!2sit"
+          allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+      <div class="map-address">
+        📍 <strong>ASD Balliamo</strong> · Via Lombardia, La Mazzanta, Vada (LI)
+        &nbsp;·&nbsp;
+        <a href="https://maps.google.com/?q=Via+Lombardia+La+Mazzanta+Vada+Livorno" target="_blank" style="color:var(--sage);text-decoration:none;font-size:.78rem">Apri su Google Maps →</a>
+      </div>
+    </div>
+
+  </div><!-- /body -->
+
+  <!-- OPERATORI -->
+  <div class="operatori-section">
+    <div class="operatori-title">I Nostri Operatori</div>
+    <div class="operatori-sub">Il nostro gruppo è composto da operatori olistici qualificati, ognuno con le proprie specializzazioni e un unico obiettivo: accompagnarti nel tuo percorso di crescita e consapevolezza.</div>
+    <div class="operatori-grid">
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/stefano.jpg" alt="Stefano" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Stefano</div><div class="op-role">Operatore Olistico</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/andrea.jpg" alt="Andrea" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Andrea</div><div class="op-role">Channeling · Medium</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/carloalberto.jpg" alt="Carlo Alberto" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Carlo Alberto</div><div class="op-role">Registri Akashici</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/carmen.jpg" alt="Carmen" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Carmen</div><div class="op-role">Naturopata</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/cristina.jpg" alt="Cristina" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Cristina</div><div class="op-role">Metodo Ankalà</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/federica.jpg" alt="Federica" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Federica</div><div class="op-role">Danze Sciamaniche</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/Flavio_jpg.jpeg" alt="Flavio" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Flavio</div><div class="op-role">Spiritual Coach</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/mariachiara.jpg" alt="Maria Chiara" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Maria Chiara</div><div class="op-role">Infermiera dell'Anima</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/marzia.jpg" alt="Marzia" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Marzia</div><div class="op-role">Channeling · Reiki</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/matilde.jpg" alt="Matilde" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Matilde</div><div class="op-role">Pranoterapia</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/Miretta.jpeg" alt="Miretta" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Miretta</div><div class="op-role">Theta Healing · Reiki</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/monica.jpg" alt="Monica" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Monica</div><div class="op-role">Floriterapia</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/Paolo.jpg" alt="Paolo" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Paolo</div><div class="op-role">Registri Akashici</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/silvia.jpg" alt="Silvia" onerror="this.style.background='#3a3226';this.style.height='130px'" style="object-position:center 20%"><div class="op-info"><div class="op-name">Silvia</div><div class="op-role">Numerologia</div></div></div>
+      <div class="op-card"><img class="op-photo" src="https://percorsodicrescitalucca.it/valentina.jpg" alt="Valentina" onerror="this.style.background='#3a3226';this.style.height='130px'"><div class="op-info"><div class="op-name">Valentina</div><div class="op-role">Counselor · Coach</div></div></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-brand">Percorso di <span>Crescita e Consapevolezza</span></div>
+    <div class="footer-divider"></div>
+    <div class="footer-contact">
+      <div class="footer-contact-label">Iscrizioni e info</div>
+      <div class="footer-contact-value">💬 342 303 3404</div>
+      <div class="footer-email">percorsodicrescitalucca@gmail.com</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
