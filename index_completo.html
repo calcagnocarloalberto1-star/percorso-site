@@ -43,11 +43,11 @@ nav {
 nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
 .nav-logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.35rem;
+  font-size: .95rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
-  letter-spacing: .02em;
+  letter-spacing: .01em;
 }
 .nav-logo span { color: var(--sage); }
 .nav-links { display: flex; gap: 2rem; list-style: none; }
@@ -88,9 +88,35 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
   position: absolute; inset: 0;
   width: 100%; height: 100%;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 38%;
   z-index: 0;
-  filter: brightness(0.55);
+  filter: brightness(0.52) saturate(1.15);
+  transform: scale(1.12);
+  transform-origin: center 38%;
+}
+.hero-overlay-div {
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(to bottom,
+    rgba(18,15,10,0.93) 0%,
+    rgba(18,15,10,0.22) 20%,
+    rgba(18,15,10,0.12) 50%,
+    rgba(18,15,10,0.22) 78%,
+    rgba(18,15,10,0.93) 100%
+  );
+}
+
+.hero-motto {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.72);
+  letter-spacing: .18em;
+  z-index: 2;
+  pointer-events: none;
 }
 .hero-text {
   position: relative; z-index: 1;
@@ -184,6 +210,73 @@ section { padding: 6rem max(2rem, calc((100vw - 1200px) / 2 + 2rem)); }
   line-height: 1.8;
   max-width: 560px;
   margin-bottom: 3rem;
+}
+
+
+/* ─── CHI SIAMO ─── */
+#chi-siamo {
+  background: var(--light);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+.chi-siamo-img-wrap {
+  position: relative;
+  order: 2;
+}
+.chi-siamo-img {
+  width: 100%;
+  height: 520px;
+  object-fit: cover;
+  object-position: center 30%;
+  border-radius: var(--radius);
+  display: block;
+  filter: brightness(0.92) saturate(0.9);
+}
+.chi-siamo-img-accent {
+  position: absolute;
+  top: -1.5rem; right: -1.5rem;
+  width: 55%;
+  aspect-ratio: 1;
+  border-radius: var(--radius);
+  background: var(--sage);
+  opacity: .1;
+  z-index: -1;
+}
+.chi-siamo-content { order: 1; }
+.chi-siamo-content .quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+  font-style: italic;
+  color: var(--clay);
+  line-height: 1.55;
+  border-left: 3px solid var(--sage);
+  padding-left: 1.2rem;
+  margin: 1.5rem 0 1.8rem;
+}
+.chi-siamo-content p {
+  font-size: .97rem;
+  color: var(--warm);
+  line-height: 1.85;
+  margin-bottom: 1rem;
+}
+.chi-siamo-tags {
+  display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.5rem;
+}
+.chi-siamo-tag {
+  font-size: .75rem;
+  background: rgba(143,173,138,0.15);
+  color: var(--sage2);
+  border: 1px solid rgba(143,173,138,0.3);
+  padding: .3rem .9rem;
+  border-radius: 9999px;
+  font-weight: 500;
+}
+@media (max-width: 768px) {
+  #chi-siamo { grid-template-columns: 1fr; gap: 2rem; }
+  .chi-siamo-img-wrap { order: 1; }
+  .chi-siamo-content { order: 2; }
 }
 
 /* ─── ABOUT STEFANO ─── */
@@ -577,11 +670,11 @@ footer {
 }
 footer .logo {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 1.3rem;
+  font-size: 1.1rem;
   color: white;
   font-weight: 600;
 }
-footer .logo span { color: var(--sage); }
+footer .logo span { color: var(--sage); font-size: 1.1rem; }
 footer p { font-size: .82rem; }
 footer .footer-links { display: flex; gap: 1.5rem; }
 footer .footer-links a {
@@ -717,7 +810,21 @@ footer .footer-links a:hover { color: var(--sage); }
   .hamburger { display: flex; }
   #hero { grid-template-columns: 1fr; }
   .hero-visual { height: 55vw; min-height: 260px; }
-  .hero-text { padding: 2rem 1.4rem; }
+  
+.hero-motto {
+  position: absolute;
+  bottom: 2.2rem;
+  left: 0; right: 0;
+  text-align: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: rgba(255,255,255,0.72);
+  letter-spacing: .18em;
+  z-index: 2;
+  pointer-events: none;
+}
+.hero-text { padding: 2rem 1.4rem; }
   #about, #contatti { grid-template-columns: 1fr; gap: 2rem; }
   .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 160px; }
   .gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 1; }
@@ -731,8 +838,9 @@ footer .footer-links a:hover { color: var(--sage); }
 <!-- NAV -->
 <nav id="mainNav">
   <div class="nav-inner">
-    <a href="#hero" class="nav-logo">Percorso di <span>Crescita</span></a>
+    <a href="#hero" class="nav-logo">Percorso di <span>Crescita e Consapevolezza</span></a>
     <ul class="nav-links">
+      <li><a href="#chi-siamo">Chi siamo</a></li>
       <li><a href="#operatori">Operatori</a></li>
       <li><a href="#eventi">Eventi</a></li>
       <li><a href="#galleria">Galleria</a></li>
@@ -745,7 +853,8 @@ footer .footer-links a:hover { color: var(--sage); }
 </nav>
 
 <section id="hero">
-  <img src="Scala.jpg" class="hero-bg" alt="Percorso di crescita verso la luce">
+  <img src="hero.jpg" class="hero-bg" alt="Difficilia Quae Pulchra">
+  <div class="hero-overlay-div"></div>
   <div class="hero-text">
     <span class="hero-eyebrow">✦ Toscana · Emilia-Romagna · Veneto · e tutta Italia</span>
     <h1 class="hero-title">Un <em>cammino</em><br>verso te stesso</h1>
@@ -755,6 +864,7 @@ footer .footer-links a:hover { color: var(--sage); }
       <a href="#operatori" class="btn-secondary">Il nostro team</a>
     </div>
   </div>
+  <div class="hero-motto"><em>Difficilia Quae Pulchra</em></div>
 </section>
 
 <!-- CHI SIAMO — sezione nascosta -->
@@ -773,6 +883,35 @@ footer .footer-links a:hover { color: var(--sage); }
     <a href="https://wa.me/393423033404" class="btn-primary" style="margin-top:.5rem">💬 Scrivimi su WhatsApp</a>
   </div>
 </section>
+
+<!-- CHI SIAMO -->
+<section id="chi-siamo">
+  <div class="chi-siamo-content reveal">
+    <div class="section-tag">✦ Chi siamo</div>
+    <h2 class="section-title">Un gruppo.<br>Un cammino condiviso.</h2>
+    <blockquote class="quote">
+      "Ogni mese ci riuniamo per offrire a chiunque lo desideri l'opportunità di sbirciare oltre il velo."
+    </blockquote>
+    <p>Siamo quindici operatori olistici e professionisti del benessere accomunati da una stessa passione: accompagnare le persone in un viaggio autentico verso la conoscenza di sé. Attraverso esperienze dirette e condivise, creiamo uno spazio sicuro dove ognuno può esplorare le dimensioni più sottili dell'esistenza.</p>
+    <p>Non insegniamo dogmi né certezze assolute. Con strumenti come la Guarigione Quantica, i Registri Akashici, il Reiki, la Pranoterapia, il Channeling, la Numerologia e molte altre discipline, apriamo porte interiori che spesso non sappiamo nemmeno di avere.</p>
+    <p>Ogni incontro è un'occasione per guarire, riconoscere i propri doni e tornare a vivere con maggiore consapevolezza e autenticità.</p>
+    <div class="chi-siamo-tags">
+      <span class="chi-siamo-tag">Guarigione Quantica</span>
+      <span class="chi-siamo-tag">Registri Akashici</span>
+      <span class="chi-siamo-tag">Pranoterapia</span>
+      <span class="chi-siamo-tag">Reiki</span>
+      <span class="chi-siamo-tag">Channeling</span>
+      <span class="chi-siamo-tag">Theta Healing</span>
+      <span class="chi-siamo-tag">Numerologia</span>
+      <span class="chi-siamo-tag">Counseling</span>
+    </div>
+  </div>
+  <div class="chi-siamo-img-wrap reveal">
+    <img src="Scala.jpg" class="chi-siamo-img" alt="Il cammino verso la luce">
+    <div class="chi-siamo-img-accent"></div>
+  </div>
+</section>
+
 
 <!-- OPERATORI -->
 <section id="operatori">
@@ -882,7 +1021,7 @@ footer .footer-links a:hover { color: var(--sage); }
 <!-- FOOTER -->
 <footer>
   <div>
-    <div class="logo">Percorso di <span>Crescita</span></div>
+    <div class="logo">Percorso di <span>Crescita e Consapevolezza</span></div>
     <p style="margin-top:.4rem">© 2026 Stefano Balducci — Percorso di Crescita e Consapevolezza</p>
   </div>
   <div class="footer-links">
@@ -998,6 +1137,7 @@ const OPERATORI = [
   },
   {
     nome: "Silvia",
+    fotoPos: "center 20%",
     ruolo: "Operatrice del Benessere",
     bio: "Accompagna le persone in percorsi di ascolto e consapevolezza attraverso Numerologia, Tarocco simbolico e trattamenti energetici.",
     tags: ["Numerologia", "Tarocco simbolico", "Trattamenti energetici"],
@@ -1018,19 +1158,23 @@ const EVENTI_GRUPPO = [
     data: "Dom 12 Aprile 2026 \xb7 10:00\u201318:00", luogo: "Circolo La Loggetta, Firenze",
     indirizzo: "Via Aretina 301, Firenze", city: "Firenze",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d2/FirenzeDec092023_01.jpg/960px-FirenzeDec092023_01.jpg",
-    desc: "Una giornata dedicata alla trasmutazione delle emozioni negative in positive attraverso la Guarigione Quantica di Gruppo.",
-    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Meditazione"],
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più per la tua massima evoluzione e connetterti con il lavoro delle tue guide. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Grazie all’energia sottile ed ad alta frequenza avrai l’opportunità di trasmutare le emozioni negative in positive, liberandoti di pesi eterici e pensieri ricorrenti negativi.",
+    tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata", "Connessione guide"],
     brochure: "brochure-firenze-quantica.pdf",
+    programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Firenze Quantica del 12 Aprile 2026"
   },
   {
-    titolo: "Lucca Quantica", sottotitolo: "La Danza dei 7 Veli",
+    titolo: "Lucca Quantica", sottotitolo: "La Danza dei 7 Veli – Il Risveglio dell’Essenza",
     data: "Dom 19 Aprile 2026 \xb7 10:00\u201318:00", luogo: "Sesto di Moriano, Lucca",
     indirizzo: "Via Ludovica 1658, Sesto di Moriano (LU)", city: "Lucca",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Italy_-_Lucca_-_2.jpg/960px-Italy_-_Lucca_-_2.jpg",
-    desc: "Un percorso simbolico attraverso i 7 veli che separano l\u2019essere umano dalla propria essenza pi\u00f9 autentica.",
-    tags: ["Guarigione Quantica", "Danza Libera", "Riequilibrio Chakra"],
+    desc: "Un percorso simbolico di liberazione attraverso i 7 veli che separano l’essere umano dalla propria essenza più autentica. Danza, guarigione quantica e pratiche per riconnetterti in profondità. Le sedute agiscono sui tre Corpi — mentale, fisico e spirituale — trasformando le vibrazioni energetiche che non ti servono più per la tua massima evoluzione. Un invito profondo a riscoprire la propria natura autentica attraverso sessioni energetiche, rituali corporei e la Danza del Femminile.",
+    tags: ["Guarigione Quantica", "Danza dei 7 Veli", "Tre Corpi", "Riequilibrio Chakra", "Femminile Sacro"],
     brochure: "brochure-lucca-quantica.pdf",
+    programma: ["Guarigione quantica di gruppo", "Danza libera — i 7 veli dell’essenza", "Meditazione guidata", "Pratiche quantiche", "Riequilibrio chakra", "Il pasto sarà condivisione di quello che porterà ogni partecipante"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Lucca Quantica del 19 Aprile 2026"
   },
   {
@@ -1040,28 +1184,43 @@ const EVENTI_GRUPPO = [
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Santi_Michele_e_Francesco_30.jpg/960px-Santi_Michele_e_Francesco_30.jpg",
     desc: "Un corso pratico per imparare a riconoscere, percepire e dialogare con le proprie Guide Spirituali.",
     tags: ["Guide Spirituali", "Meditazione", "Scrittura Automatica", "Pendolo"],
-    brochure: "brochure-guide-spirituali.pdf",
+    brochure: "brochure-guide-spirituali-comeana.html",
     wa: "Ciao, vorrei informazioni sul corso Guide Spirituali del 17 Maggio 2026"
   },
   {
-    titolo: "2\xb0 Modulo \xb7 Vada", sottotitolo: "Pratiche olistiche immersi nell\u2019energia del mare",
+    titolo: "1\xb0 Livello \xb7 Vada", sottotitolo: "Pratiche olistiche immersi nell\u2019energia del mare — 1° livello",
     data: "23\u201324 Maggio 2026 \xb7 Sab 14:00\u201322:00 \xb7 Dom 10:00\u201318:00", luogo: "ASD Balliamo, Vada (LI)",
     indirizzo: "Via Lombardia, La Mazzanta, Vada, Livorno", city: "Vada · Livorno",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Livorno%2C_veduta_aerea_2015.jpg/960px-Livorno%2C_veduta_aerea_2015.jpg",
     desc: "Due giorni di pratiche olistiche sul mare: Theta-healing, Pranoterapia, Reiki, Cristalli, Tarocchi, Registri Akashici e Numerologia.",
     tags: ["Theta Healing", "Reiki", "Registri Akashici", "Cristalli"],
-    brochure: "brochure-2modulo-vada.pdf",
-    wa: "Ciao, vorrei informazioni sul 2\xb0 Modulo a Vada di Maggio 2026"
+    brochure: "brochure-2modulo-vada.html",
+    wa: "Ciao, vorrei informazioni sul 1\xb0 Livello a Vada di Maggio 2026"
   },
   {
     titolo: "Piacenza Quantica", sottotitolo: "Guarigione Quantica di Gruppo",
     data: "Sab 30 Maggio 2026 \xb7 10:00\u201318:00", luogo: "Il Soffio Vitale, Piacenza",
     indirizzo: "Il Soffio Vitale, Piacenza", city: "Piacenza",
     img: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Piazza_Cavalli_vista_aerea.jpg/960px-Piazza_Cavalli_vista_aerea.jpg",
-    desc: "Una giornata dedicata alla trasmutazione delle emozioni negative in positive attraverso la Guarigione Quantica di Gruppo.",
-    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Meditazioni guidate"],
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più per la tua massima evoluzione e connetterti con il lavoro delle tue guide. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Grazie all’energia sottile ed ad alta frequenza avrai l’opportunità di trasmutare le emozioni negative in positive, liberandoti di pesi eterici e pensieri ricorrenti negativi.",
+    tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Tre Corpi", "Meditazioni guidate"],
     brochure: "brochure-piacenza-quantica.pdf",
+    programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Piacenza Quantica del 30 Maggio 2026"
+  },
+  {
+    titolo: "Vicenza Quantica", sottotitolo: "Guarigione Quantica di Gruppo",
+    data: "Dom 31 Maggio 2026 · 10:00–18:00",
+    luogo: "Strada di Saviabona 328, Vicenza",
+    indirizzo: "Strada di Saviabona 328, Vicenza (VI)", city: "Vicenza",
+    img: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b4/Collage_Vicenza.jpg/960px-Collage_Vicenza.jpg",
+    desc: "Dedica a te stesso una giornata in esclusiva per riscoprire la tua essenza. Uniamoci tutti insieme per un’indimenticabile esperienza di guarigione dove potrai liberarti di ciò che non ti serve più. Le sedute agiscono sui tuoi tre Corpi: mentale, fisico e spirituale. Il pranzo è in condivisione: ognuno porta qualcosa da gustare insieme.",
+    tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata"],
+    programma: ["Tecniche di guarigione quantica", "Pratiche sincronizzate di gruppo", "Meditazioni guidate", "Pranzo condiviso", "Condivisione e integrazione pomeridiana"],
+    brochure: "brochure-piacenza-quantica.pdf",
+    nobrochure: true,
+    wa: "Ciao, vorrei informazioni su Vicenza Quantica del 31 Maggio 2026"
   },
   {
     titolo: "Impastando e Meditando", sottotitolo: "Pizza e percorso olistico",
@@ -1076,6 +1235,16 @@ const EVENTI_GRUPPO = [
 ];
 
 const EVENTI_SINGOLI = [
+  {
+    operatore: "Paolo",
+    titolo: "Registri Akashici \u2013 Seduta individuale",
+    data: "Su appuntamento",
+    luogo: "Piacenza e dintorni",
+    mapsUrl: "https://maps.google.com/?q=Piacenza",
+    contatto: "https://wa.me/393423033404",
+    contattoLabel: "\ud83d\udcac Stefano 342 303 3404",
+    desc: "Paolo pratica meditazione attiva da oltre 40 anni. Lettore dei Registri Akashici e pranoterapista tradizionale ed evolutivo — disponibile per sedute individuali o di gruppo."
+  },
   {
     operatore: "Valentina",
     titolo: "Loggia del Colibr\u00ec Arcobaleno \u2013 3\xb0 incontro",
@@ -1161,6 +1330,21 @@ const EVENTI_PASSATI = [
   },
 ];
 
+// Operatori
+document.getElementById('operatoriGrid').innerHTML = OPERATORI.map(op => `
+  <div class="operator-card reveal">
+    ${op.foto
+      ? `<img src="${op.foto}" class="op-photo" alt="${op.nome}" loading="lazy" style="${op.fotoPos ? 'object-position:'+op.fotoPos : ''}">`
+      : `<div class="op-photo-placeholder">\u{1F464}</div>`}
+    <div class="op-info">
+      <div class="op-name">${op.nome}</div>
+      <div class="op-role">${op.ruolo}</div>
+      <div class="op-bio">${op.bio}</div>
+      ${op.tags ? `<div class="event-tags" style="margin-top:.7rem">${op.tags.map(t=>`<span class="tag">${t}</span>`).join('')}</div>` : ''}
+    </div>
+  </div>
+`).join('');
+
 // Render gruppo events
 function renderEventCard(ev, pastStyle='') {
   return `
@@ -1178,12 +1362,13 @@ function renderEventCard(ev, pastStyle='') {
     </div>
     <div class="event-body">
       <div class="event-desc">${ev.desc}</div>
+      ${ev.programma ? `<div style="margin:.8rem 0;padding:.7rem .9rem;background:rgba(143,173,138,0.1);border-radius:8px;border-left:2px solid var(--sage)"><div style="font-size:.65rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:.4rem">Programma della giornata</div>${ev.programma.map(p=>`<div style="font-size:.78rem;color:var(--warm);padding:.15rem 0;display:flex;gap:.4rem"><span style="color:var(--sage)">✦</span>${p}</div>`).join('')}</div>` : ''}
       <div class="event-tags">${ev.tags.map(t => `<span class="tag">${t}</span>`).join('')}</div>
       <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.indirizzo)}" target="_blank" style="font-size:.78rem;color:var(--sage);text-decoration:none">🗺 Apri su Google Maps</a>
     </div>
     <div class="event-footer">
-      <a href="${ev.brochure}" target="_blank" class="btn-event btn-brochure">📄 Brochure</a>
-      <a href="https://wa.me/393423033404?text=${encodeURIComponent(ev.wa)}" target="_blank" class="btn-event btn-wa">💬 ${pastStyle ? 'Prossima data' : 'Iscriviti'}</a>
+      ${!ev.nobrochure ? `<a href="${ev.brochure}" target="_blank" class="btn-event btn-brochure">📄 Brochure</a>` : ''}
+      <a href="https://wa.me/393423033404?text=${encodeURIComponent(ev.wa)}" target="_blank" class="btn-event btn-wa" style="${ev.nobrochure ? 'flex:1' : ''}">💬 ${pastStyle ? 'Prossima data' : 'Iscriviti'}</a>
     </div>
   </div>`;
 }
@@ -1209,6 +1394,62 @@ document.getElementById('eventiSingoliGrid').innerHTML = EVENTI_SINGOLI.map(ev =
 
 // Render passati events
 document.getElementById('eventiPassatiGrid').innerHTML = EVENTI_PASSATI.map(ev => renderEventCard(ev, 'opacity:.75')).join('');
+
+// Galleria
+const GALLERIA = [
+  { src: "galleria-1.jpg", alt: "Il gruppo al 1\u00b0 Modulo Piacenza" },
+  { src: "galleria-2.jpg", alt: "Sessione di gruppo" },
+  { src: "galleria-3.jpg", alt: "Pranoterapia in pratica" },
+  { src: "galleria-4.jpg", alt: "Sessione energetica individuale" },
+  { src: "galleria-5.jpg", alt: "Il gruppo dopo le pratiche" },
+  { src: "galleria-6.jpg", alt: "Momento di gioia condivisa" },
+  { src: "galleria-7.jpg", alt: "Il gruppo a Piacenza Quantica" },
+];
+document.getElementById('galleryGrid').innerHTML = GALLERIA.map(g => `
+  <div class="gallery-item" onclick="openLightbox('${g.src}','${g.alt}')">
+    <img src="${g.src}" class="gallery-img" alt="${g.alt}" loading="lazy">
+  </div>
+`).join('');
+
+// Lightbox
+function openLightbox(src, alt) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxImg').alt = alt;
+  document.getElementById('lightbox').classList.add('open');
+}
+function closeLightbox() { document.getElementById('lightbox').classList.remove('open'); }
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+// Form → WhatsApp
+function sendWA(e) {
+  e.preventDefault();
+  const nome = document.getElementById('cNome').value;
+  const email = document.getElementById('cEmail').value;
+  const msg = document.getElementById('cMsg').value;
+  window.open('https://wa.me/393423033404?text=' + encodeURIComponent(`Ciao, sono ${nome}${email?' ('+email+')':''}.
+
+${msg}`), '_blank');
+}
+
+// Nav scroll
+window.addEventListener('scroll', () => {
+  document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 40);
+});
+
+// Mobile menu
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  const isVisible = links.style.display === 'flex';
+  links.style.display = isVisible ? 'none' : 'flex';
+  links.style.flexDirection = 'column';
+  links.style.position = 'absolute';
+  links.style.top = '64px';
+  links.style.left = '0'; links.style.right = '0';
+  links.style.background = '#faf7f2';
+  links.style.padding = '1rem 2rem 1.5rem';
+  links.style.borderBottom = '1px solid #ede8e0';
+  links.style.boxShadow = '0 8px 24px rgba(30,26,20,0.08)';
+}
 
 // Scroll reveal
 function initReveal() {
