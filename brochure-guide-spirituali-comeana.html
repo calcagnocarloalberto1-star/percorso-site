@@ -210,8 +210,8 @@
     margin-bottom: 1.5rem; line-height: 1.5;
   }
   .operatori-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
+    display: grid; grid-template-columns: repeat(5, 1fr);
+    gap: .8rem;
   }
   .op-card {
     background: rgba(255,255,255,.06);
@@ -220,10 +220,10 @@
     overflow: hidden;
   }
   .op-photo {
-    width: 100%; height: 90px;
-    object-fit: cover; object-position: center top;
+    width: 100%; height: 130px;
+    object-fit: cover; object-position: center 15%;
     display: block;
-    filter: grayscale(20%) brightness(0.9);
+    filter: brightness(0.92);
   }
   .op-info {
     padding: .6rem .7rem;
@@ -238,14 +238,7 @@
     text-transform: uppercase; letter-spacing: .05em; font-weight: 500;
     margin-bottom: .35rem;
   }
-  .op-tags {
-    display: flex; flex-wrap: wrap; gap: 3px;
-  }
-  .op-tag {
-    font-size: .6rem; background: rgba(143,173,138,.18);
-    color: rgba(255,255,255,.6); border-radius: 4px;
-    padding: 1px 5px;
-  }
+  /* tags removed */
 
   /* ── FOOTER ── */
   .footer {
@@ -411,6 +404,38 @@
 
   </div><!-- /body -->
 
+  <!-- COSA PORTARE -->
+  <div class="section">
+    <div class="section-eyebrow">✦ Prima di venire</div>
+    <h2 class="section-title">Cosa portare</h2>
+    <div class="tecniche-grid">
+      <div class="tecnica-card">
+        <div class="tecnica-icon">📓</div>
+        <div class="tecnica-title">Blocco notes e penna</div>
+        <div class="tecnica-desc">Per annotare intuizioni, messaggi e riflessioni durante le pratiche</div>
+      </div>
+      <div class="tecnica-card">
+        <div class="tecnica-icon">🔮</div>
+        <div class="tecnica-title">Pendolino</div>
+        <div class="tecnica-desc">Uno strumento prezioso per la comunicazione con le guide — porta il tuo se ne hai uno</div>
+      </div>
+      <div class="tecnica-card">
+        <div class="tecnica-icon">🧘</div>
+        <div class="tecnica-title">Tappetino per meditazioni</div>
+        <div class="tecnica-desc">Per stare comodi durante le pratiche guidate a terra</div>
+      </div>
+      <div class="tecnica-card">
+        <div class="tecnica-icon">😌</div>
+        <div class="tecnica-title">Mascherina per gli occhi</div>
+        <div class="tecnica-desc">Per favorire il raccoglimento interiore durante le meditazioni più profonde</div>
+      </div>
+    </div>
+    <div style="margin-top:1.2rem; padding:.9rem 1.1rem; background:rgba(143,173,138,0.12); border-radius:10px; border-left:3px solid var(--sage);">
+      <div style="font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--sage);margin-bottom:.35rem;">🍽 Pranzo condiviso</div>
+      <div style="font-size:.85rem;color:var(--warm);line-height:1.6;text-align:justify;">Per il pranzo ognuno porta qualcosa da gustare in condivisione con il gruppo. Un gesto semplice e autentico per nutrire insieme il corpo e lo spirito.</div>
+    </div>
+  </div>
+
   <!-- OPERATORI -->
   <div class="operatori-section">
     <div class="operatori-title">I Nostri Operatori</div>
@@ -421,161 +446,105 @@
         <div class="op-info">
           <div class="op-name">Stefano</div>
           <div class="op-role">Operatore Olistico</div>
-          <div class="op-tags">
-            <span class="op-tag">Pranoterapia</span>
-            <span class="op-tag">Guarigione michelica</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="andrea.jpg" alt="Andrea" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Andrea</div>
           <div class="op-role">Channeling · Medium</div>
-          <div class="op-tags">
-            <span class="op-tag">Channeling</span>
-            <span class="op-tag">Medianità</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="carloalberto.jpg" alt="Carlo Alberto" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Carlo Alberto</div>
           <div class="op-role">Operatore dell'Energia</div>
-          <div class="op-tags">
-            <span class="op-tag">Registri Akashici</span>
-            <span class="op-tag">Guarigione quantica</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="carmen.jpg" alt="Carmen" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Carmen</div>
           <div class="op-role">Naturopata · Med. Esogetica</div>
-          <div class="op-tags">
-            <span class="op-tag">Fiori di Bach</span>
-            <span class="op-tag">Biorisonanza</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="cristina.jpg" alt="Cristina" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Cristina</div>
           <div class="op-role">Operatrice Olistica</div>
-          <div class="op-tags">
-            <span class="op-tag">Massaggio</span>
-            <span class="op-tag">Metodo Ankalà</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="federica.jpg" alt="Federica" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Federica</div>
           <div class="op-role">Chef · Danze Sciamaniche</div>
-          <div class="op-tags">
-            <span class="op-tag">Cucina consapevole</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="Flavio_jpg.jpeg" alt="Flavio" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Flavio</div>
           <div class="op-role">Spiritual Quantum Coach</div>
-          <div class="op-tags">
-            <span class="op-tag">PNL</span>
-            <span class="op-tag">Life Coach</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="mariachiara.jpg" alt="Maria Chiara" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Maria Chiara</div>
           <div class="op-role">L'Infermiera dell'Anima</div>
-          <div class="op-tags">
-            <span class="op-tag">Ascolto attivo</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="marzia.jpg" alt="Marzia" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Marzia</div>
           <div class="op-role">Channeling · Reiki</div>
-          <div class="op-tags">
-            <span class="op-tag">Channeling</span>
-            <span class="op-tag">Reiki</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="matilde.jpg" alt="Matilde" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Matilde</div>
           <div class="op-role">Pranoterapeuta</div>
-          <div class="op-tags">
-            <span class="op-tag">Pranoterapia</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="Miretta.jpeg" alt="Miretta" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Miretta</div>
           <div class="op-role">Operatrice Olistica</div>
-          <div class="op-tags">
-            <span class="op-tag">Theta Healing</span>
-            <span class="op-tag">Reiki</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="monica.jpg" alt="Monica" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Monica</div>
           <div class="op-role">Operatrice Olistica</div>
-          <div class="op-tags">
-            <span class="op-tag">Floriterapia</span>
-            <span class="op-tag">Naturopatia</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="Paolo.jpg" alt="Paolo" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Paolo</div>
           <div class="op-role">Registri Akashici</div>
-          <div class="op-tags">
-            <span class="op-tag">Pranoterapia</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="silvia.jpg" alt="Silvia" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Silvia</div>
           <div class="op-role">Operatrice del Benessere</div>
-          <div class="op-tags">
-            <span class="op-tag">Numerologia</span>
-            <span class="op-tag">Tarocco</span>
-          </div>
-        </div>
+</div>
       </div>
       <div class="op-card">
         <img class="op-photo" src="valentina.jpg" alt="Valentina" onerror="this.style.background='#3a3226';this.style.height='90px'">
         <div class="op-info">
           <div class="op-name">Valentina</div>
           <div class="op-role">Counselor e Coach</div>
-          <div class="op-tags">
-            <span class="op-tag">BioGestaltico</span>
-            <span class="op-tag">Coaching</span>
-          </div>
-        </div>
+</div>
       </div>
     </div>
   </div>
