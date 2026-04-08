@@ -1098,12 +1098,15 @@ function toggleAudio(i) {
   }
 }
 
-// Galleria
+// Gallery render
 document.getElementById('galleryGrid').innerHTML = GALLERIA.map((g, i) => `
   <div class="gallery-item" onclick="openLightbox('${g.src}','${g.alt}')">
     <img src="${g.src}" class="gallery-img" alt="${g.alt}" loading="lazy">
   </div>
 `).join('');
+
+// Attiva le animazioni reveal dopo che tutto il contenuto è stato generato
+initReveal();
 
 // Lightbox
 function openLightbox(src, alt) {
@@ -1144,11 +1147,13 @@ function toggleMenu() {
   links.style.boxShadow = '0 8px 24px rgba(30,26,20,0.08)';
 }
 
-// Scroll reveal
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+// Scroll reveal — chiamato DOPO la generazione dei contenuti
+function initReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
 </script>
 </body>
 </html>
