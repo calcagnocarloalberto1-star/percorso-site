@@ -1022,6 +1022,7 @@ const EVENTI_GRUPPO = [
     tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata", "Connessione guide"],
     brochure: "brochure-firenze-quantica.pdf",
     programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Firenze Quantica del 12 Aprile 2026"
   },
   {
@@ -1033,6 +1034,7 @@ const EVENTI_GRUPPO = [
     tags: ["Guarigione Quantica", "Danza dei 7 Veli", "Tre Corpi", "Riequilibrio Chakra", "Femminile Sacro"],
     brochure: "brochure-lucca-quantica.pdf",
     programma: ["Guarigione quantica di gruppo", "Danza libera — i 7 veli dell’essenza", "Meditazione guidata", "Pratiche quantiche", "Riequilibrio chakra", "Il pasto sarà condivisione di quello che porterà ogni partecipante"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Lucca Quantica del 19 Aprile 2026"
   },
   {
@@ -1064,6 +1066,7 @@ const EVENTI_GRUPPO = [
     tags: ["Guarigione Quantica", "Trasmutazione emozionale", "Tre Corpi", "Meditazioni guidate"],
     brochure: "brochure-piacenza-quantica.pdf",
     programma: ["Tecniche di guarigione quantica", "Trasmutazione emozionale", "Connessione con il Sé superiore", "Pratiche sincronizzate di gruppo", "Meditazioni guidate"],
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Piacenza Quantica del 30 Maggio 2026"
   },
   {
@@ -1076,6 +1079,7 @@ const EVENTI_GRUPPO = [
     tags: ["Guarigione Quantica", "Tre Corpi", "Trasmutazione emozionale", "Meditazione guidata"],
     programma: ["Tecniche di guarigione quantica", "Pratiche sincronizzate di gruppo", "Meditazioni guidate", "Pranzo condiviso", "Condivisione e integrazione pomeridiana"],
     brochure: "brochure-piacenza-quantica.pdf",
+    nobrochure: true,
     wa: "Ciao, vorrei informazioni su Vicenza Quantica del 31 Maggio 2026"
   },
   {
@@ -1223,8 +1227,8 @@ function renderEventCard(ev, pastStyle='') {
       <a href="https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(ev.indirizzo)}" target="_blank" style="font-size:.78rem;color:var(--sage);text-decoration:none">🗺 Apri su Google Maps</a>
     </div>
     <div class="event-footer">
-      <a href="${ev.brochure}" target="_blank" class="btn-event btn-brochure">📄 Brochure</a>
-      <a href="https://wa.me/393423033404?text=${encodeURIComponent(ev.wa)}" target="_blank" class="btn-event btn-wa">💬 ${pastStyle ? 'Prossima data' : 'Iscriviti'}</a>
+      ${!ev.nobrochure ? `<a href="${ev.brochure}" target="_blank" class="btn-event btn-brochure">📄 Brochure</a>` : ''}
+      <a href="https://wa.me/393423033404?text=${encodeURIComponent(ev.wa)}" target="_blank" class="btn-event btn-wa" style="${ev.nobrochure ? 'flex:1' : ''}">💬 ${pastStyle ? 'Prossima data' : 'Iscriviti'}</a>
     </div>
   </div>`;
 }
