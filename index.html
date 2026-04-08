@@ -158,9 +158,7 @@ nav.scrolled { box-shadow: 0 2px 24px rgba(30,26,20,0.08); }
 .btn-secondary:hover { background: rgba(255,255,255,0.15); }
 
 /* ─── SECTION BASE ─── */
-section { padding: 6rem 6vw; }
-section:not(#hero) { max-width: 1200px; margin-left: auto; margin-right: auto; width: 100%; }
-/* wrapper for full-width bg sections */
+section { padding: 6rem max(2rem, calc((100vw - 1200px) / 2 + 2rem)); }
 #operatori, #galleria { background: var(--cream); }
 #eventi, #contatti { background: var(--light); }
 #meditazioni { background: var(--ink); }
