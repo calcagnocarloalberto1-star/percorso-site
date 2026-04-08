@@ -1210,6 +1210,14 @@ document.getElementById('eventiSingoliGrid').innerHTML = EVENTI_SINGOLI.map(ev =
 // Render passati events
 document.getElementById('eventiPassatiGrid').innerHTML = EVENTI_PASSATI.map(ev => renderEventCard(ev, 'opacity:.75')).join('');
 
+// Scroll reveal
+function initReveal() {
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+}
+
 // Tab switcher
 function switchTab(tab, btn) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
@@ -1217,6 +1225,9 @@ function switchTab(tab, btn) {
   document.getElementById('tab-' + tab).classList.add('active');
   btn.classList.add('active');
 }
+
+// Activate reveal animations after all content is generated
+initReveal();
 </script>
 </body>
 </html>
