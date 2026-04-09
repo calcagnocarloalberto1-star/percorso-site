@@ -190,188 +190,151 @@ a { color: inherit; }
 .hamburger span { display: block; width: 22px; height: 2px; background: var(--ink); border-radius: 2px; transition: all 0.3s; }
 
 /* ═══════════════════════════════════════
-   HERO — REDESIGN ELEGANTE
+   HERO — FULL WIDTH, FOTO SFONDO
    ═══════════════════════════════════════ */
 #hero {
-  display: grid;
-  grid-template-columns: 58% 42%;
-  grid-template-rows: 1fr;
-  min-height: 100vh;
-  height: 100vh;
-  overflow: hidden;
-  background: var(--cream);
-  align-items: stretch;
   position: relative;
-}
-
-/* Pannello sinistro: testo */
-.hero-text {
-  grid-column: 1;
-  grid-row: 1;
-  position: relative;
-  z-index: 2;
+  min-height: 88vh;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  text-align: left;
-  width: 100%;
-  box-sizing: border-box;
-  padding: 100px 90px 90px 10vw;
+  align-items: center;
+  background: var(--cream);
+  border-bottom: 1px solid var(--mist);
+  overflow: hidden;
 }
-/* Linea decorativa verticale */
-.hero-text::before {
+/* Foto sfondo — piena risoluzione, effetto trasparenza via overlay */
+#hero .hero-photo-bg {
+  position: absolute;
+  inset: 0;
+  background-image: url('gruppo.jpg');
+  background-size: cover;
+  background-position: center 35%;
+  filter: saturate(0.55) sepia(0.08);
+  pointer-events: none;
+  z-index: 0;
+}
+/* Overlay crema — abbassa 0.88 per più foto visibile (es. 0.82 = 18%) */
+#hero .hero-photo-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(250,247,242,0.88);
+  pointer-events: none;
+  z-index: 1;
+}
+/* Linea decorativa orizzontale in cima */
+#hero::after {
   content: '';
   position: absolute;
-  left: calc(10vw - 22px);
-  top: 22%;
-  height: 56%;
-  width: 1px;
-  background: linear-gradient(to bottom,
-    transparent,
-    rgba(143,173,138,0.45) 15%,
-    rgba(143,173,138,0.45) 85%,
-    transparent);
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right,
+    transparent 0%,
+    var(--sage) 30%,
+    rgba(196,132,90,0.5) 65%,
+    transparent 100%);
+  z-index: 2;
+}
+.hero-inner {
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 2rem 100px;
+  position: relative;
+  z-index: 1;
 }
 .hero-eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.6rem;
   font-size: 0.62rem;
   font-weight: 500;
-  letter-spacing: 0.24em;
+  letter-spacing: 0.26em;
   text-transform: uppercase;
   color: var(--sage);
-  margin-bottom: 2.2rem;
+  margin-bottom: 2.4rem;
   padding: 0.42rem 1.1rem;
-  border: 1px solid rgba(143,173,138,0.38);
+  border: 1px solid rgba(143,173,138,0.35);
   border-radius: 100px;
   background: rgba(143,173,138,0.07);
 }
-.hero-ornament {
-  font-size: 0.7rem;
-  color: rgba(143,173,138,0.6);
-  letter-spacing: 0.3em;
-  margin-bottom: 0.6rem;
-}
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.4rem, 4.6vw, 6.5rem);
-  font-weight: 500;
-  line-height: 1.06;
+  font-size: clamp(3.6rem, 6.5vw, 7.2rem);
+  font-weight: 400;
+  line-height: 1.04;
   color: var(--ink);
-  margin-bottom: 1.8rem;
-  letter-spacing: -0.015em;
-  word-spacing: 0.04em;
-  white-space: nowrap;
+  margin-bottom: 2rem;
+  letter-spacing: -0.02em;
+  max-width: 820px;
 }
 .hero-title em {
   font-style: italic;
   color: var(--sage);
-  font-weight: 400;
+}
+.hero-title strong {
+  font-weight: 600;
 }
 .hero-sub {
-  font-size: 0.95rem;
-  color: rgba(107,83,64,0.82);
+  font-size: 1rem;
+  color: var(--warm);
   line-height: 1.85;
-  max-width: 500px;
-  margin: 0 0 2.4rem;
-  border-top: 1px solid rgba(143,173,138,0.2);
-  padding-top: 1.6rem;
+  max-width: 520px;
+  margin: 0 0 2.8rem;
 }
-#hero .btn-group { justify-content: flex-start; }
-#hero .btn-primary { background: var(--ink); }
+.hero-divider {
+  width: 48px;
+  height: 1px;
+  background: var(--sage);
+  margin-bottom: 2.4rem;
+  opacity: 0.6;
+}
+#hero .btn-group { gap: 0.9rem; }
 .hero-motto {
-  position: absolute;
-  bottom: 3rem;
-  left: 10vw;
-  right: 90px;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--mist);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: rgba(30,26,20,0.3);
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 0.7rem;
-  font-style: italic;
-  color: rgba(30,26,20,0.32);
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  pointer-events: none;
+  gap: 0.9rem;
+  max-width: 820px;
 }
 .hero-motto::before {
   content: '';
   display: inline-block;
-  width: 20px;
+  width: 22px;
   height: 1px;
-  background: rgba(143,173,138,0.6);
+  background: rgba(143,173,138,0.55);
   flex-shrink: 0;
-}
-
-/* Pannello destro: immagine acquerello */
-.hero-right-panel {
-  grid-column: 2;
-  grid-row: 1;
-  position: relative;
-  overflow: hidden;
-  height: 100%;
-  min-height: 100vh;
-}
-.hero-right-panel > img {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  object-position: 50% 32%;
-  filter: brightness(0.91) saturate(1.08);
-  transform: scale(1.04);
-}
-.hero-right-panel > .fade-left {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    to right,
-    var(--cream) 0%,
-    rgba(250,247,242,0.72) 12%,
-    rgba(250,247,242,0.22) 32%,
-    rgba(250,247,242,0.04) 50%,
-    transparent 68%
-  );
-  pointer-events: none;
-  z-index: 2;
-}
-.hero-right-panel > .top-accent {
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(to right,
-    transparent 0%, rgba(143,173,138,0.7) 20%,
-    rgba(196,132,90,0.4) 60%, transparent 100%);
-  z-index: 3;
 }
 /* Scroll cue */
 .hero-scroll-cue {
   position: absolute;
-  bottom: 1.8rem;
-  left: 29%;
+  bottom: 2rem;
+  left: 50%;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.35rem;
   z-index: 5;
-  opacity: 0.38;
+  opacity: 0.35;
   pointer-events: none;
 }
 .hero-scroll-cue span {
-  font-size: 0.58rem;
-  letter-spacing: 0.2em;
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
   text-transform: uppercase;
   color: var(--warm);
 }
 .hero-scroll-cue svg { animation: arrowBounce 2s ease-in-out infinite; }
 @keyframes arrowBounce {
   0%, 100% { transform: translateY(0); }
-  50%       { transform: translateY(4px); }
+  50%       { transform: translateY(5px); }
 }
 
 /* ═══════════════════════════════════════
@@ -388,44 +351,6 @@ section {
   border: none;
   border-top: 1px solid var(--mist);
   margin: 0;
-}
-
-/* ═══════════════════════════════════════
-   ABOUT — IL FONDATORE
-   ═══════════════════════════════════════ */
-#about {
-  background: var(--cream);
-  border-top: 1px solid var(--mist);
-}
-#about .section-inner {
-  display: grid;
-  grid-template-columns: 340px 1fr;
-  gap: 5rem;
-  align-items: center;
-  max-width: 1100px;
-}
-.about-img-wrap {
-  position: relative;
-}
-.about-img {
-  width: 100%;
-  aspect-ratio: 3/4;
-  object-fit: cover;
-  border-radius: var(--radius);
-  filter: saturate(0.9);
-}
-.about-accent {
-  position: absolute;
-  inset: -12px -12px 12px 12px;
-  border: 1px solid rgba(143,173,138,0.35);
-  border-radius: calc(var(--radius) + 4px);
-  z-index: -1;
-}
-.about-content p {
-  color: var(--warm);
-  line-height: 1.8;
-  margin-bottom: 1rem;
-  font-size: 0.95rem;
 }
 
 /* ═══════════════════════════════════════
@@ -501,7 +426,7 @@ section {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  object-position: center top;
+  object-position: center 15%;
   filter: saturate(0.88);
 }
 .op-photo-placeholder {
@@ -727,63 +652,6 @@ section {
 .btn-sm-contact:hover { background: #7a9875; }
 
 /* ═══════════════════════════════════════
-   MEDITAZIONI
-   ═══════════════════════════════════════ */
-#meditazioni {
-  background: var(--cream);
-  border-top: 1px solid var(--mist);
-}
-#meditazioni .section-inner { max-width: 900px; }
-.audio-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  margin-top: 2rem;
-}
-.audio-item {
-  background: white;
-  border: 1px solid var(--mist);
-  border-radius: var(--radius);
-  padding: 1.1rem 1.4rem;
-  display: flex;
-  align-items: center;
-  gap: 1.2rem;
-}
-.audio-icon {
-  font-size: 1.3rem;
-  flex-shrink: 0;
-  width: 40px;
-  height: 40px;
-  background: rgba(143,173,138,0.12);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.audio-info { flex: 1; }
-.audio-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1rem;
-  font-weight: 600;
-  color: var(--ink);
-  margin-bottom: 0.1rem;
-}
-.audio-duration {
-  font-size: 0.75rem;
-  color: var(--sage);
-  letter-spacing: 0.04em;
-}
-.audio-placeholder {
-  text-align: center;
-  padding: 3rem 2rem;
-  color: var(--warm);
-  font-size: 0.9rem;
-  opacity: 0.7;
-  border: 1px dashed var(--mist);
-  border-radius: var(--radius);
-}
-
-/* ═══════════════════════════════════════
    GALLERIA
    ═══════════════════════════════════════ */
 #galleria {
@@ -1000,41 +868,17 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
    RESPONSIVE
    ═══════════════════════════════════════ */
 @media (max-width: 1100px) {
-  #about .section-inner { grid-template-columns: 280px 1fr; gap: 3rem; }
   #chi-siamo .section-inner { grid-template-columns: 1fr; }
   .chi-siamo-img-wrap { max-width: 420px; margin: 0 auto; }
 }
 @media (max-width: 900px) {
   #contatti .section-inner { grid-template-columns: 1fr; gap: 3rem; }
-  #about .section-inner { grid-template-columns: 1fr; }
-  .about-img { aspect-ratio: 3/2; }
   .gallery-item:nth-child(4n) { grid-column: span 1; aspect-ratio: 4/3; }
 }
 @media (max-width: 768px) {
-  /* Hero mobile: stack verticale */
-  #hero {
-    grid-template-columns: 1fr !important;
-    grid-template-rows: auto 50vw;
-    height: auto;
-    min-height: auto;
-  }
-  .hero-text {
-    padding: 100px 1.5rem 3rem !important;
-    align-items: center;
-    text-align: center;
-    height: auto;
-  }
-  .hero-text::before { display: none; }
-  .hero-title { white-space: normal; font-size: clamp(2.8rem, 10vw, 4rem) !important; }
-  #hero .btn-group { justify-content: center; }
-  .hero-sub { max-width: 100%; }
-  .hero-motto {
-    position: static;
-    justify-content: center;
-    margin-top: 2rem;
-    left: auto; right: auto;
-  }
-  .hero-right-panel { grid-column: 1; min-height: 50vw; height: 50vw; }
+  .hero-inner { padding: 100px 1.5rem 80px; }
+  .hero-title { font-size: clamp(3rem, 10vw, 4.5rem) !important; }
+  .hero-bg-number { display: none; }
   .hero-scroll-cue { display: none; }
   /* Nav mobile */
   .nav-links {
@@ -1085,11 +929,12 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
 
 <!-- ═══ HERO ═══ -->
 <section id="hero">
-  <!-- Pannello sinistro: testo -->
-  <div class="hero-text">
+  <div class="hero-photo-bg"></div>
+  <div class="hero-photo-overlay"></div>
+  <div class="hero-inner">
     <span class="hero-eyebrow">✦ Toscana · Emilia-Romagna · Veneto · e tutta Italia</span>
-    <div class="hero-ornament">✦</div>
     <h1 class="hero-title">Un <em>cammino</em><br>verso te stesso</h1>
+    <div class="hero-divider"></div>
     <p class="hero-sub">Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore, attraverso eventi, pratiche energetiche e incontri con professionisti del benessere.</p>
     <div class="btn-group">
       <a href="#eventi" class="btn-primary">🌿 Scopri gli eventi</a>
@@ -1097,39 +942,12 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
     </div>
     <div class="hero-motto">Difficilia Quae Pulchra</div>
   </div>
-
-  <!-- Pannello destro: acquerello -->
-  <div class="hero-right-panel">
-    <img src="hero.jpg" alt="Difficilia Quae Pulchra — acquerello">
-    <div class="fade-left"></div>
-    <div class="top-accent"></div>
-  </div>
-
-  <!-- Scroll cue -->
   <div class="hero-scroll-cue">
     <span>Scorri</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none"
          stroke="#8fad8a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
       <polyline points="6 9 12 15 18 9"/>
     </svg>
-  </div>
-</section>
-
-<!-- ═══ IL FONDATORE ═══ -->
-<section id="about">
-  <div class="section-inner">
-    <div class="about-img-wrap reveal">
-      <img src="stefano.jpg" class="about-img" alt="Stefano Balducci">
-      <div class="about-accent"></div>
-    </div>
-    <div class="about-content reveal">
-      <div class="section-tag">✦ Il fondatore</div>
-      <h2 class="section-title">Stefano<br>Balducci</h2>
-      <blockquote class="quote">"La crescita autentica nasce dall'incontro con se stessi."</blockquote>
-      <p>Stefano Balducci è il fondatore e guida principale di Percorso di Crescita e Consapevolezza. Con anni di esperienza nel campo del benessere e dello sviluppo personale, accompagna individui e gruppi verso una maggiore consapevolezza di sé.</p>
-      <p>La sua formazione spazia dalla meditazione alle discipline olistiche, dalla psicologia umanistica alle tradizioni sapienziali orientali e occidentali.</p>
-      <a href="https://wa.me/393423033404" class="btn-primary" style="margin-top:.5rem">💬 Scrivimi su WhatsApp</a>
-    </div>
   </div>
 </section>
 
@@ -1200,20 +1018,6 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
   </div>
 </section>
 
-<!-- ═══ MEDITAZIONI ═══ -->
-<section id="meditazioni">
-  <div class="section-inner">
-    <div class="reveal">
-      <div class="section-tag">✦ Audio guidati</div>
-      <h2 class="section-title">Meditazioni</h2>
-      <p class="section-sub">Ascolta le meditazioni guidate di Stefano e lascia che la voce ti conduca in un viaggio verso il centro di te stesso.</p>
-    </div>
-    <div class="audio-list" id="audioList">
-      <div class="audio-placeholder">🌿 Le meditazioni audio saranno disponibili a breve.</div>
-    </div>
-  </div>
-</section>
-
 <!-- ═══ GALLERIA ═══ -->
 <section id="galleria">
   <div class="section-inner">
@@ -1272,9 +1076,9 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
       <p>© 2026 Stefano Balducci — Percorso di Crescita e Consapevolezza</p>
     </div>
     <div class="footer-links">
-      <a href="#about">Chi siamo</a>
+      <a href="#chi-siamo">Chi siamo</a>
       <a href="#eventi">Eventi</a>
-      <a href="#meditazioni">Meditazioni</a>
+      <a href="#galleria">Galleria</a>
       <a href="https://wa.me/393423033404">WhatsApp</a>
     </div>
   </div>
@@ -1422,6 +1226,7 @@ const GALLERIA = [
   { src: "galleria-5.jpg", alt: "Il gruppo dopo le pratiche" },
   { src: "galleria-6.jpg", alt: "Momento di gioia condivisa" },
   { src: "galleria-7.jpg", alt: "Il gruppo a Piacenza Quantica" },
+  { src: "pasto.jpg", alt: "Il pranzo condiviso del gruppo" },
 ];
 
 /* ═══ RENDERING ═══ */
