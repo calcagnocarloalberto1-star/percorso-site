@@ -3,8 +3,59 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Percorso di Crescita e Consapevolezza</title>
-<meta name="description" content="Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore, attraverso eventi, pratiche energetiche e incontri con professionisti del benessere in Toscana, Emilia-Romagna, Veneto e tutta Italia.">
+
+<!-- ═══ SEO ═══ -->
+<title>Percorso di Crescita e Consapevolezza | Eventi Olistici in Italia</title>
+<meta name="description" content="Percorso di Crescita e Consapevolezza: eventi, ritiri e pratiche olistiche in Toscana, Emilia-Romagna, Veneto e tutta Italia. Guarigione Quantica, Registri Akashici, Pranoterapia, Reiki e molto altro.">
+<meta name="keywords" content="percorso di crescita, consapevolezza, eventi olistici, guarigione quantica, registri akashici, pranoterapia, reiki, theta healing, channeling, Lucca, Toscana, benessere, trasformazione interiore">
+<meta name="author" content="Stefano Balducci — Percorso di Crescita e Consapevolezza">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://percorsodicrescitalucca.it/">
+
+<!-- ═══ OPEN GRAPH (Facebook, WhatsApp) ═══ -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://percorsodicrescitalucca.it/">
+<meta property="og:title" content="Percorso di Crescita e Consapevolezza">
+<meta property="og:description" content="Un viaggio autentico di trasformazione interiore attraverso eventi, pratiche energetiche e incontri con professionisti del benessere in tutta Italia.">
+<meta property="og:image" content="https://percorsodicrescitalucca.it/gruppo.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="it_IT">
+<meta property="og:site_name" content="Percorso di Crescita e Consapevolezza">
+
+<!-- ═══ TWITTER CARD ═══ -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Percorso di Crescita e Consapevolezza">
+<meta name="twitter:description" content="Un viaggio autentico di trasformazione interiore attraverso eventi e pratiche energetiche in tutta Italia.">
+<meta name="twitter:image" content="https://percorsodicrescitalucca.it/gruppo.jpg">
+
+<!-- ═══ STRUCTURED DATA (Google) ═══ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Percorso di Crescita e Consapevolezza",
+  "url": "https://percorsodicrescitalucca.it",
+  "logo": "https://percorsodicrescitalucca.it/gruppo.jpg",
+  "description": "Percorso di Crescita e Consapevolezza accompagna persone in un viaggio autentico di trasformazione interiore attraverso eventi, pratiche energetiche e incontri con professionisti del benessere.",
+  "founder": {
+    "@type": "Person",
+    "name": "Stefano Balducci"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+39-342-303-3404",
+    "contactType": "customer service",
+    "availableLanguage": "Italian"
+  },
+  "sameAs": [],
+  "areaServed": {
+    "@type": "Country",
+    "name": "Italy"
+  }
+}
+</script>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
@@ -930,6 +981,73 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
   .tab-btn { font-size: 0.74rem; padding: 0.45rem 0.9rem; }
   footer .footer-inner { flex-direction: column; align-items: flex-start; }
 }
+/* ═══════════════════════════════════════
+   COOKIE BANNER
+   ═══════════════════════════════════════ */
+#cookie-banner {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  background: var(--ink);
+  color: rgba(250,247,242,0.88);
+  padding: 1.2rem 2rem;
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  box-shadow: 0 -4px 24px rgba(0,0,0,0.18);
+  transform: translateY(0);
+  transition: transform 0.4s ease;
+}
+#cookie-banner.hidden {
+  transform: translateY(110%);
+}
+#cookie-banner p {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin: 0;
+}
+#cookie-banner p a {
+  color: var(--sage);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.cookie-btns {
+  display: flex;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.btn-cookie-accept {
+  background: var(--sage);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.btn-cookie-accept:hover { background: #7a9875; }
+.btn-cookie-decline {
+  background: transparent;
+  color: rgba(250,247,242,0.6);
+  border: 1px solid rgba(250,247,242,0.2);
+  padding: 0.6rem 1.2rem;
+  border-radius: 100px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-cookie-decline:hover {
+  border-color: rgba(250,247,242,0.4);
+  color: rgba(250,247,242,0.85);
+}
 </style>
 </head>
 <body>
@@ -1104,6 +1222,8 @@ footer p { font-size: 0.78rem; margin-top: 0.3rem; }
       <a href="#eventi">Eventi</a>
       <a href="#galleria">Galleria</a>
       <a href="https://wa.me/393423033404">WhatsApp</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="cookie.html">Cookie Policy</a>
     </div>
   </div>
 </footer>
@@ -1379,5 +1499,33 @@ function initReveal() {
 }
 initReveal();
 </script>
+<!-- ═══ COOKIE BANNER ═══ -->
+<div id="cookie-banner">
+  <p>
+    Utilizziamo cookie tecnici per il corretto funzionamento del sito. Non utilizziamo cookie di profilazione o tracciamento di terze parti.
+    Puoi leggere la nostra <a href="privacy.html">Privacy Policy</a> e la <a href="cookie.html">Cookie Policy</a>.
+  </p>
+  <div class="cookie-btns">
+    <button class="btn-cookie-decline" onclick="cookieDecline()">Solo essenziali</button>
+    <button class="btn-cookie-accept" onclick="cookieAccept()">Accetta</button>
+  </div>
+</div>
+
+<script>
+// Cookie consent
+function cookieAccept() {
+  localStorage.setItem('cookie_consent', 'accepted');
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+function cookieDecline() {
+  localStorage.setItem('cookie_consent', 'declined');
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+// Show banner only if no choice made yet
+if (localStorage.getItem('cookie_consent')) {
+  document.getElementById('cookie-banner').classList.add('hidden');
+}
+</script>
+
 </body>
 </html>
