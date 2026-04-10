@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
-Disallow:
+Disallow: /privacy.html
+Disallow: /cookie.html
 
 Sitemap: https://percorsodicrescitalucca.it/sitemap.xml
