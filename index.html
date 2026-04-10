@@ -664,6 +664,61 @@ audio { display: none; }
 }
 .btn-submit:hover { background: var(--clay); }
 
+
+/* ─── LINK UTILI ─── */
+#link-utili {
+  background: var(--ink);
+  padding: 4rem max(2rem, calc((100vw - 1200px) / 2 + 2rem));
+}
+#link-utili .section-tag { color: var(--sage); }
+#link-utili .section-title { color: white; font-size: clamp(1.6rem, 3vw, 2.4rem); margin-bottom: 2rem; }
+.links-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+.link-card {
+  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: var(--radius);
+  padding: 1.3rem 1.5rem;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  transition: background .2s, transform .2s;
+}
+.link-card:hover {
+  background: rgba(143,173,138,.15);
+  border-color: var(--sage);
+  transform: translateY(-2px);
+}
+.link-card-icon {
+  width: 42px; height: 42px;
+  border-radius: 10px;
+  background: rgba(143,173,138,.2);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem;
+  flex-shrink: 0;
+}
+.link-card-body {}
+.link-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: white;
+  margin-bottom: .2rem;
+}
+.link-card-desc {
+  font-size: .75rem;
+  color: rgba(255,255,255,.45);
+  line-height: 1.4;
+}
+.link-card-url {
+  font-size: .7rem;
+  color: var(--sage);
+  margin-top: .25rem;
+}
 /* ─── FOOTER ─── */
 footer {
   background: var(--ink);
@@ -852,6 +907,7 @@ footer .footer-links a:hover { color: var(--sage); }
       <li><a href="#operatori">Operatori</a></li>
       <li><a href="#eventi">Eventi</a></li>
       <li><a href="#galleria">Galleria</a></li>
+      <li><a href="#link-utili">Link utili</a></li>
       <li><a href="https://wa.me/393423033404" class="nav-cta">📱 Contattaci</a></li>
     </ul>
     <div class="hamburger" onclick="toggleMenu()">
@@ -1027,6 +1083,25 @@ footer .footer-links a:hover { color: var(--sage); }
     </form>
   </div>
 </section>
+
+<!-- LINK UTILI -->
+<section id="link-utili">
+  <div class="reveal">
+    <div class="section-tag">✦ Approfondisci</div>
+    <h2 class="section-title">Link Utili</h2>
+  </div>
+  <div class="links-grid" id="linksGrid">
+    <a href="https://guarigionequantica.eu" target="_blank" class="link-card reveal">
+      <div class="link-card-icon">✨</div>
+      <div class="link-card-body">
+        <div class="link-card-title">Guarigione Quantica</div>
+        <div class="link-card-desc">Il sito di Stefano Balducci — eventi, pratiche e percorsi di guarigione quantica di gruppo</div>
+        <div class="link-card-url">guarigionequantica.eu ↗</div>
+      </div>
+    </a>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
 <footer>
