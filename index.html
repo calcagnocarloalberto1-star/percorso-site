@@ -20,7 +20,7 @@
   --accent:#01696f;--accent-h:#0c4e54;
   --r-sm:.375rem;--r-md:.5rem;--r-lg:.75rem;--r-xl:1rem;--r-full:9999px;
   --sh-sm:0 1px 2px rgba(0,0,0,.06);--sh-md:0 4px 12px rgba(0,0,0,.08);--sh-lg:0 12px 32px rgba(0,0,0,.12);
-  --max:1000px;
+  --max:1400px;
 }
 [data-theme="dark"]{
   --bg:#141312;--surface:#1a1917;--surface2:#1e1d1b;--surface-off:#181715;--border:#353330;
@@ -426,7 +426,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
     <button class="tab-btn" onclick="switchTab('singoli',this)">&#128100; Singoli Operatori</button>
     <button class="tab-btn" onclick="switchTab('passati',this)">&#10004; Passati</button>
   </div>
-<div class="tab-content active" id="tab-gruppo"><div class="events-grid" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:var(--sp-5)">
+<div class="tab-content active" id="tab-gruppo"><div class="events-grid" >
 <article class="event-card">
   <div class="event-cover">
     <img src="./comeana.jpg" alt="Comeana" loading="lazy"/>
