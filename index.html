@@ -477,6 +477,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
     </details>
     <div class="event-actions">
       <a class="btn-ev btn-map" href="https://maps.google.com/?q=Via+Macia+102+Comeana+Carmignano+PO" target="_blank" rel="noopener">&#128205; Mappa</a>
+      <button class="btn-ev btn-bro" onclick="openBro('quantum-therapy')">&#128203; Brochure</button>
       <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sull%27evento%20del%2014%20giugno%20a%20Comeana" target="_blank" rel="noopener">&#128172; 342 303 3404</a>
     </div>
   </div>
@@ -846,7 +847,15 @@ function openBro(id){
   document.getElementById("broProgram").innerHTML=d.p.map(function(i){return "<li>"+i+"</li>";}).join("");
   document.getElementById("broStaff").innerHTML=d.s;
   document.getElementById("broWa").href="https://wa.me/393423033404?text="+d.w;
-  document.getElementById("broPdf").href=d.f;
+  var pdfBtn=document.getElementById("broPdf");
+  pdfBtn.href=d.f;
+  if(d.f && d.f.toLowerCase().split("?")[0].split("#")[0].endsWith(".html")){
+    pdfBtn.textContent="\ud83d\udcd6 Apri brochure completa";
+    pdfBtn.removeAttribute("download");
+  }else{
+    pdfBtn.textContent="Scarica Brochure PDF";
+    pdfBtn.setAttribute("download","");
+  }
   var dw=document.getElementById("broDescWrap");
   if(d.d){document.getElementById("broDesc").innerHTML=d.d;dw.style.display="block";}
   else{dw.style.display="none";}
@@ -887,7 +896,12 @@ function openBro(id){
     piacenza:{c:"Piacenza Quantica",t:"Guarigione quantica di gruppo",
       m:"<strong>Sab 30 Maggio 2026 - 10:00-18:00</strong><br>Il Soffio Vitale, Piacenza (PC)",
       p:["Guarigione quantica","Trasmutazione emozionale","Connessione col se superiore","Pratiche sincronizzate","Meditazioni guidate"],
-      d:dIO,s:st,w:"Piacenza%20Quantica%2030%20maggio",f:"https://raw.githubusercontent.com/calcagnocarloalberto1-star/percorso-site/main/brochure-piacenza-quantica.pdf"}
+      d:dIO,s:st,w:"Piacenza%20Quantica%2030%20maggio",f:"https://raw.githubusercontent.com/calcagnocarloalberto1-star/percorso-site/main/brochure-piacenza-quantica.pdf"},
+    "quantum-therapy":{c:"Quantum Therapy - Comeana",t:"Sintonizza la tua Antenna Biologica",
+      m:"<strong>Dom 14 Giugno 2026 - 10:00-18:00</strong><br>Villa Macia, Via Macia 102, Comeana (PO)",
+      p:["La Connessione: attivare il canale e connettersi con le presenze di Luce","L'Autostrada Energetica: sbloccare i cumuli sulla colonna vertebrale","La Pratica sul Lettino: riaccordare l'orchestra degli organi","Riportare il corpo al Punto Zero","Meditazioni guidate","Posti limitati per cura del gruppo"],
+      d:"<strong>Il punto d'incontro tra l'antica saggezza della pranoterapia e le leggi della fisica quantistica.</strong> Non e' solo energia: e' una sintonizzazione frequenziale. Impariamo a ripulire l'antenna biologica - il corpo - per connetterci alla Sorgente e alle Guide spirituali.",
+      s:st,w:"Quantum%20Therapy%2014%20giugno%20Comeana",f:"https://percorsodicrescitalucca.it/brochure-quantum-therapy.html"}
   };
 })();
 </script>
