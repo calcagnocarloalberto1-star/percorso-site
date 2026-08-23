@@ -312,7 +312,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
 <section class="hero" id="top">
 <div class="shell hero-grid">
   <div>
-    <div class="hero-eyebrow">&#10024; Prossimo incontro il 25 Luglio 2026 &middot; Rigenerazione nel Giardino</div>
+    <div class="hero-eyebrow">&#10024; Prossimo incontro il 20 Settembre 2026 &middot; La Simbologia &amp; Ankal&agrave; nel Multiverso</div>
     <h1>Percorso di crescita e consapevolezza</h1>
     <p class="hero-lead">Un percorso di crescita ed evoluzione personale e spirituale. Scopri la tua sensibilita' energetica attraverso meditazione, guarigione e pratiche condivise.</p>
     <div class="hero-actions">
@@ -320,7 +320,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
       <a class="btn btn-secondary" href="#contatti">Informazioni e iscrizioni</a>
     </div>
     <div>
-      <p style="font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:var(--sp-2)">Prossimo evento &mdash; Rigenerazione nel Giardino &middot; 25 Luglio 2026</p>
+      <p style="font-size:var(--tx-xs);text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-bottom:var(--sp-2)">Prossimo evento &mdash; La Simbologia &amp; Ankal&agrave; nel Multiverso &middot; 20 Settembre 2026</p>
       <div class="countdown" id="countdown">
         <div><span class="countdown-num" id="cd-days">--</span><span class="countdown-label">Giorni</span></div>
         <div><span class="countdown-num" id="cd-hours">--</span><span class="countdown-label">Ore</span></div>
@@ -879,7 +879,7 @@ function switchTab(id,btn){
 
 // COUNTDOWN
 function updateCountdown(){
-  var d=new Date("2026-07-25T16:30:00")-new Date();
+    var d=new Date("2026-09-20T10:00:00")-new Date();
   if(d<=0){var c=document.getElementById("countdown");if(c)c.style.display="none";return;}
   document.getElementById("cd-days").textContent=Math.floor(d/86400000);
   document.getElementById("cd-hours").textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,"0");
