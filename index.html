@@ -1006,7 +1006,10 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
       <label>Nome e cognome<input type="text" id="cNome" autocomplete="name" placeholder="Il tuo nome"/></label>
       <label>Email<input type="email" id="cEmail" autocomplete="email" placeholder="La tua email"/></label>
       <label>Messaggio<textarea id="cMsg" placeholder="Come possiamo aiutarti?"></textarea></label>
-      <button type="submit" class="btn btn-primary">&#128172; Invia su WhatsApp</button>
+      <div style="display:flex;gap:var(--sp-3);flex-wrap:wrap">
+        <button type="submit" class="btn btn-primary" data-wa="393939966819" data-name="Tiziana">&#128172; Invia a Tiziana</button>
+        <button type="submit" class="btn btn-primary" data-wa="393423033404" data-name="Stefano">&#128172; Invia a Stefano</button>
+      </div>
     </form>
   </div>
 </div>
@@ -1053,7 +1056,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
     </div>
     <div class="bro-foot">
       <span class="bro-contact-label">Informazioni e iscrizioni &middot; solo WhatsApp</span>
-      <a href="https://wa.me/393939966819" class="btn btn-wa" target="_blank" rel="noopener">Scrivi a Tiziana &middot; 393 996 6819</a>
+      <a id="broWaT" class="btn btn-wa" href="#" target="_blank" rel="noopener">Scrivi a Tiziana &middot; 393 996 6819</a>
       <a id="broWa" class="btn btn-wa" href="#" target="_blank" rel="noopener">Scrivi a Stefano &middot; 342 303 3404</a>
       <a id="broPdf" class="btn btn-secondary" href="#" target="_blank" rel="noopener" download>Scarica Brochure PDF</a>
     </div>
@@ -1096,7 +1099,8 @@ document.getElementById("contactForm").addEventListener("submit",function(e){
   e.preventDefault();
   var n=document.getElementById("cNome").value.trim(),em=document.getElementById("cEmail").value.trim(),msg=document.getElementById("cMsg").value.trim();
   if(!n||!msg){alert("Compila nome e messaggio.");return;}
-  window.open("https://wa.me/393423033404?text="+encodeURIComponent("Ciao Stefano, sono "+n+(em?" ("+em+")":"")+".\n\n"+msg),"_blank");
+  var btn=e.submitter,wa=(btn&&btn.dataset.wa)||"393423033404",rec=(btn&&btn.dataset.name)||"Stefano";
+  window.open("https://wa.me/"+wa+"?text="+encodeURIComponent("Ciao "+rec+", sono "+n+(em?" ("+em+")":"")+".\n\n"+msg),"_blank");
 });
 
 // BROCHURE MODAL - CRITICAL
@@ -1114,6 +1118,7 @@ function openBro(id){
   document.getElementById("broMeta").innerHTML=d.m;
   document.getElementById("broProgram").innerHTML=d.p.map(function(i){return "<li>"+i+"</li>";}).join("");
   document.getElementById("broStaff").innerHTML=d.s;
+  document.getElementById("broWaT").href="https://wa.me/393939966819?text="+d.w;
   document.getElementById("broWa").href="https://wa.me/393423033404?text="+d.w;
   var pdfBtn=document.getElementById("broPdf");
   pdfBtn.href=d.f;
