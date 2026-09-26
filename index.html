@@ -81,7 +81,10 @@ header.site-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
 /* CHI SIAMO */
 .chisiamo-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.6fr) minmax(0,.9fr);gap:var(--sp-6);align-items:start}
 .chisiamo-text p+p{margin-top:var(--sp-3)}
-.disc-icons{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--sp-3)}
+.disc-icons{grid-column:1/-1;display:flex;flex-wrap:wrap;justify-content:center;gap:var(--sp-3);margin-top:var(--sp-4)}
+.disc-icons .disc-icon{flex:0 1 calc((100% - 3*var(--sp-3))/4);min-width:0}
+@media(max-width:980px){.chi-grid{grid-template-columns:1fr!important;gap:var(--sp-5)!important}}
+@media(max-width:1000px){.disc-icons .disc-icon{flex-basis:calc((100% - var(--sp-3))/2)}}
 .disc-icon{display:flex;align-items:flex-start;gap:var(--sp-3);padding:var(--sp-3);
   background:var(--surface);border-radius:var(--r-lg);border:1px solid rgba(214,210,200,.7)}
 .disc-icon-em{font-size:1.4rem;flex-shrink:0;line-height:1;margin-top:.1rem}
@@ -279,7 +282,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
 }
 @media(max-width:640px){
   .op-grid{grid-template-columns:repeat(2,1fr)}.gallery-masonry{columns:1}
-  .past-grid{grid-template-columns:1fr}.disc-icons{grid-template-columns:1fr}
+  .past-grid{grid-template-columns:1fr}.disc-icons .disc-icon{flex-basis:100%}
 }
 
 </style>
@@ -350,7 +353,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
 
   <!-- TESTO + ICONE -->
   <div class="shell" style="padding-block:clamp(var(--sp-8),6vw,var(--sp-12))">
-    <div style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--sp-8);align-items:start">
+    <div class="chi-grid" style="display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--sp-8);align-items:start">
       <!-- Testo -->
       <div>
         <p style="font-size:var(--tx-base);color:var(--muted);line-height:1.8;margin-bottom:var(--sp-4)">Attraverso esperienze dirette e condivise, impareremo a percepire realt&agrave; sottili, spesso invisibili ai nostri occhi. Sar&agrave; un'occasione per esplorare grandi domande che l'essere umano si pone da sempre.</p>
@@ -370,7 +373,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
           </div>
         </div>
       </div>
-      <div style="text-align:center;margin:var(--sp-6) 0;">
+      <div style="text-align:center;">
           <img src="./locandina-cammino-terra-cielo.jpg" alt="Il Cammino tra Terra e Cielo - Ciclo di Incontri Esperienziali Autunno 2026" style="max-width:100%;width:680px;border-radius:var(--r-lg);box-shadow:0 8px 24px rgba(0,0,0,.15);" loading="lazy"/>
         </div>
         <!-- Icone discipline -->
@@ -384,7 +387,7 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
         <div class="disc-icon"><span class="disc-icon-em">&#128142;</span><div class="disc-icon-text"><strong>Cristalli e la loro Funzione</strong><span>Guarigione con le pietre</span></div></div>
         <div class="disc-icon"><span class="disc-icon-em">&#128290;</span><div class="disc-icon-text"><strong>Numerologia e Mappa dei Talenti</strong><span>Scoperta dei doni personali</span></div></div>
         <div class="disc-icon"><span class="disc-icon-em">&#128124;</span><div class="disc-icon-text"><strong>Angeli e Arcangeli</strong><span>Il loro ruolo nella nostra vita</span></div></div>
-        <div class="disc-icon"><span class="disc-icon-em">&#128375;</span><div class="disc-icon-text"><strong>Comunicazione con le Guide</strong><span>Connessione con i cari defunti</span></div></div>
+        <div class="disc-icon"><span class="disc-icon-em">&#128330;&#65039;</span><div class="disc-icon-text"><strong>Comunicazione con le Guide</strong><span>Connessione con i cari defunti</span></div></div>
         <div class="disc-icon"><span class="disc-icon-em">&#128151;</span><div class="disc-icon-text"><strong>Amore Incondizionato</strong><span>Pratiche di auto-guarigione</span></div></div>
       </div>
     </div>
