@@ -98,6 +98,9 @@ header.site-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
 .tab-content{display:none}
 .tab-content.active{display:block}
 .events-grid{display:grid;grid-template-columns:repeat(2,minmax(280px,1fr));gap:var(--sp-5)}
+.events-tbd{grid-column:1/-1;margin-top:var(--sp-6);padding-top:var(--sp-5);border-top:1px solid var(--border);text-align:center}
+.events-tbd-title{font-size:var(--tx-lg);color:var(--primary)}
+.events-tbd-sub{font-size:var(--tx-sm);color:var(--muted);margin-top:.25rem}
 .event-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid rgba(214,210,200,.85);
   box-shadow:var(--sh-md);display:flex;flex-direction:column;overflow:hidden}
 .event-cover{position:relative;height:160px;overflow:hidden;background:var(--surface-off)}
@@ -481,6 +484,25 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
 </article>
 <article class="event-card">
   <div class="event-cover">
+    <img src="./comeana.jpg" alt="Comeana" loading="lazy"/>
+  </div>
+  <div class="event-body">
+    <span class="event-date-chip">&#127793;&#129413; 10 Ottobre 2026</span>
+    <span class="event-city">Comeana &middot; Prato</span>
+    <h3>Il Sentiero dei Fondamenti &amp; Il Sentiero della Maestria</h3>
+    <p class="event-meta"><strong>Sabato 10 Ottobre 2026</strong><br>&#128205; Comeana (PO)</p>
+    <p class="event-desc"><strong>&#127793; Mattino &mdash; Il Sentiero dei Fondamenti</strong><br>Il primo incontro del nuovo percorso dedicato a chi muove i primi passi: chakra, corpo eterico, percezione e introduzione al piano sottile.</p>
+    <p class="event-desc"><strong>&#129413; Pomeriggio &mdash; Il Sentiero della Maestria: Oltre il Velo</strong><br>Per chi lavora gi&agrave; con pratiche quantiche, simboli, griglie multidimensionali e canalizzazione.</p>
+    <div class="event-note">Puoi partecipare a uno solo dei due percorsi o a entrambi</div>
+    <div class="event-actions">
+      <a class="btn-ev btn-map" href="https://maps.google.com/?q=Comeana+Carmignano+PO" target="_blank" rel="noopener">&#128205; Mappa</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20informazioni%20sui%20percorsi%20del%2010%20ottobre%20a%20Comeana%20(Fondamenti%20e%20Maestria)" target="_blank" rel="noopener">&#128172; Tiziana</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sui%20percorsi%20del%2010%20ottobre%20a%20Comeana%20(Fondamenti%20e%20Maestria)" target="_blank" rel="noopener">&#128172; Stefano</a>
+    </div>
+  </div>
+</article>
+<article class="event-card">
+  <div class="event-cover">
     <img src="./galleria-3.jpg" alt="Firenze" loading="lazy"/>
   </div>
   <div class="event-body">
@@ -510,62 +532,6 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
       <a class="btn-ev btn-map" href="https://maps.google.com/?q=Piacenza" target="_blank" rel="noopener">&#128205; Mappa</a>
       <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20informazioni%20sul%20Colloquio%20con%20le%20proprie%20Guide%20del%2024%20ottobre%20a%20Piacenza" target="_blank" rel="noopener">&#128172; Tiziana</a>
       <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sul%20Colloquio%20con%20le%20proprie%20Guide%20del%2024%20ottobre%20a%20Piacenza" target="_blank" rel="noopener">&#128172; Stefano</a>
-    </div>
-  </div>
-</article>
-<article class="event-card">
-  <div class="event-cover">
-    <img src="./Lucca.jpeg" alt="Lucca" loading="lazy"/>
-  </div>
-  <div class="event-body">
-    <span class="event-date-chip">&#127810; Ottobre 2026</span>
-    <span class="event-city">Lucca o Prato</span>
-    <h3>Giornata del Gruppo</h3>
-    <p class="event-meta"><strong>Ottobre 2026</strong> &middot; data in definizione<br>&#128205; Lucca (LU) o Prato (PO)</p>
-    <p class="event-desc">Una giornata dedicata al nostro gruppo: probabilmente la seconda lezione di Quantum Therapy e la riproposizione del Colloquio con le proprie Guide Spirituali (secondo incontro con Tiziana).</p>
-    <div class="event-note">Data e sede in definizione &mdash; contattaci per restare aggiornato</div>
-    <div class="event-actions">
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20sulla%20giornata%20del%20gruppo%20di%20Ottobre%20a%20Lucca%20o%20Prato" target="_blank" rel="noopener">&#128172; Tiziana</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20sulla%20giornata%20del%20gruppo%20di%20Ottobre%20a%20Lucca%20o%20Prato" target="_blank" rel="noopener">&#128172; Stefano</a>
-    </div>
-  </div>
-</article>
-<article class="event-card">
-  <div class="event-cover">
-    <img src="./Vicenza.jpg" alt="Vicenza" loading="lazy"/>
-    <span class="badge badge-done">Rimandato</span>
-  </div>
-  <div class="event-body">
-    <span class="event-date-chip">&#127829; Settembre 2026</span>
-    <span class="event-city">Villaverla &middot; Vicenza</span>
-    <h3>Impastando e Meditando</h3>
-    <p class="event-meta"><strong>Settembre 2026</strong> &middot; data in definizione<br>Sab 14:00&ndash;22:00 &middot; Dom 10:00&ndash;18:00<br>&#128205; Teresa Country House &middot; Villaverla (VI)</p>
-    <p class="event-desc">Un'esperienza enogastronomica unica: prepariamo e cuciniamo la pizza insieme, scoprendo i nostri talenti tra un impasto e l'altro.</p>
-    <div class="event-note">Data in definizione &mdash; contattaci per restare aggiornato</div>
-    <div class="event-actions">
-      <a class="btn-ev btn-map" href="https://maps.google.com/?q=Teresa+Country+House+Villaverla+VI" target="_blank" rel="noopener">&#128205; Mappa</a>
-      <a class="btn-ev btn-bro" href="https://raw.githubusercontent.com/calcagnocarloalberto1-star/percorso-site/main/brochure-impastando-meditando.pdf" target="_blank" rel="noopener" download>&#128196; Brochure PDF</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20su%20Impastando%20e%20Meditando" target="_blank" rel="noopener">&#128172; Tiziana</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20su%20Impastando%20e%20Meditando" target="_blank" rel="noopener">&#128172; Stefano</a>
-    </div>
-  </div>
-</article>
-<article class="event-card">
-  <div class="event-cover">
-    <img src="./comeana.jpg" alt="Comeana" loading="lazy"/>
-  </div>
-  <div class="event-body">
-    <span class="event-date-chip">&#127793;&#129413; 10 Ottobre 2026</span>
-    <span class="event-city">Comeana &middot; Prato</span>
-    <h3>Il Sentiero dei Fondamenti &amp; Il Sentiero della Maestria</h3>
-    <p class="event-meta"><strong>Sabato 10 Ottobre 2026</strong><br>&#128205; Comeana (PO)</p>
-    <p class="event-desc"><strong>&#127793; Mattino &mdash; Il Sentiero dei Fondamenti</strong><br>Il primo incontro del nuovo percorso dedicato a chi muove i primi passi: chakra, corpo eterico, percezione e introduzione al piano sottile.</p>
-    <p class="event-desc"><strong>&#129413; Pomeriggio &mdash; Il Sentiero della Maestria: Oltre il Velo</strong><br>Per chi lavora gi&agrave; con pratiche quantiche, simboli, griglie multidimensionali e canalizzazione.</p>
-    <div class="event-note">Puoi partecipare a uno solo dei due percorsi o a entrambi</div>
-    <div class="event-actions">
-      <a class="btn-ev btn-map" href="https://maps.google.com/?q=Comeana+Carmignano+PO" target="_blank" rel="noopener">&#128205; Mappa</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20informazioni%20sui%20percorsi%20del%2010%20ottobre%20a%20Comeana%20(Fondamenti%20e%20Maestria)" target="_blank" rel="noopener">&#128172; Tiziana</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20sui%20percorsi%20del%2010%20ottobre%20a%20Comeana%20(Fondamenti%20e%20Maestria)" target="_blank" rel="noopener">&#128172; Stefano</a>
     </div>
   </div>
 </article>
@@ -641,23 +607,6 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
 </article>
 <article class="event-card">
   <div class="event-cover">
-    <img src="./Lucca.jpeg" alt="Percorso di Crescita" loading="lazy"/>
-  </div>
-  <div class="event-body">
-    <span class="event-date-chip">&#10052;&#65039; Dicembre 2026</span>
-    <span class="event-city">Lucca &middot; Comeana</span>
-    <h3>Incontri Percorso di Crescita</h3>
-    <p class="event-meta"><strong>Dicembre 2026</strong> &middot; date in arrivo</p>
-    <p class="event-desc">Nuovi incontri del Percorso di Crescita tra Lucca e Comeana: le date saranno comunicate a breve.</p>
-    <div class="event-note">Date in arrivo &mdash; contattaci per restare aggiornato</div>
-    <div class="event-actions">
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20sugli%20incontri%20di%20Dicembre%20del%20Percorso%20di%20Crescita" target="_blank" rel="noopener">&#128172; Tiziana</a>
-      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20sugli%20incontri%20di%20Dicembre%20del%20Percorso%20di%20Crescita" target="_blank" rel="noopener">&#128172; Stefano</a>
-    </div>
-  </div>
-</article>
-<article class="event-card">
-  <div class="event-cover">
     <img src="./Lucca.jpeg" alt="Lucca" loading="lazy"/>
   </div>
   <div class="event-body">
@@ -687,6 +636,64 @@ footer{background:var(--surface);border-top:1px solid rgba(214,210,200,.6);paddi
       <a class="btn-ev btn-map" href="https://maps.google.com/?q=ASD+Nahdah+Yoga+Empoli" target="_blank" rel="noopener">&#128205; Mappa</a>
       <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20informazioni%20su%20Empoli%20Quantica%20(1%C2%B0%20Livello)%20del%2031%20gennaio" target="_blank" rel="noopener">&#128172; Tiziana</a>
       <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20informazioni%20su%20Empoli%20Quantica%20(1%C2%B0%20Livello)%20del%2031%20gennaio" target="_blank" rel="noopener">&#128172; Stefano</a>
+    </div>
+  </div>
+</article>
+<div class="events-tbd">
+  <h3 class="events-tbd-title">Data da destinarsi</h3>
+  <p class="events-tbd-sub">Appuntamenti in programma ma non ancora confermati: scrivici per restare aggiornato.</p>
+</div>
+<article class="event-card">
+  <div class="event-cover">
+    <img src="./Vicenza.jpg" alt="Vicenza" loading="lazy"/>
+    <span class="badge badge-done">Rimandato</span>
+  </div>
+  <div class="event-body">
+    <span class="event-date-chip">&#127829; Data da destinarsi</span>
+    <span class="event-city">Villaverla &middot; Vicenza</span>
+    <h3>Impastando e Meditando</h3>
+    <p class="event-meta"><strong>Data da destinarsi</strong><br>Sab 14:00&ndash;22:00 &middot; Dom 10:00&ndash;18:00<br>&#128205; Teresa Country House &middot; Villaverla (VI)</p>
+    <p class="event-desc">Un'esperienza enogastronomica unica: prepariamo e cuciniamo la pizza insieme, scoprendo i nostri talenti tra un impasto e l'altro.</p>
+    <div class="event-note">Data in definizione &mdash; contattaci per restare aggiornato</div>
+    <div class="event-actions">
+      <a class="btn-ev btn-map" href="https://maps.google.com/?q=Teresa+Country+House+Villaverla+VI" target="_blank" rel="noopener">&#128205; Mappa</a>
+      <a class="btn-ev btn-bro" href="https://raw.githubusercontent.com/calcagnocarloalberto1-star/percorso-site/main/brochure-impastando-meditando.pdf" target="_blank" rel="noopener" download>&#128196; Brochure PDF</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20su%20Impastando%20e%20Meditando" target="_blank" rel="noopener">&#128172; Tiziana</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20su%20Impastando%20e%20Meditando" target="_blank" rel="noopener">&#128172; Stefano</a>
+    </div>
+  </div>
+</article>
+<article class="event-card">
+  <div class="event-cover">
+    <img src="./Lucca.jpeg" alt="Lucca" loading="lazy"/>
+  </div>
+  <div class="event-body">
+    <span class="event-date-chip">&#127810; Ottobre 2026</span>
+    <span class="event-city">Lucca o Prato</span>
+    <h3>Giornata del Gruppo</h3>
+    <p class="event-meta"><strong>Ottobre 2026</strong> &middot; data in definizione<br>&#128205; Lucca (LU) o Prato (PO)</p>
+    <p class="event-desc">Una giornata dedicata al nostro gruppo: probabilmente la seconda lezione di Quantum Therapy e la riproposizione del Colloquio con le proprie Guide Spirituali (secondo incontro con Tiziana).</p>
+    <div class="event-note">Data e sede in definizione &mdash; contattaci per restare aggiornato</div>
+    <div class="event-actions">
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20sulla%20giornata%20del%20gruppo%20di%20Ottobre%20a%20Lucca%20o%20Prato" target="_blank" rel="noopener">&#128172; Tiziana</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20sulla%20giornata%20del%20gruppo%20di%20Ottobre%20a%20Lucca%20o%20Prato" target="_blank" rel="noopener">&#128172; Stefano</a>
+    </div>
+  </div>
+</article>
+<article class="event-card">
+  <div class="event-cover">
+    <img src="./Lucca.jpeg" alt="Percorso di Crescita" loading="lazy"/>
+  </div>
+  <div class="event-body">
+    <span class="event-date-chip">&#10052;&#65039; Dicembre 2026</span>
+    <span class="event-city">Lucca &middot; Comeana</span>
+    <h3>Incontri Percorso di Crescita</h3>
+    <p class="event-meta"><strong>Dicembre 2026</strong> &middot; date in arrivo</p>
+    <p class="event-desc">Nuovi incontri del Percorso di Crescita tra Lucca e Comeana: le date saranno comunicate a breve.</p>
+    <div class="event-note">Date in arrivo &mdash; contattaci per restare aggiornato</div>
+    <div class="event-actions">
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393939966819?text=Ciao%20Tiziana%2C%20vorrei%20restare%20aggiornato%20sugli%20incontri%20di%20Dicembre%20del%20Percorso%20di%20Crescita" target="_blank" rel="noopener">&#128172; Tiziana</a>
+      <a class="btn-ev btn-ev-wa" href="https://wa.me/393423033404?text=Ciao%20Stefano%2C%20vorrei%20restare%20aggiornato%20sugli%20incontri%20di%20Dicembre%20del%20Percorso%20di%20Crescita" target="_blank" rel="noopener">&#128172; Stefano</a>
     </div>
   </div>
 </article>
