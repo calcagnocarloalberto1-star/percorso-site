@@ -103,9 +103,10 @@ header.site-header{position:sticky;top:0;z-index:20;backdrop-filter:blur(10px);
 .events-tbd-sub{font-size:var(--tx-sm);color:var(--muted);margin-top:.25rem}
 .event-card{background:var(--surface);border-radius:var(--r-xl);border:1px solid rgba(214,210,200,.85);
   box-shadow:var(--sh-md);display:flex;flex-direction:column;overflow:hidden}
-.event-cover{position:relative;height:160px;overflow:hidden;background:var(--surface-off)}
+.event-cover{position:relative;height:210px;overflow:hidden;background:var(--surface-off)}
 .event-cover img{width:100%;height:100%;object-fit:cover;display:block}
-.event-cover-poster{display:block;height:auto;aspect-ratio:1024/559}
+.event-cover-poster{display:block;height:auto;aspect-ratio:auto;overflow:visible}
+.event-cover-poster img{height:auto;object-fit:contain}
 .event-cover .badge{position:absolute;top:var(--sp-3);left:var(--sp-3);backdrop-filter:blur(6px)}
 .event-body{padding:var(--sp-4) var(--sp-5);display:flex;flex-direction:column;gap:var(--sp-3);flex:1}
 .event-date-chip{display:inline-flex;align-items:center;gap:.4rem;font-size:var(--tx-xs);
